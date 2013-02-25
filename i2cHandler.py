@@ -92,7 +92,7 @@ class handler:
 		
 
 	def drawSquare(self,address, x1, y1, x2, y2):
-		RDCMD = [CMD_DRAW_SQUARE, x1, y1, x2, y2):
+		RDCMD = [CMD_DRAW_SQUARE, x1, y1, x2, y2]
 		sendWireCommand(address, RDCMD,CMD_total_Args[CMD_DRAW_SQUARE])
 		
 def drawLine(self):
