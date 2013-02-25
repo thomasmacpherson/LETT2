@@ -58,6 +58,7 @@ class api:
 		pass
 	def flashPixel(self):
 		pass
+		
 	
 	def writeToLCD(self, LCD, message):
 		if emulated:
