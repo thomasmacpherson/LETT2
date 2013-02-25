@@ -1,21 +1,16 @@
 import api
 emulated = True
 
-
+gameList = ('orthello','connect4','draughts','inkspill','pixelArt','simon','solitare','tetris','ticTacToe')
 
 api = api.api(emulated)
-game = app.thisapp(api)
 
 button = api.waitForScreenButtonPress()
 
+while True:
+	
+	gameImport = __import__(gameList[button])
 
-if button
-import appname as game
-
-
-
-game.somemethod()
-
-game.somethinghappens()
-
-#print api.qOut.get()
+	game = gameImport.thisapp(api)
+	
+	button = api.waitForScreenButtonPress()
