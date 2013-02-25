@@ -6,7 +6,7 @@
 
 # SK Pang Electronics June 2012
 
-#import smbus
+import smbus
 import sys
 import getopt
 import time 
@@ -15,7 +15,7 @@ import const
 class handler:
 	def __init_(self, qOut):
 		self.qOut = qOut
-		#bus = smbus.SMBus(0)
+		bus = smbus.SMBus(0)
 		const.rdComm = 114
 
 		const.res = 16 # length in pixel
@@ -80,7 +80,7 @@ class handler:
 
 
 	def sendWireCommand(self, add, len):
-		#bus.write_i2c_block_data(add,RainbowCMD[0:len]) 
+		bus.write_i2c_block_data(add,RainbowCMD[0:len]) 
 		time.sleep(5)
       	
       	
