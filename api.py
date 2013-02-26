@@ -52,8 +52,8 @@ class api:
 	def drawSquare(self):
 		i2chandler.const.CMD_DRAW_SQUARE
 		
-	def drawLine(self):
-		pass
+	def drawLine(self,x,y,ex,ey):
+		self.i2chandler.drawLine(RDsAdrs[0][0], x, y, ex, ey)
 		
 	def setInk(self, r, g, b):
 		self.i2chandler.setInk(RDsAdrs[0][0], r, g, b)
