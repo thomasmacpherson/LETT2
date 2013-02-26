@@ -17,14 +17,15 @@ def restrictedTo(list, number):
 		
 		
 
-
+def split
 if restrictedTo(xlist, number)!= 1 :
 	if restrictedTo(yList, number)!=1: #check if contained within one grid
 		# send cmd as contained in one grid
+		pass
 	
 else :
 	if restrictedTo(yList, number)!=1:
-			
+			pass
 
 def lineSplit(x,y,ex,ey, axis):
 	#axis 

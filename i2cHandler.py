@@ -6,7 +6,7 @@
 
 # SK Pang Electronics June 2012
 
-import smbus
+#import smbus
 import sys
 import getopt
 import time 
@@ -16,7 +16,7 @@ import const
 const.rdComm = 114
 
 const.res = 16 # length in pixel
-const.numberOfRDs = pow((res/8),2)
+const.numberOfRDs = pow((16/8),2)
 const.MAX_WIRE_CMD  =        0x80
 
 const.CMD_NOP       =        0x00
@@ -49,7 +49,7 @@ const.CMD_FLASH_SPRITE    =  0x35
 
 
 
-CMD_totalArgs[MAX_WIRE_CMD] = [
+const.CMD_totalArgs = [
 #  0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - A - B - C - D - E - F 
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    # 0 - 0x00 -> 0x0F
 	0,  2,  1,  2,  1,  0,  0,  0,  0,  1,  0,  0,  0,  0,  0,  0,    # 1 - 0x10 -> 0x1F
@@ -65,9 +65,9 @@ CMD_totalArgs[MAX_WIRE_CMD] = [
 
 
 class handler:
-	def __init_(self, qOut):
+	def __init__(self, qOut):
 		self.qOut = qOut
-		bus = smbus.SMBus(0)
+		#self.bus = smbus.SMBus(0)
 
 
 
@@ -77,43 +77,45 @@ class handler:
 		baseAdr = 0x40
 
 		for i in range(0,4):
-			RDsAdrs[i] = baseAdr + i
+			RDsAdrs.append(baseAdr + i)
 
 
 
-
-	def sendCMD(self, address, CMD, arguments):
-		sendWireCommand(address, t)      # Transmit the command via I2C
-
-
-	def sendWireCommand(self, add, len):
-		bus.write_i2c_block_data(add,RainbowCMD[0:len+2]) 
+	def sendWireCommand(self, add, RDCMD):
+		self.bus.write_i2c_block_data(add,RDCMD) 
 		time.sleep(5)
 		
 
 	def drawSquare(self,address, x1, y1, x2, y2):
-		RDCMD = [CMD_DRAW_SQUARE, x1, y1, x2, y2]
-		sendWireCommand(address, RDCMD,CMD_total_Args[CMD_DRAW_SQUARE])
+		self.sendWireCommand(address, [const.CMD_DRAW_SQUARE, x1, y1, x2, y2])
 		
-def drawLine(self):
-	pass
-def drawPixel(self):
-	pass
-def setBG(self, r1, g1, b1, r2, g2, b2):
-	pass
-def setResolution(self):
-	pass
-def moveUntil(self):
-	pass
-def movePiece(self):
-	pass
-def clearSpace(self):
-	pass
-def printChar(self):
-	pass
-def setSprite(self):
-	pass
-def flashPixel(self):
+	def drawLine(self, address, x1, y1, x2, y2):
+		self.sendWireCommand(address,[const.CMD_DRAW_LINE, x1, y1, x2, y2])
+		
+		
+	def drawPixel(self, address, x,y):
+		self.sendWireCommand(address,[const.CMD_DRAW_LINE, x, y])
+	
+	def setBG(self, address, r1, g1, b1, r2, g2, b2):
+		self.sendWireCommand(address,[const.CMD_SET_BOARD_BG, r1, g1, b1, r2, g2, b2])
+				
+	def setResolution(self, address,):
+		self.sendWireCommand(address,[const.CMD_SET_BOARD_SIZE, x1, y1, x2, y2])
+
+	def moveUntil(self):
+		self.sendWireCommand(address,[const.CMD_MOVE_UNTIL, x1, y1, x2, y2])
+
+	def movePiece(self, address, x1, y1, x2, y2):
+		self.sendWireCommand(address,[const.CMD_, x1, y1, x2, y2])
+		
+	def clearSpace(self, address, x, y):
+		self.sendWireCommand(address,[const.CMD_CLEAR_SPACE, x, y])
+
+	def printChar(self):
+		pass
+	def setSprite(self):
+		pass
+	def flashPixel(self):
 		pass		
       	
       	

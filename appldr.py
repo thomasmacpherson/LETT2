@@ -1,7 +1,7 @@
 import api
 emulated = True
 
-gameList = ('orthello','connect4','draughts','inkspill','pixelArt','simon','solitare','tetris','ticTacToe')
+gameList = ('orthello','connect4','draughts','inkspill','pixelArt','simon','solitare','tetris','ticTacToe','missionmars')
 
 api = api.api(emulated)
 

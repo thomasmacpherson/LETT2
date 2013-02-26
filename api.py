@@ -1,10 +1,10 @@
 import Queue
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 import i2cHandler
 
 
 class api:
-	def __init__(self, emulated):
+	def _init_(self, emulated):
 		self.qOut= Queue.Queue(maxsize=0)
 		self.qIn = Queue.Queue(maxsize=0)
 		
@@ -13,8 +13,8 @@ class api:
 		
 		#if emulated:
 		import em
-			self.qOutEmulated = Queue.Queue(maxsize=0)
-			self.emu = em.em(self.qOutEmulated, self.qIn)
+		self.qOutEmulated = Queue.Queue(maxsize=0)
+		self.emu = em.em(self.qOutEmulated, self.qIn)
 
 	def printsomething(self):
 		print "something"
