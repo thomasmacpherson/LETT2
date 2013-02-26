@@ -6,7 +6,7 @@
 
 # SK Pang Electronics June 2012
 
-#import smbus
+import smbus
 import sys
 import getopt
 import time 
@@ -67,7 +67,7 @@ const.CMD_totalArgs = [
 class handler:
 	def __init__(self, qOut):
 		self.qOut = qOut
-		#self.bus = smbus.SMBus(0)
+		self.bus = smbus.SMBus(0)
 
 
 	def sendWireCommand(self, add, RDCMD):
