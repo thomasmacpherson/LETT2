@@ -72,7 +72,7 @@ class handler:
 
 	def sendWireCommand(self, add, RDCMD):
 		self.bus.write_i2c_block_data(add,const.rdComm,RDCMD) 
-		time.sleep(5)
+		
 	
 	def drawPixel(self, address, x,y):
 		self.sendWireCommand(address,[const.CMD_DRAW_PIXEL, x, y])
