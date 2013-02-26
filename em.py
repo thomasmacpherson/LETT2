@@ -40,8 +40,8 @@ const.gridHeight = 20 * 16
 
 
 
-const.modeButtonsX = tableX + 145
-const.modeButtonsY = tableY + 25
+const.modeButtonsX = const.tableX + 145
+const.modeButtonsY = const.tableY + 25
 
 const.modeButtonsWidth = 230
 const.modeButtonsHeight = 50
@@ -49,11 +49,11 @@ const.modeButtonsHeight = 50
 gameSelectionColours = ((red,turquoise,fuchsia,olive,pink,yellow,green,teal),
 			(orange,blue,maroon,tan,slateblue,salmon,purple,melon))
 
-const.LCD1X = tableX + 25
-const.LCD1Y = tableX + 190
+const.LCD1X = const.tableX + 25
+const.LCD1Y = const.tableX + 190
 
-const.LCD2X = tableX + 445
-const.LCD2Y = tableY + 190
+const.LCD2X = const.tableX + 445
+const.LCD2Y = const.tableY + 190
 
 
 font = pygame.font.Font(None, 20)
