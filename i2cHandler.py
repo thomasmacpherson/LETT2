@@ -75,7 +75,7 @@ class handler:
 		time.sleep(5)
 	
 	def drawPixel(self, address, x,y):
-		self.sendWireCommand(address,[const.CMD_DRAW_LINE, x, y])
+		self.sendWireCommand(address,[const.CMD_DRAW_PIXEL, x, y])
 
 
 	def setBG(self, address, r1, g1, b1, r2, g2, b2):
