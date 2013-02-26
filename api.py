@@ -24,16 +24,16 @@ class api:
 		self.i2chandler = i2cHandler.handler(self.qOut)
 		self.emulated = emulated
 		
-		#if emulated:
-		import em
-		self.qOutEmulated = Queue.Queue(maxsize=0)
-		self.emu = em.em(self.qOutEmulated, self.qIn)
+		if emulated:
+			import em
+			self.qOutEmulated = Queue.Queue(maxsize=0)
+			self.emu = em.em(self.qOutEmulated, self.qIn)
 
 	def printsomething(self):
 		print "something"
 	
 	def printtoscreen(self,display):
-		self.emu.screenPrint(display)
+		pass #self.emu.screenPrint(display)
 	
 	def readInput(self):
 		self.emu.input()

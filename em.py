@@ -32,8 +32,8 @@ const.tableY = 100
 const.tableWidth = 520
 const.tableHeight = 520
 
-const.gridX = tableX + 100
-const.gridY = tableY + 100
+const.gridX = const.tableX + 100
+const.gridY = const.tableY + 100
 
 const.gridWidth = 20 *16
 const.gridHeight = 20 * 16
