@@ -4,7 +4,7 @@ import i2cHandler
 
 
 class api:
-	def _init_(self, emulated):
+	def __init__(self, emulated):
 		self.qOut= Queue.Queue(maxsize=0)
 		self.qIn = Queue.Queue(maxsize=0)
 		

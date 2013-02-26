@@ -91,8 +91,8 @@ class em:
 		self.qIn.put(raw_input('-->'))
 		#print "here"
 
-	def writeToLCDs():
-	
+	def writeToLCDs(self):
+		pass
 
 
 	def refreshScreen():
@@ -150,25 +150,25 @@ class em:
 	def writeLCD(self, LCD, message):
 		
 		if LCD <2:
-		
-		else
+			pass
+		else:
 			
-		displayLCD1Line1 = font.render(LCD1Line1, 1, (0,0,0))
-		pygame.transform.rotate(displayLCD1Line1, 90)
+			displayLCD1Line1 = font.render(LCD1Line1, 1, (0,0,0))
+			pygame.transform.rotate(displayLCD1Line1, 90)
 
-		displayLCD1Line2 = font.render(LCD1Line2, 1, (0,0,0))
-		displayLCD2Line1 = font.render(LCD2Line1, 1, (0,0,0))
-		displayLCD2Line2 = font.render(LCD2Line2, 1, (0,0,0))
+			displayLCD1Line2 = font.render(LCD1Line2, 1, (0,0,0))
+			displayLCD2Line1 = font.render(LCD2Line1, 1, (0,0,0))
+			displayLCD2Line2 = font.render(LCD2Line2, 1, (0,0,0))
 	
-		screen.blit(displayLCD1Line1, (LCD1X, LCD1Y))
-		screen.blit(displayLCD1Line2, (LCD1X, LCD1Y))
-		screen.blit(displayLCD2Line1, (LCD2X, LCD2Y))
-		screen.blit(displayLCD2Line2, (LCD2X, LCD2Y))
+			screen.blit(displayLCD1Line1, (LCD1X, LCD1Y))
+			screen.blit(displayLCD1Line2, (LCD1X, LCD1Y))
+			screen.blit(displayLCD2Line1, (LCD2X, LCD2Y))
+			screen.blit(displayLCD2Line2, (LCD2X, LCD2Y))
 
 
 
-mouse_click = False
-change = True
+			mouse_click = False
+			change = True
 
 
 
@@ -199,14 +199,14 @@ change = True
 					elif event.key==K_DOWN:
 						pass
 
-'''
-	def waitForScreenPress():
-           	if event.type == MOUSEBUTTONUP:
-				mouse_click = True
-               	mousex, mousey = event.pos
-				change = True
-	'''			
-	def waitForScreenPixelPress():
+
+#	def waitForScreenPress():
+#           	if event.type == MOUSEBUTTONUP:
+#				mouse_click = True
+#               	mousex, mousey = event.pos
+#				change = True
+	
+	def waitForScreenPixelPress(self):
 		if mouse_click:
 			if (mousex > gridX and mousex < gridX + gridWidth) and (mousey > gridY and mousey < gridY + gridHeight):
 				mousex -= gridX
@@ -216,7 +216,7 @@ change = True
 				mousey = mousey/20
 			
 
-	def waitForButtonScreenPress():
+	def waitForButtonScreenPress(self):
 		if (mousex > modeButtonsX and mousex < modeButtonsX + modeButtonsWidth) and (mousey > modeButtonsY and mousey < modeButtonsY + modeButtonsHeight):
 			for i in range(2):
 				for j in range(8):
@@ -232,10 +232,10 @@ change = True
 			#previousMouseX = mousex
 			#previousMouseY = mousey
 
-	def drawScreenPixel():
-			gridColours[mousex][mousey]=(gridColours[mousex][mousey][0]-40,0,0)
-			pygame.draw.rect(screen, gridColours[mousex][mousey], (gridX+mousex*20,gridY+mousey*20,20,20),0) 
-			pygame.draw.rect(screen, (0,0,0), (gridX+mousex*20,gridY+mousey*20,20,20),2) 
+	def drawScreenPixel(self):
+		gridColours[mousex][mousey]=(gridColours[mousex][mousey][0]-40,0,0)
+		pygame.draw.rect(screen, gridColours[mousex][mousey], (gridX+mousex*20,gridY+mousey*20,20,20),0) 
+		pygame.draw.rect(screen, (0,0,0), (gridX+mousex*20,gridY+mousey*20,20,20),2) 
 
 
 		mouse_click =False #dont know where to put this
