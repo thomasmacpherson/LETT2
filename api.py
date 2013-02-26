@@ -60,8 +60,8 @@ class api:
 		
 		
 	def drawPixel(self, x, y):
-		xGrid = gridSplit.restrictedTo((x),7)
-		yGrid = gridSplit.restrictedTo((y),7)
+		xGrid = restrictedTo((x),7)
+		yGrid = restrictedTo((y),7)
 		self.i2chandler.drawPixel(RDsAdrs[xGrid][yGrid], x, y)
 		
 		
