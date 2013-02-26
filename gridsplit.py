@@ -17,11 +17,11 @@ def restrictedTo(list, number):
 		
 		
 
-def split
-if restrictedTo(xlist, number)!= 1 :
-	if restrictedTo(yList, number)!=1: #check if contained within one grid
+def split():
+	if restrictedTo(xlist, number)!= 1 :
+		if restrictedTo(yList, number)!=1: #check if contained within one grid
 		# send cmd as contained in one grid
-		pass
+			pass
 	
 else :
 	if restrictedTo(yList, number)!=1:

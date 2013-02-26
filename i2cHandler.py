@@ -70,35 +70,32 @@ class handler:
 		#self.bus = smbus.SMBus(0)
 
 
-
-		RDsAdrs=[]
-		RainbowCMD=[]
-
-		baseAdr = 0x40
-
-		for i in range(0,4):
-			RDsAdrs.append(baseAdr + i)
-
-
-
 	def sendWireCommand(self, add, RDCMD):
 		self.bus.write_i2c_block_data(add,RDCMD) 
 		time.sleep(5)
-		
+	
+	def drawPixel(self, address, x,y):
+		self.sendWireCommand(address,[const.CMD_DRAW_LINE, x, y])
 
-	def drawSquare(self,address, x1, y1, x2, y2):
-		self.sendWireCommand(address, [const.CMD_DRAW_SQUARE, x1, y1, x2, y2])
+
+	def setBG(self, address, r1, g1, b1, r2, g2, b2):
+		self.sendWireCommand(address,[const.CMD_SET_BOARD_BG, r1, g1, b1, r2, g2, b2])
+	
+	def setInk(self, address, r, g, b):	
+		self.sendWireCommand(address,[const.CMD_SET_INK, r1, g1, b1])	
+		
 		
 	def drawLine(self, address, x1, y1, x2, y2):
 		self.sendWireCommand(address,[const.CMD_DRAW_LINE, x1, y1, x2, y2])
 		
+'''		
+
+	def drawSquare(self,address, x1, y1, x2, y2):
+		self.sendWireCommand(address, [const.CMD_DRAW_SQUARE, x1, y1, x2, y2])
 		
-	def drawPixel(self, address, x,y):
-		self.sendWireCommand(address,[const.CMD_DRAW_LINE, x, y])
-	
-	def setBG(self, address, r1, g1, b1, r2, g2, b2):
-		self.sendWireCommand(address,[const.CMD_SET_BOARD_BG, r1, g1, b1, r2, g2, b2])
-				
+
+			
+		
 	def setResolution(self, address,):
 		self.sendWireCommand(address,[const.CMD_SET_BOARD_SIZE, x1, y1, x2, y2])
 
@@ -117,7 +114,7 @@ class handler:
 		pass
 	def flashPixel(self):
 		pass		
-      	
+ '''     	
       	
       	
 def toByte(i):
