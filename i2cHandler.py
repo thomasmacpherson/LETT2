@@ -82,7 +82,7 @@ class handler:
 		self.sendWireCommand(address,[const.CMD_SET_BOARD_BG, r1, g1, b1, r2, g2, b2])
 	
 	def setInk(self, address, r, g, b):	
-		self.sendWireCommand(address,[const.CMD_SET_INK, r1, g1, b1])	
+		self.sendWireCommand(address,[const.CMD_SET_INK, r, g, b])	
 		
 		
 	def drawLine(self, address, x1, y1, x2, y2):
