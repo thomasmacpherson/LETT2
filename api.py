@@ -78,11 +78,17 @@ class api:
 		
 		
 	def setBG(self, r1, g1, b1, r2, g2, b2):
-		self.i2chandler.setBG(RDsAdrs[0][0], r1, g1, b1, r2, g2, b2)
-		self.i2chandler.setBG(RDsAdrs[0][1], r1, g1, b1, r2, g2, b2)
-		self.i2chandler.setBG(RDsAdrs[1][0], r1, g1, b1, r2, g2, b2)
-		self.i2chandler.setBG(RDsAdrs[1][1], r1, g1, b1, r2, g2, b2)
-						
+		if self.res>1: #otherwise repeating pattern will not repeat
+			self.i2chandler.setBG(RDsAdrs[0][0], r1, g1, b1, r2, g2, b2)
+			self.i2chandler.setBG(RDsAdrs[0][1], r1, g1, b1, r2, g2, b2)
+			self.i2chandler.setBG(RDsAdrs[1][0], r1, g1, b1, r2, g2, b2)
+			self.i2chandler.setBG(RDsAdrs[1][1], r1, g1, b1, r2, g2, b2)
+			
+		else:
+			self.i2chandler.setBG(RDsAdrs[0][0], r1, g1, b1, r1, g1, b1)
+			self.i2chandler.setBG(RDsAdrs[0][1], r2, g2, b2, r2, g2, b2)
+			self.i2chandler.setBG(RDsAdrs[1][0], r2, g2, b2, r2, g2, b2)
+			self.i2chandler.setBG(RDsAdrs[1][1], r1, g1, b1, r1, g1, b1)								
 								
 	def setResolution(self, res):
 		self.res = res
