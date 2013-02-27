@@ -115,8 +115,8 @@ class api:
 			
 			else:
 			
-				lineSplit(x1,y1,x1,y2,1)
-				lineSplit(x2,y1,x2,y2,1)
+				self.lineSplit(x1,y1,x1,y2,1)
+				self.lineSplit(x2,y1,x2,y2,1)
 				
 				if y1<y2:
 					upX=0
@@ -137,8 +137,8 @@ class api:
 			
 			gridY = restrictedTo([y1, y2], lowerBoarder)
 			if gridY !=2:
-				lineSplit(x1,y1,x2,y1,0)
-				lineSplit(x1,y2,x2,y2,0)
+				self.lineSplit(x1,y1,x2,y1,0)
+				self.lineSplit(x1,y2,x2,y2,0)
 				
 				if x1<x2:
 					upY=0
@@ -156,10 +156,10 @@ class api:
 					
 			
 			else: # square is in all grids
-				lineSplit(x1,y1,x2,y1,0)
-				lineSplit(x1,y2,x2,y2,0)
-				lineSplit(x1,y1,x1,y2,1)
-				lineSplit(x2,y1,x2,y2,1)
+				self.lineSplit(x1,y1,x2,y1,0)
+				self.lineSplit(x1,y2,x2,y2,0)
+				self.lineSplit(x1,y1,x1,y2,1)
+				self.lineSplit(x2,y1,x2,y2,1)
 			
 			
 			
