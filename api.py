@@ -60,7 +60,20 @@ class api:
 		self.squareSplit(x1,y1,x2,y2)
 		
 	def drawLine(self,x,y,ex,ey):
-		self.i2chandler.drawLine(RDsAdrs[0][0], x, y, ex, ey)
+		if restrictedTo([x,ex],self.lowerBoarder)!=2:
+			if restrictedTo([y,ey], self.lowerBoarder)!=2:
+				self.i2chandler.drawLine(RDsAdrs[x/self.res][y/self.res], x%self.res, y/self.res, ex/self.res, ey/self.res) # send to single grid
+			
+			else:
+				lineSplit(x,y,ex,ey,1)
+		else:
+			if restrictedTo([y,ey], self.lowerBoarder)!=2:
+				lineSplit(x,y,ex,ey,0)
+			else:
+				pass
+		
+lineSplit(self,x1,y1, x2,y2,axis):
+		
 		
 	def setInk(self, r, g, b, grid):
 		if grid >= 4:
@@ -195,7 +208,7 @@ class api:
 			
 	
 	def lineSplit(self,x1,y1, x2,y2,axis):
-		if axis == 0 : # crosses the x-axis only
+		if axis == 0 : # crosses the y-axis only
 			yGrid = restrictedTo([y1,y2],self.lowerBoarder)
 			y1 = y1-(self.res*yGrid)
 			y2 = y2-(self.res*yGrid)
@@ -221,7 +234,7 @@ class api:
 			
 				
 	
-		elif axis == 1 : # cross the y-axis only
+		elif axis == 1 : # cross the x-axis only
 			if y1 < y2:
 				pass
 			else:
