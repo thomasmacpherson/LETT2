@@ -85,6 +85,7 @@ class api:
 			self.i2chandler.setBG(RDsAdrs[1][1], r1, g1, b1, r2, g2, b2)
 			
 		else:
+			print "here"
 			self.i2chandler.setBG(RDsAdrs[0][0], r1, g1, b1, r1, g1, b1)
 			self.i2chandler.setBG(RDsAdrs[0][1], r2, g2, b2, r2, g2, b2)
 			self.i2chandler.setBG(RDsAdrs[1][0], r2, g2, b2, r2, g2, b2)
