@@ -79,8 +79,14 @@ class api:
 		self.i2chandler.setBG(RDsAdrs[1][1], r1, g1, b1, r2, g2, b2)
 						
 								
-	def setResolution(self):
-		pass
+	def setResolution(self, res):
+		self.i2chandler.setBG(RDsAdrs[0][0], res)
+		self.i2chandler.setBG(RDsAdrs[0][1], res)
+		self.i2chandler.setBG(RDsAdrs[1][0], res)
+		self.i2chandler.setBG(RDsAdrs[1][1], res)		
+		
+		
+		
 	def moveUntil(self):
 		pass
 		

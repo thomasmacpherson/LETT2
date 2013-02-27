@@ -98,11 +98,11 @@ class handler:
 
 	def clearSpace(self, address, x, y):
 		self.sendWireCommand(address,[const.CMD_CLEAR_SPACE, x, y])
-'''
 
-	def setResolution(self, address,):
-		self.sendWireCommand(address,[const.CMD_SET_BOARD_SIZE, x1, y1, x2, y2])
-		
+
+	def setResolution(self, address, res):
+		self.sendWireCommand(address,[const.CMD_SET_BOARD_SIZE, res])
+'''		
 	def moveUntil(self):
 		self.sendWireCommand(address,[const.CMD_MOVE_UNTIL, x1, y1, x2, y2])
 
