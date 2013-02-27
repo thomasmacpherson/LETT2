@@ -91,21 +91,24 @@ class handler:
 		
 	def drawSquare(self,address, x1, y1, x2, y2):
 		self.sendWireCommand(address, [const.CMD_DRAW_SQUARE, x1, y1, x2, y2])
-		
-
-	'''		
-		
-	def setResolution(self, address,):
-		self.sendWireCommand(address,[const.CMD_SET_BOARD_SIZE, x1, y1, x2, y2])
-
-	def moveUntil(self):
-		self.sendWireCommand(address,[const.CMD_MOVE_UNTIL, x1, y1, x2, y2])
 
 	def movePiece(self, address, x1, y1, x2, y2):
 		self.sendWireCommand(address,[const.CMD_, x1, y1, x2, y2])
-		
+
+
 	def clearSpace(self, address, x, y):
 		self.sendWireCommand(address,[const.CMD_CLEAR_SPACE, x, y])
+'''
+
+	def setResolution(self, address,):
+		self.sendWireCommand(address,[const.CMD_SET_BOARD_SIZE, x1, y1, x2, y2])
+		
+	def moveUntil(self):
+		self.sendWireCommand(address,[const.CMD_MOVE_UNTIL, x1, y1, x2, y2])
+
+
+		
+
 
 	def printChar(self):
 		pass
