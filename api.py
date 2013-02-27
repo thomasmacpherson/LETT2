@@ -62,7 +62,7 @@ class api:
 	def drawLine(self,x,y,ex,ey):
 		if restrictedTo([x,ex],self.lowerBoarder)!=2:
 			if restrictedTo([y,ey], self.lowerBoarder)!=2:
-				self.i2chandler.drawLine(RDsAdrs[x/self.res][y/self.res], x%self.res, y/self.res, ex/self.res, ey/self.res) # send to single grid
+				self.i2chandler.drawLine(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res, ex%self.res, ey%self.res) # send to single grid
 			
 			else:
 				lineSplit(x,y,ex,ey,1)
