@@ -87,8 +87,10 @@ class api:
 		pass
 	def movePiece(self):
 		pass
-	def clearSpace(self):
-		pass
+	def clearSpace(self,x,y):
+		self.i2chandler.clearSpace(RDsAdrs[x/8][y/8], x%8, y%8)
+		
+		
 	def printChar(self):
 		pass
 	def setSprite(self):
