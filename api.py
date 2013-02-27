@@ -73,7 +73,7 @@ class api:
 			self.i2chandler.setInk(RDsAdrs[grid/2][grid%2], r, g, b)		
 		
 	def drawPixel(self, x, y):
-		self.i2chandler.drawPixel(RDsAdrs[x/res][y/res], x%res, y%res)
+		self.i2chandler.drawPixel(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res)
 		
 		
 		
@@ -88,10 +88,10 @@ class api:
 		self.res = res
 		self.lowerBoarder = self.mapping[res]
 		
-		self.i2chandler.setResolution(RDsAdrs[0][0], res)
-		self.i2chandler.setResolution(RDsAdrs[0][1], res)
-		self.i2chandler.setResolution(RDsAdrs[1][0], res)
-		self.i2chandler.setResolution(RDsAdrs[1][1], res)		
+		self.i2chandler.setResolution(RDsAdrs[0][0], self.res)
+		self.i2chandler.setResolution(RDsAdrs[0][1], self.res)
+		self.i2chandler.setResolution(RDsAdrs[1][0], self.res)
+		self.i2chandler.setResolution(RDsAdrs[1][1], self.res)		
 		
 		
 		
@@ -101,16 +101,16 @@ class api:
 		
 	def movePiece(self,x1, y1, x2, y2):
 		if restrictedTo([x1,x2],self.lowerBoarder)!=2 and restrictedTo([y1,y2],self.lowerBoarder)!=2:
-			self.i2chandler.movePiece(RDsAdrs[x1/res][y1/res], x1%res, y1%res, x2%res, y2%res)
+			self.i2chandler.movePiece(RDsAdrs[x1/self.res][y1/self.res], x1%self.res, y1%self.res, x2%self.res, y2%self.res)
 			
 		else:
-			self.i2chandler.clearSpace(RDsAdrs[x1/res][y1/res], x1%res, y1%res)
-			self.i2chandler.drawPixel(RDsAdrs[x2/res][y2/res], x2%res, y2%res)
+			self.i2chandler.clearSpace(RDsAdrs[x1/self.res][y1/self.res], x1%self.res, y1%self.res)
+			self.i2chandler.drawPixel(RDsAdrs[x2/self.res][y2/self.res], x2%self.res, y2%self.res)
 		
 		
 		
 	def clearSpace(self,x,y):
-		self.i2chandler.clearSpace(RDsAdrs[x/res][y/res], x%res, y%res)
+		self.i2chandler.clearSpace(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res)
 		
 		
 	def printChar(self):
