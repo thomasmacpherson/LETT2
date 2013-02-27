@@ -86,7 +86,7 @@ class api:
 		
 		
 	def movePiece(self,x1, y1, x2, y2):
-		if restrictedTo([x1,x2])!=2 and restrictedTo([y1,y2])!=2:
+		if restrictedTo([x1,x2],lowerBoarder)!=2 and restrictedTo([y1,y2],lowerBoarder)!=2:
 			self.i2chandler.movePiece(RDsAdrs[x1/8][y1/8], x1%8, y1%8, x2%8, y2%8)
 			
 		else:
