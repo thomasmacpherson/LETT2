@@ -49,8 +49,8 @@ class api:
 	def checkForInput(self):
 		pass
 		
-	def drawSquare(self):
-		i2chandler.const.CMD_DRAW_SQUARE
+	def drawSquare(self,x1,y1,x2,y2):
+		self.squareSplit(x1,y1,x2,y2)
 		
 	def drawLine(self,x,y,ex,ey):
 		self.i2chandler.drawLine(RDsAdrs[0][0], x, y, ex, ey)
