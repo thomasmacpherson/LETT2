@@ -68,9 +68,7 @@ class api:
 			self.i2chandler.setInk(RDsAdrs[grid/2][grid%2], r, g, b)		
 		
 	def drawPixel(self, x, y):
-		xGrid = restrictedTo([x],7)
-		yGrid = restrictedTo([y],7)
-		self.i2chandler.drawPixel(RDsAdrs[xGrid][yGrid], x-(8*xGrid), y-(8*yGrid))
+		self.i2chandler.drawPixel(RDsAdrs[x/8][y/8], x%8, y%8)
 		
 		
 		
@@ -85,8 +83,18 @@ class api:
 		pass
 	def moveUntil(self):
 		pass
-	def movePiece(self):
-		pass
+		
+		
+	def movePiece(self,x1, y1, x2, y2):
+		if restrictedTo([x1,x2])!=2 and restrictedTo([y1,y2])!=2:
+			self.i2chandler.movePiece(RDsAdrs[x1/8][y1/8], x1%8, y1%8, x2%8, y2%8)
+			
+		else:
+			self.i2chandler.clearSpace(RDsAdrs[x1/8][y1/8], x1%8, y1%8)
+			self.i2chanlder.drawPixel(RDsAdrs[x2/8][y2/8], x2%8, y2%8)
+		
+		
+		
 	def clearSpace(self,x,y):
 		self.i2chandler.clearSpace(RDsAdrs[x/8][y/8], x%8, y%8)
 		
