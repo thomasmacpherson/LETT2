@@ -71,8 +71,7 @@ class api:
 				lineSplit(x,y,ex,ey,0)
 			else:
 				pass
-		
-lineSplit(self,x1,y1, x2,y2,axis):
+
 		
 		
 	def setInk(self, r, g, b, grid):
