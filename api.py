@@ -7,7 +7,7 @@ RDsAdrs=[]
 width = 2
 length = 2
 
-lowerBoarder = 7
+
 
 
 baseAdr = 0x10
@@ -22,6 +22,11 @@ class api:
 	def __init__(self, emulated):
 		self.qOut= Queue.Queue(maxsize=0)
 		self.qIn = Queue.Queue(maxsize=0)
+		
+		self.lowerBoarder = 7
+		self.res = 8
+		
+		self.mapping = {8:7,4:3,2:1,1:0}
 		
 		self.i2chandler = i2cHandler.handler(self.qOut)
 		self.emulated = emulated
@@ -68,7 +73,7 @@ class api:
 			self.i2chandler.setInk(RDsAdrs[grid/2][grid%2], r, g, b)		
 		
 	def drawPixel(self, x, y):
-		self.i2chandler.drawPixel(RDsAdrs[x/8][y/8], x%8, y%8)
+		self.i2chandler.drawPixel(RDsAdrs[x/res][y/res], x%res, y%res)
 		
 		
 		
@@ -80,6 +85,9 @@ class api:
 						
 								
 	def setResolution(self, res):
+		self.res = res
+		self.lowerBoarder = self.mapping[res]
+		
 		self.i2chandler.setResolution(RDsAdrs[0][0], res)
 		self.i2chandler.setResolution(RDsAdrs[0][1], res)
 		self.i2chandler.setResolution(RDsAdrs[1][0], res)
@@ -92,17 +100,17 @@ class api:
 		
 		
 	def movePiece(self,x1, y1, x2, y2):
-		if restrictedTo([x1,x2],lowerBoarder)!=2 and restrictedTo([y1,y2],lowerBoarder)!=2:
-			self.i2chandler.movePiece(RDsAdrs[x1/8][y1/8], x1%8, y1%8, x2%8, y2%8)
+		if restrictedTo([x1,x2],self.lowerBoarder)!=2 and restrictedTo([y1,y2],self.lowerBoarder)!=2:
+			self.i2chandler.movePiece(RDsAdrs[x1/res][y1/res], x1%res, y1%res, x2%res, y2%res)
 			
 		else:
-			self.i2chandler.clearSpace(RDsAdrs[x1/8][y1/8], x1%8, y1%8)
-			self.i2chandler.drawPixel(RDsAdrs[x2/8][y2/8], x2%8, y2%8)
+			self.i2chandler.clearSpace(RDsAdrs[x1/res][y1/res], x1%res, y1%res)
+			self.i2chandler.drawPixel(RDsAdrs[x2/res][y2/res], x2%res, y2%res)
 		
 		
 		
 	def clearSpace(self,x,y):
-		self.i2chandler.clearSpace(RDsAdrs[x/8][y/8], x%8, y%8)
+		self.i2chandler.clearSpace(RDsAdrs[x/res][y/res], x%res, y%res)
 		
 		
 	def printChar(self):
@@ -115,17 +123,17 @@ class api:
 		
 		
 	def squareSplit(self, x1,y1,x2,y2):
-		gridX = restrictedTo([x1,x2], lowerBoarder)
+		gridX = restrictedTo([x1,x2], self.lowerBoarder)
 		if gridX !=2:
 	
-			gridY = restrictedTo([y1,y2], lowerBoarder)
+			gridY = restrictedTo([y1,y2], self.lowerBoarder)
 			if gridY !=2:
 	
-				x1 = x1-(8*gridX)
-				x2 = x2-(8*gridX)
+				x1 = x1-(self.res*gridX)
+				x2 = x2-(self.res*gridX)
 			
-				y1 = y1-(8*gridY)
-				y2 = y2-(8*gridY)
+				y1 = y1-(self.res*gridY)
+				y2 = y2-(self.res*gridY)
 				
 				self.i2chandler.drawSquare(RDsAdrs[gridX][gridY],x1,y1,x2,y2)
 			
@@ -136,14 +144,14 @@ class api:
 				
 				if y1<y2:
 					upX=0
-					y2 = y2-8
+					y2 = y2-self.res
 				else:
 					upX=1
-					y1 = y1-8
+					y1 = y1-self.res
 					
 					
-				x1 = x1-(8*gridX)
-				x2 = x2-(8*gridX)
+				x1 = x1-(self.res*gridX)
+				x2 = x2-(self.res*gridX)
 					
 				self.i2chandler.drawLine(RDsAdrs[gridX][upX], x1,y1,x2,y1)
 				self.i2chandler.drawLine(RDsAdrs[gridX][not upX], x1,y2,x2,y2)
@@ -151,7 +159,7 @@ class api:
 				
 		else:
 			
-			gridY = restrictedTo([y1, y2], lowerBoarder)
+			gridY = restrictedTo([y1, y2], self.lowerBoarder)
 			if gridY !=2:
 				self.lineSplit(x1,y1,x2,y1,0)
 				self.lineSplit(x1,y2,x2,y2,0)
@@ -164,8 +172,8 @@ class api:
 					upY=1
 					x1=x1-8
 					
-				y1=y1-(8*gridY)
-				y2=y2-(8*gridY)
+				y1=y1-(self.res*gridY)
+				y2=y2-(self.res*gridY)
 				
 				self.i2chandler.drawLine(RDsAdrs[upY][gridY], x1,y1,x1,y2)
 				self.i2chandler.drawLine(RDsAdrs[not upY][gridY], x2,y1, x2,y2)
@@ -182,9 +190,9 @@ class api:
 	
 	def lineSplit(self,x1,y1, x2,y2,axis):
 		if axis == 0 : # crosses the x-axis only
-			yGrid = restrictedTo([y1,y2],lowerBoarder)
-			y1 = y1-(8*yGrid)
-			y2 = y2-(8*yGrid)
+			yGrid = restrictedTo([y1,y2],self.lowerBoarder)
+			y1 = y1-(self.res*yGrid)
+			y2 = y2-(self.res*yGrid)
 			
 			if x1 < x2:
 
@@ -195,12 +203,12 @@ class api:
 					gradient = (y2 - y1)/(x2 - x1)
 					constant = y1 - gradient*x1
 					
-					newY1 = gradient*7 + constant
-					newY2 = gradient*8 + constant
+					newY1 = gradient*self.lowerBoarder + constant
+					newY2 = gradient*(self.lowerBoarder+1) + constant
 					
-					
-				self.i2chandler.drawLine(RDsAdrs[0][yGrid],x1,y1,7,newY1)
-				self.i2chandler.drawLine(RDsAdrs[1][yGrid],0,y1,x2-8,newY2)
+					#TODO: introduce res to this function
+				self.i2chandler.drawLine(RDsAdrs[0][yGrid],x1,y1,self.lowerBoarder,newY1)
+				self.i2chandler.drawLine(RDsAdrs[1][yGrid],0,y1,x2-self.lowerBoarder+1,newY2)
 				
 			else:
 				pass

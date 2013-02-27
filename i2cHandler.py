@@ -93,7 +93,7 @@ class handler:
 		self.sendWireCommand(address, [const.CMD_DRAW_SQUARE, x1, y1, x2, y2])
 
 	def movePiece(self, address, x1, y1, x2, y2):
-		self.sendWireCommand(address,[const.CMD_, x1, y1, x2, y2])
+		self.sendWireCommand(address,[const.CMD_MOVE_PIECE, x1, y1, x2, y2])
 
 
 	def clearSpace(self, address, x, y):
