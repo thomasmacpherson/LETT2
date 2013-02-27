@@ -55,9 +55,15 @@ class api:
 	def drawLine(self,x,y,ex,ey):
 		self.i2chandler.drawLine(RDsAdrs[0][0], x, y, ex, ey)
 		
-	def setInk(self, r, g, b):
-		self.i2chandler.setInk(RDsAdrs[0][0], r, g, b)
-		
+	def setInk(self, r, g, b, grid):
+		if grid >= 4:
+			self.i2chandler.setInk(RDsAdrs[0][0], r, g, b)
+			self.i2chandler.setInk(RDsAdrs[0][1], r, g, b)
+			self.i2chandler.setInk(RDsAdrs[1][0], r, g, b)
+			self.i2chandler.setInk(RDsAdrs[1][1], r, g, b)
+			
+		else:
+			self.i2chandler.setInk(RDsAdrs[grid/2][grid%2], r, g, b)		
 		
 	def drawPixel(self, x, y):
 		xGrid = restrictedTo([x],7)
