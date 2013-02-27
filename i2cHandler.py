@@ -88,13 +88,11 @@ class handler:
 	def drawLine(self, address, x1, y1, x2, y2):
 		self.sendWireCommand(address,[const.CMD_DRAW_LINE, x1, y1, x2, y2])
 		
-'''		
-
 	def drawSquare(self,address, x1, y1, x2, y2):
 		self.sendWireCommand(address, [const.CMD_DRAW_SQUARE, x1, y1, x2, y2])
 		
 
-			
+	'''		
 		
 	def setResolution(self, address,):
 		self.sendWireCommand(address,[const.CMD_SET_BOARD_SIZE, x1, y1, x2, y2])
