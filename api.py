@@ -7,7 +7,7 @@ RDsAdrs=[]
 width = 2
 length = 2
 
-lowerbBoarder = 7
+lowerBoarder = 7
 
 
 baseAdr = 0x10
