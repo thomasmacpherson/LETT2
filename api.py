@@ -80,10 +80,10 @@ class api:
 						
 								
 	def setResolution(self, res):
-		self.i2chandler.setBG(RDsAdrs[0][0], res)
-		self.i2chandler.setBG(RDsAdrs[0][1], res)
-		self.i2chandler.setBG(RDsAdrs[1][0], res)
-		self.i2chandler.setBG(RDsAdrs[1][1], res)		
+		self.i2chandler.setResolution(RDsAdrs[0][0], res)
+		self.i2chandler.setResolution(RDsAdrs[0][1], res)
+		self.i2chandler.setResolution(RDsAdrs[1][0], res)
+		self.i2chandler.setResolution(RDsAdrs[1][1], res)		
 		
 		
 		
