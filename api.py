@@ -183,8 +183,8 @@ class api:
 					newY2 = gradient*8 + constant
 					
 					
-				self.i2chandler.drawLine(RDsAdrs[0][gridY],x1,y1,7,newY1)
-				self.i2chandler.drawLine(RDsAdrs[1][gridY],0,y1,x2-8,newY2)
+				self.i2chandler.drawLine(RDsAdrs[0][yGrid],x1,y1,7,newY1)
+				self.i2chandler.drawLine(RDsAdrs[1][yGrid],0,y1,x2-8,newY2)
 				
 			else:
 				pass
