@@ -7,6 +7,8 @@ RDsAdrs=[]
 width = 2
 length = 2
 
+lowerbBoarder = 7
+
 
 baseAdr = 0x10
 
@@ -97,10 +99,10 @@ class api:
 		
 		
 	def squareSplit(self, x1,y1,x2,y2):
-		gridX = restrictedTo([x1,x2], 7)
+		gridX = restrictedTo([x1,x2], lowerBoarder)
 		if gridX !=2:
 	
-			gridY = restrictedTo([y1,y2])
+			gridY = restrictedTo([y1,y2], lowerBoarder)
 			if gridY !=2:
 	
 				x1 = x1-(8*gridX)
@@ -133,7 +135,7 @@ class api:
 				
 		else:
 			
-			gridY = restrictedTo([y1, y2])
+			gridY = restrictedTo([y1, y2], lowerBoarder)
 			if gridY !=2:
 				lineSplit(x1,y1,x2,y1,0)
 				lineSplit(x1,y2,x2,y2,0)
@@ -164,7 +166,7 @@ class api:
 	
 	def lineSplit(self,x1,y1, x2,y2,axis):
 		if axis == 0 : # crosses the x-axis only
-			yGrid = restrictedTo([y1,y2],7)
+			yGrid = restrictedTo([y1,y2],lowerBoarder)
 			y1 = y1-(8*yGrid)
 			y2 = y2-(8*yGrid)
 			
