@@ -91,7 +91,7 @@ class api:
 			
 		else:
 			self.i2chandler.clearSpace(RDsAdrs[x1/8][y1/8], x1%8, y1%8)
-			self.i2chanlder.drawPixel(RDsAdrs[x2/8][y2/8], x2%8, y2%8)
+			self.i2chandler.drawPixel(RDsAdrs[x2/8][y2/8], x2%8, y2%8)
 		
 		
 		
