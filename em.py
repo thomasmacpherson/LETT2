@@ -146,7 +146,7 @@ class em:
 						mousey = mousey/20
 						return [mousex, mousey]
 						
-'''						
+	'''						
 	def drawScreenPixel(self):
 		self.gridColours[mousex][mousey]=(gridColours[mousex][mousey][0]-40,0,0)
 		self.pygame.draw.rect(self.screen, gridColours[mousex][mousey], (gridX+mousex*20,gridY+mousey*20,20,20),0) 
@@ -233,9 +233,7 @@ class em:
 			mouse_click = True
           	mousex, mousey = event.pos
     		change = True
-'''
-
-	'''		
+	
 
 	def waitForButtonScreenPress(self):
 		if (mousex > modeButtonsX and mousex < modeButtonsX + modeButtonsWidth) and (mousey > modeButtonsY and mousey < modeButtonsY + modeButtonsHeight):
@@ -246,7 +244,7 @@ class em:
 						print j;	
 						
 						
-'''
+
 
 			#if mousex == previousMouseX and mousey == previouseMouseY:
 				
@@ -266,3 +264,4 @@ class em:
 
 	#screen.blit(mouse_c,(x,y))
 
+	'''
