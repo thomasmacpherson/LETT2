@@ -209,8 +209,8 @@ class api:
 	def lineSplit(self,x1,y1, x2,y2,axis):
 		if axis == 0 : # crosses the y-axis only
 			yGrid = restrictedTo([y1,y2],self.lowerBoarder)
-			y1 = y1-(self.res*yGrid)
-			y2 = y2-(self.res*yGrid)
+			#y1 = y1-(self.res*yGrid)
+			#y2 = y2-(self.res*yGrid)
 			
 			if x1 < x2:
 
@@ -226,7 +226,7 @@ class api:
 					
 					#TODO: introduce res to this function
 				self.i2chandler.drawLine(RDsAdrs[0][yGrid],x1,y1,self.lowerBoarder,newY1)
-				self.i2chandler.drawLine(RDsAdrs[1][yGrid],0,y1,x2-self.lowerBoarder+1,newY2)
+				self.i2chandler.drawLine(RDsAdrs[1][yGrid],0,newY2,x2%self.res,y2%res)
 				
 			else:
 				pass
@@ -234,8 +234,25 @@ class api:
 				
 	
 		elif axis == 1 : # cross the x-axis only
+			xGrid = restrictedTo([x1,x2],self.lowerBoarder)
+			#x1 = x1-(self.res*xGrid)
+			#x2 = x2-(self.res*xGrid)
+			
 			if y1 < y2:
-				pass
+
+				if x1==x2:
+					newX1 = x1
+					newX2 = x2
+				else:
+					gradient = (y2 - y1)/(x2 - x1)
+					constant = y1 - gradient*x1
+					
+					newX1 = gradient*self.lowerBoarder + constant
+					newX2 = gradient*(self.lowerBoarder+1) + constant
+					
+					#TODO: introduce res to this function
+				self.i2chandler.drawLine(RDsAdrs[xGrid][0],x1,y1,newX1,self.lowerBoarder)
+				self.i2chandler.drawLine(RDsAdrs[xGird][1],newX2,0,x2%self.res,y2%res)
 			else:
 				pass
 
