@@ -65,10 +65,10 @@ class api:
 				self.i2chandler.drawLine(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res, ex%self.res, ey%self.res) # send to single grid
 			
 			else:
-				lineSplit(x,y,ex,ey,1)
+				self.lineSplit(x,y,ex,ey,1)
 		else:
 			if restrictedTo([y,ey], self.lowerBoarder)!=2:
-				lineSplit(x,y,ex,ey,0)
+				self.lineSplit(x,y,ex,ey,0)
 			else:
 				pass
 
