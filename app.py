@@ -9,8 +9,9 @@ class thisapp:
 		self.api.waitForInput(inputReceived)
 		
 		
-	def inputReceived(self):
-		self.api.printsomething()
+	def inputReceived(self, [x,y]):
+		self.api.setInk(200,200,0,4)
+		self.api.drawPixel(x,y)
 	
 	def somethinghappens(self):
 		self.api.drawPixel(
