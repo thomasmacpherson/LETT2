@@ -50,8 +50,7 @@ class api:
 		pass
 		
 	def waitForInput(self):
-		self.qIn.get()
-		return 
+		return self.emu.waitForScreenPixelPress()
 		
 	def checkForInput(self):
 		pass

@@ -207,13 +207,16 @@ class em:
 #				change = True
 	
 	def waitForScreenPixelPress(self):
-		if mouse_click:
-			if (mousex > gridX and mousex < gridX + gridWidth) and (mousey > gridY and mousey < gridY + gridHeight):
-				mousex -= gridX
-				mousey -= gridY
+		while True:
+			for event in pygame.event.get():
+				if event.type == MOUSEBUTTONUP:
+					if (mousex > gridX and mousex < gridX + gridWidth) and (mousey > gridY and mousey < gridY + gridHeight):
+						mousex -= gridX
+						mousey -= gridY
 	
-				mousex = mousex/20
-				mousey = mousey/20
+						mousex = mousex/20
+						mousey = mousey/20
+						return [mousex, mousey]
 			
 
 	def waitForButtonScreenPress(self):
