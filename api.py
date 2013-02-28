@@ -252,7 +252,7 @@ class api:
 					
 					#TODO: introduce res to this function
 				self.i2chandler.drawLine(RDsAdrs[xGrid][0],x1,y1,newX1,self.lowerBoarder)
-				self.i2chandler.drawLine(RDsAdrs[xGird][1],newX2,0,x2%self.res,y2%res)
+				self.i2chandler.drawLine(RDsAdrs[xGrid][1],newX2,0,x2%self.res,y2%res)
 			else:
 				pass
 
