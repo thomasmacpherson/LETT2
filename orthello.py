@@ -2,10 +2,8 @@
 class thisapp():
 	def __init__(self, api):
 		self.api = api
-		self.api.set
-		self.api.setBG()
-		self.api.setResolution()
-		self.api.waitForInput(inputReceived)
+
+
 		self.pieces = (0,0,0) # player 1, 2 and total pieces
 		self.gridSize = 16
 
@@ -16,20 +14,21 @@ class thisapp():
 
 		self.turn = True # player1's turn first
 		self.gridColours
-
+		
+		self.inputReceieved(self.api.waitForInput())
 
 	def inputReceived(self, args):
 		if self.checkInput(args):
 			self.checkForFlips(args[0], args[1])
 	
 		if pieces[2] >= totalGamePlaces:
-			self.gameOver()
+			pass#self.gameOver()
 			
 			
-		self.api.printLCD(0,1,turnPrint1[turn],0) # player, line, message, time (0 stay until overridden)
-		self.api.printLCD(1,1,turnPrint2[!turn],0)
+		#self.api.printLCD(0,1,turnPrint1[turn],0) # player, line, message, time (0 stay until overridden)
+		#self.api.printLCD(1,1,turnPrint2[!turn],0)
 		self.turn = !self.turn
-		self.api.waitForInput(inputReceived)			
+		self.inputReceived(self.api.waitForInput())			
 			
 			
 			
