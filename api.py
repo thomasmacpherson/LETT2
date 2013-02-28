@@ -49,8 +49,8 @@ class api:
 	def closeApp(self):
 		pass
 		
-	def waitForInput(self,func):
-		return func(self.emu.waitForScreenPixelPress())
+	def waitForInput(self):
+		return self.emu.waitForScreenPixelPress()
 		
 	def checkForInput(self):
 		pass
