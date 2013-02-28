@@ -283,7 +283,7 @@ class api:
 
 
 
-	def moveUntilSplit(self,x1,y1, x2,y2,axis, ):
+	def moveUntilSplit(self,x1,y1, x2,y2,axis, delay):
 		if axis == 0 : # crosses the y-axis only
 			yGrid = restrictedTo([y1,y2],self.lowerBoarder)
 			#y1 = y1-(self.res*yGrid)
@@ -302,8 +302,8 @@ class api:
 					newY2 = gradient*(self.lowerBoarder+1) + constant
 					
 					#TODO: introduce res to this function
-				self.i2chandler.drawLine(RDsAdrs[0][yGrid],x1,y1,self.lowerBoarder,newY1)
-				self.i2chandler.drawLine(RDsAdrs[1][yGrid],0,newY2,x2%self.res,y2%self.res)
+				self.i2chandler.moveUntil(RDsAdrs[0][yGrid],x1,y1,self.lowerBoarder,newY1,delay)
+				self.i2chandler.moveUntil(RDsAdrs[1][yGrid],0,newY2,x2%self.res,y2%self.res,delay)
 				
 			else:
 				pass
@@ -328,8 +328,8 @@ class api:
 					newX2 = gradient*(self.lowerBoarder+1) + constant
 					
 					#TODO: introduce res to this function
-				self.i2chandler.drawLine(RDsAdrs[xGrid][0],x1,y1,newX1,self.lowerBoarder)
-				self.i2chandler.drawLine(RDsAdrs[xGrid][1],newX2,0,x2%self.res,y2%self.res)
+				self.i2chandler.moveUntil(RDsAdrs[xGrid][0],x1,y1,newX1,self.lowerBoarder,delay)
+				self.i2chandler.moveUntil(RDsAdrs[xGrid][1],newX2,0,x2%self.res,y2%self.res,delay)
 			else:
 				pass
 
