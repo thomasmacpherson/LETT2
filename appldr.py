@@ -13,4 +13,4 @@ while True:
 
 	game = gameImport.thisapp(api)
 	
-	button = api.waitForScreenButtonPress()
+	#button = api.waitForScreenButtonPress()

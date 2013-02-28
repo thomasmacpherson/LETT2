@@ -9,6 +9,7 @@ class thisapp:
 		
 	def __init__(self, api):
 		self.api = api
-		list = self.api.waitForInput()
-		self.inputReceived(list)
+		while True:
+			list = self.api.waitForInput()
+			self.inputReceived(list)
 		
