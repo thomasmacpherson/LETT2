@@ -56,7 +56,7 @@ const.LCD2X = const.tableX + 445
 const.LCD2Y = const.tableY + 190
 
 
-font = pygame.font.Font(None, 20)
+#font = pygame.font.Font(None, 20)
 
 LCD1Line1= "LCD1 Line 1"
 LCD1Line2= "LCD1 Line 2"
@@ -153,18 +153,18 @@ class em:
 			pass
 		else:
 			
-			displayLCD1Line1 = font.render(LCD1Line1, 1, (0,0,0))
-			pygame.transform.rotate(displayLCD1Line1, 90)
+			#displayLCD1Line1 = font.render(LCD1Line1, 1, (0,0,0))
+			#pygame.transform.rotate(displayLCD1Line1, 90)
 
-			displayLCD1Line2 = font.render(LCD1Line2, 1, (0,0,0))
-			displayLCD2Line1 = font.render(LCD2Line1, 1, (0,0,0))
-			displayLCD2Line2 = font.render(LCD2Line2, 1, (0,0,0))
+			#displayLCD1Line2 = font.render(LCD1Line2, 1, (0,0,0))
+			#displayLCD2Line1 = font.render(LCD2Line1, 1, (0,0,0))
+			#displayLCD2Line2 = font.render(LCD2Line2, 1, (0,0,0))
 	
-			screen.blit(displayLCD1Line1, (LCD1X, LCD1Y))
-			screen.blit(displayLCD1Line2, (LCD1X, LCD1Y))
-			screen.blit(displayLCD2Line1, (LCD2X, LCD2Y))
-			screen.blit(displayLCD2Line2, (LCD2X, LCD2Y))
-
+			#screen.blit(displayLCD1Line1, (LCD1X, LCD1Y))
+			#screen.blit(displayLCD1Line2, (LCD1X, LCD1Y))
+			#screen.blit(displayLCD2Line1, (LCD2X, LCD2Y))
+			#screen.blit(displayLCD2Line2, (LCD2X, LCD2Y))
+			
 
 
 			mouse_click = False
