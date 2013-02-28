@@ -79,8 +79,9 @@ class em:
 		self.screen = pygame.display.set_mode((1000,700),0,32)
 		self.setBGColour(200,200,200)
 		self.drawTable()
-		self.drawButtons()
+		#self.drawButtons()
 		self.drawScreenPixels()
+		self.refreshScreen
 		
 		
 	def screenPrint(self,display):
@@ -99,9 +100,9 @@ class em:
 
 
 	def refreshScreen(self):
-		if change:
-			change = False
-			self.pygame.display.update()
+		#if change:
+			#change = False
+		self.pygame.display.update()
 	
 	
 	
