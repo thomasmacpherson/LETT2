@@ -4,7 +4,7 @@ class thisapp:
 		
 	def inputReceived(self, list):
 		self.api.setInk(200,200,0,4)
-		self.api.drawPixel(list[0],list[1])
+		self.api.moveUntil(0,list[1],7,list[1],500)
 	
 		
 	def __init__(self, api):
