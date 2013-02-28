@@ -103,8 +103,8 @@ class handler:
 	def setResolution(self, address, res):
 		self.sendWireCommand(address,[const.CMD_SET_BOARD_SIZE, res])
 
-	def moveUntil(self, x1, y1, x2, y2):
-		self.sendWireCommand(address,[const.CMD_MOVE_UNTIL, x1, y1, x2, y2])
+	def moveUntil(self, x1, y1, x2, y2, delay):
+		self.sendWireCommand(address,[const.CMD_MOVE_UNTIL, x1, y1, x2, y2, delay])
 
 
 	'''	

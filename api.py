@@ -113,8 +113,18 @@ class api:
 		
 		
 		
-	def moveUntil(self, x, y, ex, ey):
-		pass
+	def moveUntil(self, x, y, ex, ey, delay):
+		if restrictedTo([x,ex],self.lowerBoarder)!=2:
+			if restrictedTo([y,ey], self.lowerBoarder)!=2:
+				self.i2chandler.moveUntil(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res, ex%self.res, ey%self.res, delay) # send to single grid
+			
+			else:
+				self.moveUntilSplit(x,y,ex,ey,1,delay)
+		else:
+			if restrictedTo([y,ey], self.lowerBoarder)!=2:
+				self.moveUntilSplit(x,y,ex,ey,0,delay)
+			else:
+				pass
 		
 		
 	def movePiece(self,x1, y1, x2, y2):
@@ -270,7 +280,73 @@ class api:
 			newX2 = (8 - constant) / gradient
 		
 					
+
+
+
+	def moveUntilSplit(self,x1,y1, x2,y2,axis, ):
+		if axis == 0 : # crosses the y-axis only
+			yGrid = restrictedTo([y1,y2],self.lowerBoarder)
+			#y1 = y1-(self.res*yGrid)
+			#y2 = y2-(self.res*yGrid)
+			
+			if x1 < x2:
+
+				if y1==y2:
+					newY1 = y1
+					newY2 = y2
+				else:
+					gradient = (y2 - y1)/(x2 - x1)
+					constant = y1 - gradient*x1
+					
+					newY1 = gradient*self.lowerBoarder + constant
+					newY2 = gradient*(self.lowerBoarder+1) + constant
+					
+					#TODO: introduce res to this function
+				self.i2chandler.drawLine(RDsAdrs[0][yGrid],x1,y1,self.lowerBoarder,newY1)
+				self.i2chandler.drawLine(RDsAdrs[1][yGrid],0,newY2,x2%self.res,y2%self.res)
+				
+			else:
+				pass
+			
+				
+	
+		elif axis == 1 : # cross the x-axis only
+			xGrid = restrictedTo([x1,x2],self.lowerBoarder)
+			#x1 = x1-(self.res*xGrid)
+			#x2 = x2-(self.res*xGrid)
+			
+			if y1 < y2:
+
+				if x1==x2:
+					newX1 = x1
+					newX2 = x2
+				else:
+					gradient = (y2 - y1)/(x2 - x1)
+					constant = y1 - gradient*x1
+					
+					newX1 = gradient*self.lowerBoarder + constant
+					newX2 = gradient*(self.lowerBoarder+1) + constant
+					
+					#TODO: introduce res to this function
+				self.i2chandler.drawLine(RDsAdrs[xGrid][0],x1,y1,newX1,self.lowerBoarder)
+				self.i2chandler.drawLine(RDsAdrs[xGrid][1],newX2,0,x2%self.res,y2%self.res)
+			else:
+				pass
+
+
+		else:
+	
+			gradient = (y2 - y1)/(x2 - x1)
+	
+			constant = y1 - gradient*x1
+	
+			newY1 = gradient*7 + constant
+			newY2 = gradient*8 + constant
+	
+			newX1 = (7 - constant) / gradient
+			newX2 = (8 - constant) / gradient
 		
+							
 		
 		
 		
