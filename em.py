@@ -77,8 +77,10 @@ class em:
 		self.pygame.init()
 		pygame.display.set_caption('LETT Emulator')
 		self.screen = pygame.display.set_mode((1000,700),0,32)
-		
-		
+		self.setBGColour(200,200,200)
+		self.drawTable()
+		self.drawButtons()
+		self.drawScreenPixels()
 		
 		
 	def screenPrint(self,display):
@@ -104,17 +106,17 @@ class em:
 	
 	
 	def drawBlankScreen(self):		
-		gridColours = []
+		self.gridColours = []
 		for i in range(16):
 			row = []
 			for j in range(16):
 				row.append((255,255,255))
-			gridColours.append(row)
+			self.gridColours.append(row)
 
 		for i in range(16):
 			for j in range(16):
-				self.pygame.draw.rect(screen, gridColours[i][j], (gridX+i*20,gridY+j*20,20,20),0) 
-				self.pygame.draw.rect(screen, (0,0,0), (gridX+i*20,gridY+j*20,20,20),2) 
+				self.pygame.draw.rect(self.screen, self.gridColours[i][j], (const.gridX+i*20,const.gridY+j*20,20,20),0) 
+				self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+i*20,const.gridY+j*20,20,20),2) 
 
 
 
@@ -127,16 +129,16 @@ class em:
 
 
 	def drawTable(self):
-		self.pygame.draw.rect(screen, (0,0,0),(tableX, tableY,tableWidth,tableHeight),4)
-		self.pygame.draw.rect(screen, (255,255,255),(tableX, tableY,tableWidth,tableHeight),0)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),4)
+		self.pygame.draw.rect(self.screen, (255,255,255),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),0)
 
-
+'''
 
 	def drawButtons(self):
 		for i in range(2):
 			for j in range(8):
-				self.pygame.draw.rect(screen, gameSelectionColours[i][j], ( modeButtonsX + j*30 , modeButtonsY + i*30 ,20,20),0) 
-				self.pygame.draw.rect(screen, (0,0,0), ( modeButtonsX + j*30 , modeButtonsY + i*30 ,20,20),1) 
+				self.pygame.draw.rect(self.screen, gameSelectionColours[i][j], ( modeButtonsX + j*30 , modeButtonsY + i*30 ,20,20),0) 
+				self.pygame.draw.rect(self.screen, (0,0,0), ( modeButtonsX + j*30 , modeButtonsY + i*30 ,20,20),1) 
 
 
 	def drawLCDOutline(self):
@@ -199,7 +201,7 @@ class em:
 						pass
 					elif event.key==K_DOWN:
 						pass
-
+'''
 
 #	def waitForScreenPress():
 #           	if event.type == MOUSEBUTTONUP:
