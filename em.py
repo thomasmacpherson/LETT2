@@ -73,9 +73,10 @@ class em:
 	def __init__(self,qOut,qIn):
 		self.qOut = qOut
 		self.qIn = qIn
-		pygame.init()
+		self.pygame = pygame
+		self.pygame.init()
 		pygame.display.set_caption('LETT Emulator')
-		screen = pygame.display.set_mode((1000,700),0,32)
+		self.screen = pygame.display.set_mode((1000,700),0,32)
 		
 		
 		
@@ -95,14 +96,14 @@ class em:
 		pass
 
 
-	def refreshScreen():
+	def refreshScreen(self):
 		if change:
 			change = False
-			pygame.display.update()
+			self.pygame.display.update()
 	
 	
 	
-	def drawBlankScreen():		
+	def drawBlankScreen(self):		
 		gridColours = []
 		for i in range(16):
 			row = []
@@ -112,8 +113,8 @@ class em:
 
 		for i in range(16):
 			for j in range(16):
-				pygame.draw.rect(screen, gridColours[i][j], (gridX+i*20,gridY+j*20,20,20),0) 
-				pygame.draw.rect(screen, (0,0,0), (gridX+i*20,gridY+j*20,20,20),2) 
+				self.pygame.draw.rect(screen, gridColours[i][j], (gridX+i*20,gridY+j*20,20,20),0) 
+				self.pygame.draw.rect(screen, (0,0,0), (gridX+i*20,gridY+j*20,20,20),2) 
 
 
 
@@ -121,29 +122,29 @@ class em:
 
 	def setBGColour(self, r, g, b): #call at startup to set the 'table' colour
 		self.backgroundColour = (72,209,204)
-		screen.fill(self.backgroundColour)
+		self.screen.fill(self.backgroundColour)
 
 
 
 	def drawTable(self):
-		pygame.draw.rect(screen, (0,0,0),(tableX, tableY,tableWidth,tableHeight),4)
-		pygame.draw.rect(screen, (255,255,255),(tableX, tableY,tableWidth,tableHeight),0)
+		self.pygame.draw.rect(screen, (0,0,0),(tableX, tableY,tableWidth,tableHeight),4)
+		self.pygame.draw.rect(screen, (255,255,255),(tableX, tableY,tableWidth,tableHeight),0)
 
 
 
 	def drawButtons(self):
 		for i in range(2):
 			for j in range(8):
-				pygame.draw.rect(screen, gameSelectionColours[i][j], ( modeButtonsX + j*30 , modeButtonsY + i*30 ,20,20),0) 
-				pygame.draw.rect(screen, (0,0,0), ( modeButtonsX + j*30 , modeButtonsY + i*30 ,20,20),1) 
+				self.pygame.draw.rect(screen, gameSelectionColours[i][j], ( modeButtonsX + j*30 , modeButtonsY + i*30 ,20,20),0) 
+				self.pygame.draw.rect(screen, (0,0,0), ( modeButtonsX + j*30 , modeButtonsY + i*30 ,20,20),1) 
 
 
 	def drawLCDOutline(self):
-		pygame.draw.rect(screen, (0,0,0),(LCD1X, LCD1Y,50,140),2)
-		pygame.draw.rect(screen, (0,0,0),(LCD1X+9, LCD1Y+5,32,130),1)
+		self.pygame.draw.rect(screen, (0,0,0),(LCD1X, LCD1Y,50,140),2)
+		self.pygame.draw.rect(screen, (0,0,0),(LCD1X+9, LCD1Y+5,32,130),1)
 
-		pygame.draw.rect(screen, (0,0,0),(LCD2X, LCD2Y,50,140),2)
-		pygame.draw.rect(screen, (0,0,0),(LCD2X+9, LCD2Y+5,32,130),1)
+		self.pygame.draw.rect(screen, (0,0,0),(LCD2X, LCD2Y,50,140),2)
+		self.pygame.draw.rect(screen, (0,0,0),(LCD2X+9, LCD2Y+5,32,130),1)
 
 
 
@@ -174,10 +175,10 @@ class em:
 
 	def waitForControlPress(self):	#physical buttons, must move this as requires optional emulator to be running
 		while True:
-			for event in pygame.event.get():
+			for event in self.pygame.event.get():
 				if event.type==QUIT:
-					pygame.quit()
-					sys.exit()
+					self.pygame.quit()
+					self.sys.exit()
 					
 				if event.type==KEYDOWN:
 					if event.key==K_LEFT:
@@ -208,7 +209,7 @@ class em:
 	
 	def waitForScreenPixelPress(self):
 		while True:
-			for event in pygame.event.get():
+			for event in self.pygame.event.get():
 				if event.type == MOUSEBUTTONUP:
 					if (mousex > gridX and mousex < gridX + gridWidth) and (mousey > gridY and mousey < gridY + gridHeight):
 						mousex -= gridX
@@ -217,7 +218,7 @@ class em:
 						mousex = mousex/20
 						mousey = mousey/20
 						return [mousex, mousey]
-			
+	'''		
 
 	def waitForButtonScreenPress(self):
 		if (mousex > modeButtonsX and mousex < modeButtonsX + modeButtonsWidth) and (mousey > modeButtonsY and mousey < modeButtonsY + modeButtonsHeight):
@@ -228,7 +229,7 @@ class em:
 						print j;	
 						
 						
-
+'''
 
 			#if mousex == previousMouseX and mousey == previouseMouseY:
 				
@@ -237,8 +238,8 @@ class em:
 
 	def drawScreenPixel(self):
 		gridColours[mousex][mousey]=(gridColours[mousex][mousey][0]-40,0,0)
-		pygame.draw.rect(screen, gridColours[mousex][mousey], (gridX+mousex*20,gridY+mousey*20,20,20),0) 
-		pygame.draw.rect(screen, (0,0,0), (gridX+mousex*20,gridY+mousey*20,20,20),2) 
+		self.pygame.draw.rect(screen, gridColours[mousex][mousey], (gridX+mousex*20,gridY+mousey*20,20,20),0) 
+		self.pygame.draw.rect(screen, (0,0,0), (gridX+mousex*20,gridY+mousey*20,20,20),2) 
 
 
 		mouse_click =False #dont know where to put this
