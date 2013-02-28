@@ -103,6 +103,7 @@ class em:
 		#if change:
 			#change = False
 		self.pygame.display.update()
+		self.pygame.display.flip()
 	
 	
 	
