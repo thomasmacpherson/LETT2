@@ -136,12 +136,12 @@ class em:
 		while True:
 			for event in self.pygame.event.get():
 				if event.type == MOUSEBUTTONUP:
-				    mousex, mousey = event.pos
-				
-					if (mousex > const.gridX and mousex < const.gridX + const.gridWidth) and (mousey > const.gridY and mousey < const.gridY + const.gridHeight):
+					mousex, mousey = event.pos
+					
+					if ((mousex > const.gridX) and (mousex < (const.gridX + const.gridWidth))) and ((mousey > const.gridY) and( mousey < (const.gridY + const.gridHeight))):
 						mousex -= const.gridX
 						mousey -= const.gridY
-	
+						
 						mousex = mousex/20
 						mousey = mousey/20
 						return [mousex, mousey]
