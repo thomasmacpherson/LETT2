@@ -201,14 +201,14 @@ class em:
 						pass
 					elif event.key==K_DOWN:
 						pass
-'''
 
-#	def waitForScreenPress():
-#           	if event.type == MOUSEBUTTONUP:
-#				mouse_click = True
-#               	mousex, mousey = event.pos
-#				change = True
-	
+
+	def waitForScreenPress():
+		if event.type == MOUSEBUTTONUP:
+			mouse_click = True
+          	mousex, mousey = event.pos
+    		change = True
+'''
 	def waitForScreenPixelPress(self):
 		while True:
 			for event in self.pygame.event.get():
