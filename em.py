@@ -132,7 +132,32 @@ class em:
 		self.pygame.draw.rect(self.screen, (0,0,0),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),4)
 		self.pygame.draw.rect(self.screen, (255,255,255),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),0)
 
-'''
+	def waitForScreenPixelPress(self):
+		while True:
+			for event in self.pygame.event.get():
+				if event.type == MOUSEBUTTONUP:
+				    mousex, mousey = event.pos
+				
+					if (mousex > const.gridX and mousex < const.gridX + const.gridWidth) and (mousey > const.gridY and mousey < const.gridY + const.gridHeight):
+						mousex -= const.gridX
+						mousey -= const.gridY
+	
+						mousex = mousex/20
+						mousey = mousey/20
+						return [mousex, mousey]
+						
+'''						
+	def drawScreenPixel(self):
+		self.gridColours[mousex][mousey]=(gridColours[mousex][mousey][0]-40,0,0)
+		self.pygame.draw.rect(self.screen, gridColours[mousex][mousey], (gridX+mousex*20,gridY+mousey*20,20,20),0) 
+		self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+mousex*20,gridY+mousey*20,20,20),2) 
+
+
+		mouse_click =False #dont know where to put this
+						
+
+
+
 
 	def drawButtons(self):
 		for i in range(2):
@@ -209,17 +234,7 @@ class em:
           	mousex, mousey = event.pos
     		change = True
 '''
-	def waitForScreenPixelPress(self):
-		while True:
-			for event in self.pygame.event.get():
-				if event.type == MOUSEBUTTONUP:
-					if (mousex > gridX and mousex < gridX + gridWidth) and (mousey > gridY and mousey < gridY + gridHeight):
-						mousex -= gridX
-						mousey -= gridY
-	
-						mousex = mousex/20
-						mousey = mousey/20
-						return [mousex, mousey]
+
 	'''		
 
 	def waitForButtonScreenPress(self):
@@ -238,13 +253,6 @@ class em:
 			#previousMouseX = mousex
 			#previousMouseY = mousey
 
-	def drawScreenPixel(self):
-		gridColours[mousex][mousey]=(gridColours[mousex][mousey][0]-40,0,0)
-		self.pygame.draw.rect(screen, gridColours[mousex][mousey], (gridX+mousex*20,gridY+mousey*20,20,20),0) 
-		self.pygame.draw.rect(screen, (0,0,0), (gridX+mousex*20,gridY+mousey*20,20,20),2) 
-
-
-		mouse_click =False #dont know where to put this
 
 
 	#x,y = pygame.mouse.get_pos()
