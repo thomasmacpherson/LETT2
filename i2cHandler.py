@@ -37,7 +37,7 @@ const.CMD_DRAW_ROW_MASK  =   0x2B
 
 const.CMD_SET_BOARD_BG   =   0x2C
 const.CMD_SET_BOARD_SIZE =   0x2D
-const.CMD_MOVE_UNTIl     =   0x2E
+const.CMD_MOVE_UNTIL    =   0x2E
 const.CMD_CLEAR_SPACE     =  0x2F
 
 const.CMD_SET_SPRITE      =  0x30
@@ -46,6 +46,7 @@ const.CMD_CHANGE_SPRITE_COLOUR = 0x32
 const.CMD_CHANGE_SPRITE_SIZE = 0x33
 const.CMD_FLASH_PIXEL     =  0x34
 const.CMD_FLASH_SPRITE    =  0x35
+const.CMD_MOVE_PIECE		= 0x36
 
 
 
