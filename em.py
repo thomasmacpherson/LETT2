@@ -80,7 +80,7 @@ class em:
 		self.setBGColour(200,200,200)
 		self.drawTable()
 		#self.drawButtons()
-		self.drawScreenPixels()
+		#self.drawScreenPixel()
 		self.refreshScreen
 		
 		
