@@ -157,8 +157,8 @@ class em:
 	def drawButtons(self):
 		for i in range(2):
 			for j in range(8):
-				self.pygame.draw.rect(self.screen, gameSelectionColours[i][j], ( modeButtonsX + j*30 , modeButtonsY + i*30 ,20,20),0) 
-				self.pygame.draw.rect(self.screen, (0,0,0), ( modeButtonsX + j*30 , modeButtonsY + i*30 ,20,20),1) 
+				self.pygame.draw.rect(self.screen, const.gameSelectionColours[i][j], ( const.modeButtonsX + j*30 , const.modeButtonsY + i*30 ,20,20),0) 
+				self.pygame.draw.rect(self.screen, (0,0,0), ( const.modeButtonsX + j*30 , const.modeButtonsY + i*30 ,20,20),1) 
 
 	
 	
