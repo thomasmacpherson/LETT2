@@ -86,8 +86,7 @@ class em:
 		self.drawButtons()
 		self.drawBlankScreen()
 		self.refreshScreen()
-		while True:
-			pass
+
 		
 		
 	def screenPrint(self,display):
