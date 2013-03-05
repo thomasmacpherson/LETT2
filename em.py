@@ -75,14 +75,14 @@ class em:
 		#self.qIn = qIn
 		self.pygame = pygame
 		self.pygame.init()
-		#pygame.display.set_caption('LETT Emulator')
+		pygame.display.set_caption('LETT Emulator')
 		self.screen = pygame.display.set_mode((1000,700),0,32)
-		#self.bb = 0, 0,100
-		#self.screen.fill(self.bb)
+
 		self.setBGColour(200,200,0)
-		self.pygame.display.flip()
+
 		
-		#self.drawTable()
+		self.drawTable()
+		self.pygame.display.flip()
 		#self.drawButtons()
 		#self.drawScreenPixel()
 		print "here 1"
@@ -132,7 +132,7 @@ class em:
 
 
 	def setBGColour(self, r, g, b): #call at startup to set the 'table' colour
-		self.backgroundColour = 72,209,0
+		self.backgroundColour = r, g, b
 		self.screen.fill(self.backgroundColour)
 
 
