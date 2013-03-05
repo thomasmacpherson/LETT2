@@ -71,18 +71,21 @@ LCD2Line2= "LCD2 Line 2"
 
 class em:
 	def __init__(self,qOut,qIn):
-		self.qOut = qOut
-		self.qIn = qIn
+		#self.qOut = qOut
+		#self.qIn = qIn
 		self.pygame = pygame
 		self.pygame.init()
-		pygame.display.set_caption('LETT Emulator')
+		#pygame.display.set_caption('LETT Emulator')
 		self.screen = pygame.display.set_mode((1000,700),0,32)
-		self.setBGColour(200,200,0)
+		self.bb = 0, 0,100
+		self.screen.fill(bb)
+		self.pygame.display.flip()
+		#self.setBGColour(200,200,0)
 		#self.drawTable()
 		#self.drawButtons()
 		#self.drawScreenPixel()
 		print "here 1"
-		self.refreshScreen
+		#self.refreshScreen
 		while True:
 			pass
 		
