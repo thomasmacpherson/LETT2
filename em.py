@@ -77,11 +77,12 @@ class em:
 		self.pygame.init()
 		pygame.display.set_caption('LETT Emulator')
 		self.screen = pygame.display.set_mode((1000,700),0,32)
-		self.setBGColour(200,200,200)
+		self.setBGColour(200,200,0)
 		self.drawTable()
 		#self.drawButtons()
 		#self.drawScreenPixel()
 		self.refreshScreen
+		while True:
 		
 		
 	def screenPrint(self,display):
@@ -102,7 +103,7 @@ class em:
 	def refreshScreen(self):
 		#if change:
 			#change = False
-		self.pygame.display.update()
+		#self.pygame.display.update()
 		self.pygame.display.flip()
 	
 	
@@ -125,7 +126,7 @@ class em:
 
 
 	def setBGColour(self, r, g, b): #call at startup to set the 'table' colour
-		self.backgroundColour = (72,209,204)
+		self.backgroundColour = (72,209,0)
 		self.screen.fill(self.backgroundColour)
 
 
