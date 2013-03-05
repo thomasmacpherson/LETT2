@@ -46,7 +46,7 @@ const.modeButtonsY = const.tableY + 25
 const.modeButtonsWidth = 230
 const.modeButtonsHeight = 50
 
-gameSelectionColours = ((const.red,const.turquoise,const.fuchsia,const.olive,const.pink,const.yellow,const.green,const.teal),
+const.gameSelectionColours = ((const.red,const.turquoise,const.fuchsia,const.olive,const.pink,const.yellow,const.green,const.teal),
 			(const.orange,const.blue,const.maroon,const.tan,const.slateblue,const.salmon,const.purple,const.melon))
 
 const.LCD1X = const.tableX + 25
