@@ -84,7 +84,7 @@ class em:
 		self.drawTable()
 		#self.pygame.display.flip()
 		self.drawButtons()
-		self.drawScreenPixel()
+		self.drawBlankScreen()
 		self.refreshScreen()
 		while True:
 			pass
