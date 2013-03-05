@@ -141,10 +141,12 @@ class em:
 		self.pygame.draw.rect(self.screen, (255,255,255),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),0)
 
 	def waitForScreenPixelPress(self):
+		print "waiting for screen pixel press in em"
 		while True:
 			for event in self.pygame.event.get():
 				if event.type == MOUSEBUTTONUP:
 					mousex, mousey = event.pos
+					print mousex
 					
 					if ((mousex > const.gridX) and (mousex < (const.gridX + const.gridWidth))) and ((mousey > const.gridY) and( mousey < (const.gridY + const.gridHeight))):
 						mousex -= const.gridX

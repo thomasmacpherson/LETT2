@@ -50,6 +50,7 @@ class api:
 		pass
 		
 	def waitForInput(self):
+		print "waiting for input in api"
 		return self.emu.waitForScreenPixelPress()
 		
 	def checkForInput(self):
