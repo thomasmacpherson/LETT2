@@ -82,11 +82,10 @@ class em:
 
 		
 		self.drawTable()
-		self.pygame.display.flip()
-		#self.drawButtons()
-		#self.drawScreenPixel()
-		print "here 1"
-		#self.refreshScreen
+		#self.pygame.display.flip()
+		self.drawButtons()
+		self.drawScreenPixel()
+		self.refreshScreen()
 		while True:
 			pass
 		
