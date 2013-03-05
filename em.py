@@ -83,6 +83,7 @@ class em:
 		#self.drawScreenPixel()
 		self.refreshScreen
 		while True:
+			pass
 		
 		
 	def screenPrint(self,display):
