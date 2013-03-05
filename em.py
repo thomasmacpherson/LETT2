@@ -78,7 +78,7 @@ class em:
 		#pygame.display.set_caption('LETT Emulator')
 		self.screen = pygame.display.set_mode((1000,700),0,32)
 		self.bb = 0, 0,100
-		self.screen.fill(bb)
+		self.screen.fill(self.bb)
 		self.pygame.display.flip()
 		#self.setBGColour(200,200,0)
 		#self.drawTable()
