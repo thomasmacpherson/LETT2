@@ -78,9 +78,10 @@ class em:
 		pygame.display.set_caption('LETT Emulator')
 		self.screen = pygame.display.set_mode((1000,700),0,32)
 		self.setBGColour(200,200,0)
-		self.drawTable()
+		#self.drawTable()
 		#self.drawButtons()
 		#self.drawScreenPixel()
+		print "here 1"
 		self.refreshScreen
 		while True:
 			pass
