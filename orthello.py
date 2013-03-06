@@ -2,7 +2,9 @@
 class thisapp():
 
 	def inputReceived(self, args):
-		print "input received"
+		self.move +=1
+		print "input received ", self.move
+		
 		if self.checkInput(args):
 			self.checkForFlips(args[0], args[1])
 	
@@ -37,7 +39,7 @@ class thisapp():
 
 
 	def checkInput(self, args):
-		print "check input"
+		print "check input ", self.move
 		if len(args) == 2:
 			x = args[0]
 			y = args[1]
@@ -60,7 +62,7 @@ class thisapp():
 
 
 	def checkForFlips(self, x, y):
-		print "check for flips"
+		print "check for flips ", self.move
 		xCheck = 1
 		yCheck = 0
 
@@ -79,13 +81,13 @@ class thisapp():
 				#tempY += yCheck
 
 				if self.gridColours[tempX + xCheck][tempY + yCheck] != self.turn and self.gridColours[tempX + xCheck][tempY + yCheck] != 2: #other players colour
-					print "other player found"
+					print "other player found ", self.move
 					tempX += xCheck
 					tempY += yCheck
 					inARowCount +=1
 			
 				elif self.gridColours[tempX + xCheck][tempY + yCheck] == self.turn and inARowCount > 0:
-					print "turning pieces"
+					print "turning pieces ", self.move
 					self.api.setInk(self.playerColours[self.turn][0],self.playerColours[self.turn][1],self.playerColours[self.turn][2],4)
 					self.api.drawLine(x,y,tempX,tempY)
 					self.pieces[self.turn] += inARowCount
@@ -143,7 +145,7 @@ class thisapp():
 				
 	def __init__(self, api):
 		self.api = api
-
+		self.move = 0
 
 		self.pieces = [0,0,0] # player 1, 2 and total pieces
 		self.gridSize = 16
