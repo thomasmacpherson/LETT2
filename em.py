@@ -61,13 +61,9 @@ const.LCDInnerWidth = 130
 const.LCDInnerHeight = 32
 
 
-#font = pygame.font.Font(None, 20)
+font = pygame.font.Font(None, 20)
 
-LCD1Line1= "LCD1 Line 1"
-LCD1Line2= "LCD1 Line 2"
 
-LCD2Line1= "LCD2 Line 1"
-LCD2Line2= "LCD2 Line 2"
 
 
 
@@ -87,11 +83,18 @@ class em:
 
 		self.ink = [[0,0,0],[0,0,0],[0,0,0],[0,0,0]]
 		
+		self.LCD1Line1= "LCD1 Line 1"
+		self.LCD1Line2= "LCD1 Line 2"
+
+		self.LCD2Line1= "LCD2 Line 1"
+		self.LCD2Line2= "LCD2 Line 2"
+		
 		self.drawTable()
 		#self.pygame.display.flip()
 		self.drawButtons()
 		self.drawBlankScreen()
 		self.drawLCDOutline()
+		self.writeLCD(3, "hello")
 		self.refreshScreen()
 
 		
@@ -196,39 +199,36 @@ class em:
 
 
 	def drawLCDOutline(self):
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD1X+9, const.LCD1Y+5,const.LCDOuterWidth,const.LCDOuterHeight),2)
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD1X, const.LCD1Y,const.LCDInnerWidth, const.LCDInnerHeight),1)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD1X, const.LCD1Y,const.LCDOuterWidth,const.LCDOuterHeight),2)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD1X+5, const.LCD1Y+9,const.LCDInnerWidth, const.LCDInnerHeight),1)
 
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD2X+9, const.LCD2Y+5,const.LCDOuterWidth,const.LCDOuterHeight),2)
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD2X, const.LCD2Y,const.LCDInnerWidth, const.LCDInnerHeight),1)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD2X, const.LCD2Y,const.LCDOuterWidth,const.LCDOuterHeight),2)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD2X+5, const.LCD2Y+9,const.LCDInnerWidth, const.LCDInnerHeight),1)
 
 
-'''
+
 	def writeLCD(self, LCD, message):
 		
 		if LCD <2:
 			pass
 		else:
 			
-			#displayLCD1Line1 = font.render(LCD1Line1, 1, (0,0,0))
-			#pygame.transform.rotate(displayLCD1Line1, 90)
-
-			#displayLCD1Line2 = font.render(LCD1Line2, 1, (0,0,0))
-			#displayLCD2Line1 = font.render(LCD2Line1, 1, (0,0,0))
-			#displayLCD2Line2 = font.render(LCD2Line2, 1, (0,0,0))
+			displayLCD1Line1 = font.render(self.LCD1Line1, 1, (0,0,0))
+		
+			displayLCD1Line2 = font.render(self.LCD1Line2, 1, (0,0,0))
+			displayLCD2Line1 = font.render(self.LCD2Line1, 1, (0,0,0))
+			displayLCD2Line2 = font.render(self.LCD2Line2, 1, (0,0,0))
 	
-			#screen.blit(displayLCD1Line1, (LCD1X, LCD1Y))
-			#screen.blit(displayLCD1Line2, (LCD1X, LCD1Y))
-			#screen.blit(displayLCD2Line1, (LCD2X, LCD2Y))
-			#screen.blit(displayLCD2Line2, (LCD2X, LCD2Y))
+			self.screen.blit(displayLCD1Line1, (const.LCD1X, const.LCD1Y))
+			self.screen.blit(displayLCD1Line2, (const.LCD1X, const.LCD1Y))
+			self.screen.blit(displayLCD2Line1, (const.LCD2X, const.LCD2Y))
+			self.screen.blit(displayLCD2Line2, (const.LCD2X, const.LCD2Y))
 			
 
 
-			mouse_click = False
-			change = True
 
 
-
+	'''
 	def waitForControlPress(self):	#physical buttons, must move this as requires optional emulator to be running
 		while True:
 			for event in self.pygame.event.get():
