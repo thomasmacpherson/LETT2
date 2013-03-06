@@ -61,8 +61,9 @@ class thisapp():
 
 	def checkForFlips(self, x, y):
 		print "check for flips"
-		yCheck = 0
 		xCheck = 1
+		yCheck = 0
+
 	
 		while( yCheck !=0 or xCheck !=0):
 			print "xCheck ", xCheck
@@ -118,18 +119,19 @@ class thisapp():
 		
 			elif xCheck == 1 and yCheck == -1:
 				xCheck = -1
+				
+			
+			elif xCheck == -1 and yCheck == -1:
 				yCheck = 1
 			
 			elif xCheck == -1 and yCheck == 1:
-				yCheck = -1
-			
-			elif xCheck == -1 and yCheck == -1:
 				xCheck = 1
-				yCheck = 1
+			
 				
 			elif xCheck == 1 and yCheck == 1: # fall out clause
 				xCheck = 0
 				yCheck = 0
+			
 			
 			
 			
