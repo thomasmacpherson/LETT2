@@ -50,12 +50,13 @@ class thisapp():
 				return False
 			
 			else:
+				self.turn = not self.turn
 				self.api.setInk(self.playerColours[self.turn][0],self.playerColours[self.turn][1],self.playerColours[self.turn][2],4)
 				self.api.drawPixel(x,y)
 				self.gridColours[x][y] = self.turn
 				self.pieces[self.turn] +=1
 				self.pieces[2] +=1
-				self.turn = not self.turn
+				
 			
 				return True
 
@@ -153,7 +154,7 @@ class thisapp():
 		self.totalGamePlaces = self.gridSize * self.gridSize
 		self.turnPrint = ("Opponent's turn", "Your turn")
 		self.winPrint = ("You won", "You lost", "It was a draw")
-		self.playerColours = ((255,0,0),(0,255,0))
+		self.playerColours = ((255,0,0),(0,0,200))
 
 		self.turn = True # player1's turn first
 

@@ -31,10 +31,14 @@ class api:
 		self.i2chandler = i2cHandler.handler(self.qOut)
 		self.emulated = emulated
 		
+
+		
 		if emulated:
 			import em
 			self.qOutEmulated = Queue.Queue(maxsize=0)
 			self.emu = em.em(self.qOutEmulated, self.qIn)
+			self.ink = [[0,0,0],[0,0,0],[0,0,0],[0,0,0]]
+
 
 	def printsomething(self):
 		print "something"
@@ -75,6 +79,18 @@ class api:
 		
 		
 	def setInk(self, r, g, b, grid):
+		if self.emulated:
+			if grid >= 4:
+				for i in range(0,4):
+					self.ink[i][0] = r
+					self.ink[i][1] = g
+					self.ink[i][2] = b				
+				
+			else
+				self.ink[grid][0] = r
+				self.ink[grid][1] = g
+				self.ink[grid][2] = b
+				
 		if grid >= 4:
 			self.i2chandler.setInk(RDsAdrs[0][0], r, g, b)
 			self.i2chandler.setInk(RDsAdrs[0][1], r, g, b)
@@ -86,8 +102,10 @@ class api:
 		
 	def drawPixel(self, x, y):
 		self.i2chandler.drawPixel(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res)
-		#if self.emulated:
-		#	self.em.drawPixel(x,y)
+		
+		if self.emulated:
+			self.em.drawPixel(x,y)
+
 		
 		
 		
