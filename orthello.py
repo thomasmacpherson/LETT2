@@ -84,7 +84,7 @@ class thisapp():
 				elif self.gridColours[tempX + xCheck][tempY + yCheck] == self.turn and inARowCount > 0:
 					self.api.setInk(self.playerColours[self.turn][0],self.playerColours[self.turn][1],self.playerColours[self.turn][2],4)
 					self.api.drawLine(x,y,tempX,tempY)
-					self.pieces[turn] += inARowCount
+					self.pieces[self.turn] += inARowCount
 					newTempx = x
 					newTempy = y
 					
