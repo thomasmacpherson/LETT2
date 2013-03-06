@@ -71,17 +71,21 @@ class thisapp():
 			tempY = y
 			tempX = x
 			inARowCount = 0
+			checkDirection = 0
 	
 			while 0 <= (tempX + xCheck) < self.gridSize and 0 <= (tempY + yCheck) < self.gridSize:
+				print checkDirection 
 				#tempX += xCheck
 				#tempY += yCheck
 
 				if self.gridColours[tempX + xCheck][tempY + yCheck] != self.turn and self.gridColours[tempX + xCheck][tempY + yCheck] != 2: #other players colour
+					print "other player found"
 					tempX += xCheck
 					tempY += yCheck
 					inARowCount +=1
 			
 				elif self.gridColours[tempX + xCheck][tempY + yCheck] == self.turn and inARowCount > 0:
+					print "turning pieces"
 					self.api.setInk(self.playerColours[self.turn][0],self.playerColours[self.turn][1],self.playerColours[self.turn][2],4)
 					self.api.drawLine(x,y,tempX,tempY)
 					self.pieces[self.turn] += inARowCount
@@ -99,7 +103,7 @@ class thisapp():
 				
 				else:
 					break # end of this players colours in this line direction
-
+			checkDirction +=1
 
 
 			# switching through all the possible directions
