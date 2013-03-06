@@ -37,7 +37,7 @@ class thisapp():
 
 
 	def checkInput(self, args):
-		if args.length == 2:
+		if len(args) == 2:
 		
 			if self.gridColours[x][y] != 2:
 				#self.api.printLCD(!turn, 1, "Can't go there", 2)	#only displayed for 2 seconds
