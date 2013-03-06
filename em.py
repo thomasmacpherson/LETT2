@@ -178,7 +178,7 @@ class em:
 						
 	def drawPixel(self, x, y, grid):
 		
-		self.gridColours[x][y]=(ink[grid])
+		self.gridColours[x][y]=(self.ink[grid])
 		self.pygame.draw.rect(self.screen, gridColours[x][y], (x+mousex*20,y+mousey*20,20,20),0) 
 		self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+x*20,gridY+y*20,20,20),2) 
 
