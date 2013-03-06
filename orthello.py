@@ -5,13 +5,12 @@ class thisapp():
 		if self.checkInput(args):
 			self.checkForFlips(args[0], args[1])
 	
-		if pieces[2] >= self.totalGamePlaces:
+		if self.pieces[2] >= self.totalGamePlaces:
 			pass#self.gameOver()
 			
 			
 		#self.api.printLCD(0,1,turnPrint1[turn],0) # player, line, message, time (0 stay until overridden)
 		#self.api.printLCD(1,1,turnPrint2[!turn],0)
-		self.turn = not self.turn
 		self.inputReceived(self.api.waitForInput())			
 			
 			
@@ -50,6 +49,8 @@ class thisapp():
 				self.api.setInk(self.playerColours[self.turn][0],self.playerColours[self.turn][1],self.playerColours[self.turn][2],4)
 				self.api.drawPixel(x,y)
 				self.gridColours[x][y] = self.turn
+				
+				self.turn = not self.turn
 			
 				return True
 
@@ -63,27 +64,44 @@ class thisapp():
 		while( yCheck !=0 or xCheck !=0):
 			tempY = y
 			tempX = x
-		
+			inARowCount = 0
 	
-			while 0 <= tempX + xCheck < self.gridSize and 0 <= tempY + yCheck < self.gridSize:
-				tempX += xCheck
-				tempY += yCheck
+			while 0 <= (tempX + xCheck) < self.gridSize and 0 <= (tempY + yCheck) < self.gridSize:
+				#tempX += xCheck
+				#tempY += yCheck
 
-				if self.gridColours[tempX + xCheck][tempY + yCheck] != turn and self.gridColours[tempX + xCheck][tempY + yCheck] != 2: #other players colour
+				if self.gridColours[tempX + xCheck][tempY + yCheck] != self.turn and self.gridColours[tempX + xCheck][tempY + yCheck] != 2: #other players colour
 					tempX += xCheck
 					tempY += yCheck
+					inARowCount +=1
 			
+				elif self.gridColours[tempX + xCheck][tempY + yCheck] == self.turn and inARowCount > 0:
+					self.api.setInk(self.playerColours[self.turn][0],self.playerColours[self.turn][1],self.playerColours[self.turn][2],4)
+					self.api.drawLine(x,y,tempX,tempY)
+					self.pieces[turn] += inARowCount
+					newTempx = x
+					newTempy = y
+					
+					while newTempx != tempX and newTempy != tempY:
+						newTempx += xCheck
+						newTempy += yCheck
+						
+						self.gridColours[newTempx][newTempy] = self.turn
+					break
+					
+					
+				
 				else:
 					break # end of this players colours in this line direction
-		
-#use draw line 
-		# replace with switch statement equivalent (dictionary) 
-		
+
+
+
+			# switching through all the possible directions
+			
 			if xCheck == 1 and yCheck == 0:
 				xCheck == -1
 			
 			elif xCheck == -1 and yCheck == 0:
-				inARowcount = 1
 				xCheck = 0
 				yCheck = 1
 		
@@ -91,7 +109,6 @@ class thisapp():
 				yCheck = -1
 			
 			elif xCheck == 0 and yCheck == -1:
-				inARowCount = 1
 				xCheck = 1
 		
 			elif xCheck == 1 and yCheck == -1:
@@ -99,12 +116,15 @@ class thisapp():
 				yCheck = 1
 			
 			elif xCheck == -1 and yCheck == 1:
-				inARowCount = 1
 				yCheck = -1
 			
 			elif xCheck == -1 and yCheck == -1:
 				xCheck = 1
 				yCheck = 1
+				
+			elif xCheck == 1 and yCheck == 1: # fall out clause
+				xCheck = 0
+				yCheck = 0
 			
 			
 			
