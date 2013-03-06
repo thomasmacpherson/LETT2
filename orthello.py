@@ -97,6 +97,12 @@ class thisapp():
 					newTempx = x
 					newTempy = y
 					
+					print "new temp x ",newTempx
+					print "new temp y ", newTempy
+					print "temp x ", tempX
+					print "temp y ", tempY
+					
+					
 					while newTempx != tempX and newTempy != tempY:
 						print "turning"
 						newTempx += xCheck
