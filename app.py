@@ -41,6 +41,7 @@ class thisapp:
 				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 
 
+
 		while True:
 			list = self.api.waitForInput()
 			print list
