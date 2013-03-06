@@ -80,6 +80,7 @@ class em:
 
 		self.setBGColour(200,200,0)
 
+		self.ink = [[0,0,0],[0,0,0],[0,0,0],[0,0,0]]
 		
 		self.drawTable()
 		#self.pygame.display.flip()
@@ -133,8 +134,18 @@ class em:
 		self.backgroundColour = r, g, b
 		self.screen.fill(self.backgroundColour)
 
-
-
+	def setInk(self, r, g, b, grid):
+		if grid >= 4:
+			for i in range(0,4):
+				self.ink[i][0]=r
+				self.ink[i][1]=g
+				self.ink[i][2]=b
+		else:
+			self.ink[grid][0]=r
+			self.ink[grid][1]=g
+			self.ink[grid][2]=b
+			
+			
 	def drawTable(self):
 		self.pygame.draw.rect(self.screen, (0,0,0),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),4)
 		self.pygame.draw.rect(self.screen, (255,255,255),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),0)
@@ -164,18 +175,19 @@ class em:
 	
 	
 						
-	'''						
-	def drawScreenPixel(self):
-		self.gridColours[mousex][mousey]=(gridColours[mousex][mousey][0]-40,0,0)
-		self.pygame.draw.rect(self.screen, gridColours[mousex][mousey], (gridX+mousex*20,gridY+mousey*20,20,20),0) 
-		self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+mousex*20,gridY+mousey*20,20,20),2) 
+						
+	def drawPixel(self, x, y, grid):
+		
+		self.gridColours[x][y]=(ink[grid])
+		self.pygame.draw.rect(self.screen, gridColours[x][y], (x+mousex*20,y+mousey*20,20,20),0) 
+		self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+x*20,gridY+y*20,20,20),2) 
 
 
 		mouse_click =False #dont know where to put this
 						
 
 
-
+	'''
 
 
 	def drawLCDOutline(self):
