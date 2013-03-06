@@ -76,7 +76,11 @@ class api:
 			else:
 				pass
 
-		
+	def writeToLCD(self, LCD, message):
+		if emulated:
+			self.emu.writeLCD(LCD, message)
+			
+					
 		
 	def setInk(self, r, g, b, grid):
 		if self.emulated:
@@ -374,7 +378,5 @@ def restrictedTo(list, number):
 		
 		
 
-	def writeToLCD(self, LCD, message):
-		if emulated:
-			self.emu.writeLCD(LCD, message)
+
 		
