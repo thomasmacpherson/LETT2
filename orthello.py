@@ -5,7 +5,7 @@ class thisapp():
 		if self.checkInput(args):
 			self.checkForFlips(args[0], args[1])
 	
-		if pieces[2] >= totalGamePlaces:
+		if pieces[2] >= self.totalGamePlaces:
 			pass#self.gameOver()
 			
 			
@@ -17,7 +17,7 @@ class thisapp():
 			
 			
 	def gameOver():
-		if self.pieces[0] > self/pieces[1]:
+		if self.pieces[0] > self.pieces[1]:
 			#printLCD(0,1, winPrint[0], 0)
 			#printLCD(1,1, winPrint[1], 0)
 			pass
@@ -38,7 +38,9 @@ class thisapp():
 
 	def checkInput(self, args):
 		if len(args) == 2:
-		
+			x = args[0]
+			y = args[1]
+			
 			if self.gridColours[x][y] != 2:
 				#self.api.printLCD(!turn, 1, "Can't go there", 2)	#only displayed for 2 seconds
 				#self.api.flashPixel(x, y, Red, 2)
