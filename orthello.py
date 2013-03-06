@@ -13,7 +13,7 @@ class thisapp():
 			
 			
 		self.api.writeToLCD(0,turnPrint1[turn]) # player, line, message, time (0 stay until overridden)
-		self.api.writeToLCD(2,turnPrint2[!turn])
+		self.api.writeToLCD(2,turnPrint2[not turn])
 		self.inputReceived(self.api.waitForInput())			
 			
 			
