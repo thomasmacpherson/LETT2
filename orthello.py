@@ -134,7 +134,7 @@ class thisapp():
 			inARowCount = 1
 			yCheck = -1
 			
-		else if xCheck == -1 and yCheck == -1:
+		elif xCheck == -1 and yCheck == -1:
 			xCheck = 1
 			yCheck = 1
 
