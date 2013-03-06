@@ -86,7 +86,7 @@ class api:
 					self.ink[i][1] = g
 					self.ink[i][2] = b				
 				
-			else
+			else:
 				self.ink[grid][0] = r
 				self.ink[grid][1] = g
 				self.ink[grid][2] = b
