@@ -196,11 +196,11 @@ class em:
 
 
 	def drawLCDOutline(self):
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD1X, const.LCD1Y,const.LCDOuterWidth,const.LCDOuterHeight),2)
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD1X+9, const.LCD1Y+5,const.LCDInnerWidth, const.LCDInnerHeight),1)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD1X+9, const.LCD1Y+5,const.LCDOuterWidth,const.LCDOuterHeight),2)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD1X, const.LCD1Y,const.LCDInnerWidth, const.LCDInnerHeight),1)
 
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD2X, const.LCD2Y,const.LCDOuterWidth,const.LCDOuterHeight),2)
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD2X+9, const.LCD2Y+5,const.LCDInnerWidth, const.LCDInnerHeight),1)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD2X+9, const.LCD2Y+5,const.LCDOuterWidth,const.LCDOuterHeight),2)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD2X, const.LCD2Y,const.LCDInnerWidth, const.LCDInnerHeight),1)
 
 
 '''
