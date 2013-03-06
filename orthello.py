@@ -2,6 +2,7 @@
 class thisapp():
 
 	def inputReceived(self, args):
+		print "input received"
 		if self.checkInput(args):
 			self.checkForFlips(args[0], args[1])
 	
@@ -36,6 +37,7 @@ class thisapp():
 
 
 	def checkInput(self, args):
+		print "check input"
 		if len(args) == 2:
 			x = args[0]
 			y = args[1]
@@ -49,7 +51,8 @@ class thisapp():
 				self.api.setInk(self.playerColours[self.turn][0],self.playerColours[self.turn][1],self.playerColours[self.turn][2],4)
 				self.api.drawPixel(x,y)
 				self.gridColours[x][y] = self.turn
-				
+				self.pieces[self.turn] +=1
+				self.pices[2] +=1
 				self.turn = not self.turn
 			
 				return True
@@ -57,11 +60,13 @@ class thisapp():
 
 
 	def checkForFlips(self, x, y):
-
+		print "check for flips"
 		yCheck = 0
 		xCheck = 1
 	
 		while( yCheck !=0 or xCheck !=0):
+			print "xCheck ", xCheck
+			print "yCheck ", yCheck
 			tempY = y
 			tempX = x
 			inARowCount = 0
