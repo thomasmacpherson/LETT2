@@ -47,9 +47,9 @@ class thisapp():
 				return False
 			
 			else:
-				self.api.setInk(self.playerColours[turn],4)
+				self.api.setInk(self.playerColours[self.turn],4)
 				self.api.drawPixel(x,y)
-				self.gridColours[x][y] = turn
+				self.gridColours[x][y] = self.turn
 			
 				return True
 
