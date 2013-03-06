@@ -9,14 +9,15 @@ gridSize = 16
 class thisapp:
 	
 	def inputReceived(self, list):
-		oldColour = self.colourGrid[list[0]][[list[1]]
-		print oldColour
+		x = list[0]
+		y = list[1]
+		oldColour = self.colourGrid[x][y]
 		newColour = (oldColour + 1 )% 11
 		
-		self.colourGrid[list[0]][list[1]] = newColour
+		self.colourGrid[x][y] = newColour
 		inkColours = colours[newColour]
 		self.api.setInk(inkColours[0], inkColours[1], inkColours[2],4)
-		self.api.drawPixel(list[0],list[1])
+		self.api.drawPixel(x,y)
 	
 		
 	def __init__(self, api):
