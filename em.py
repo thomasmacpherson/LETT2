@@ -214,11 +214,11 @@ class em:
 			pass
 		else:
 			
-			displayLCD1Line1 = font.render(self.LCD1Line1, 1, (0,0,0))
+			displayLCD1Line1 = self.font.render(self.LCD1Line1, 1, (0,0,0))
 		
-			displayLCD1Line2 = font.render(self.LCD1Line2, 1, (0,0,0))
-			displayLCD2Line1 = font.render(self.LCD2Line1, 1, (0,0,0))
-			displayLCD2Line2 = font.render(self.LCD2Line2, 1, (0,0,0))
+			displayLCD1Line2 = self.font.render(self.LCD1Line2, 1, (0,0,0))
+			displayLCD2Line1 = self.font.render(self.LCD2Line1, 1, (0,0,0))
+			displayLCD2Line2 = self.font.render(self.LCD2Line2, 1, (0,0,0))
 	
 			self.screen.blit(displayLCD1Line1, (const.LCD1X, const.LCD1Y))
 			self.screen.blit(displayLCD1Line2, (const.LCD1X, const.LCD1Y))
