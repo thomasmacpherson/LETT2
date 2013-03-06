@@ -12,8 +12,8 @@ class thisapp():
 			pass#self.gameOver()
 			
 			
-		self.api.writeToLCD(0,turnPrint1[turn]) # player, line, message, time (0 stay until overridden)
-		self.api.writeToLCD(2,turnPrint2[not turn])
+		self.api.writeToLCD(0,self.turnPrint[turn]) # player, line, message, time (0 stay until overridden)
+		self.api.writeToLCD(2,self.turnPrint[not turn])
 		self.inputReceived(self.api.waitForInput())			
 			
 			
@@ -167,6 +167,10 @@ class thisapp():
 
 		self.turn = True # player1's turn first
 
+
+		self.api.writeToLCD(0,self.turnPrint[turn]) # player, line, message, time (0 stay until overridden)
+		self.api.writeToLCD(2,self.turnPrint[not turn])
+		
 		self.gridColours = [[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
 							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
 							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
