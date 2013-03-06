@@ -12,8 +12,8 @@ class thisapp():
 			pass#self.gameOver()
 			
 			
-		#self.api.printLCD(0,1,turnPrint1[turn],0) # player, line, message, time (0 stay until overridden)
-		#self.api.printLCD(1,1,turnPrint2[!turn],0)
+		self.api.writeToLCD(0,turnPrint1[turn]) # player, line, message, time (0 stay until overridden)
+		self.api.writeToLCD(2,turnPrint2[!turn])
 		self.inputReceived(self.api.waitForInput())			
 			
 			

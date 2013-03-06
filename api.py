@@ -358,11 +358,6 @@ class api:
 			newX1 = (7 - constant) / gradient
 			newX2 = (8 - constant) / gradient
 		
-							
-		
-		
-		
-		
 		
 def restrictedTo(list, number):
 	first = list.pop()
@@ -377,19 +372,9 @@ def restrictedTo(list, number):
 	else:
 		return 1
 		
-
 		
 
-
-
-		
-
-		
-		
-'''	
 	def writeToLCD(self, LCD, message):
 		if emulated:
-			self.emu.writeToLCD(LCD, message)
+			self.emu.writeLCD(LCD, message)
 		
-	
-'''
