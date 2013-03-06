@@ -103,7 +103,7 @@ class thisapp():
 				
 				else:
 					break # end of this players colours in this line direction
-			checkDirction +=1
+			checkDirection +=1
 
 
 			# switching through all the possible directions
