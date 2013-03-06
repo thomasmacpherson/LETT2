@@ -61,7 +61,7 @@ const.LCDInnerWidth = 130
 const.LCDInnerHeight = 32
 
 
-font = pygame.font.Font(None, 20)
+
 
 
 
@@ -79,6 +79,7 @@ class em:
 		pygame.display.set_caption('LETT Emulator')
 		self.screen = pygame.display.set_mode((1000,700),0,32)
 
+		self.font = pygame.font.Font(None, 20)
 		self.setBGColour(200,200,0)
 
 		self.ink = [[0,0,0],[0,0,0],[0,0,0],[0,0,0]]
