@@ -86,6 +86,8 @@ class api:
 		
 	def drawPixel(self, x, y):
 		self.i2chandler.drawPixel(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res)
+		#if self.emulated:
+		#	self.em.drawPixel(x,y)
 		
 		
 		
