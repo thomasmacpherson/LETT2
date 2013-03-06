@@ -13,9 +13,27 @@ class thisapp():
 		self.playerColours = ((0,0,0),(255,255,255))
 
 		self.turn = True # player1's turn first
-		self.gridColours
+
+		self.gridColours = [[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]]
+
 		
 		self.inputReceieved(self.api.waitForInput())
+
 
 	def inputReceived(self, args):
 		if self.checkInput(args):
@@ -83,7 +101,7 @@ class thisapp():
 				tempX += xCheck
 				tempY += yCheck
 
-				if self.gridColours[tempX + xCheck][tempY + yCheck] == not turn: #other players colour
+				if self.gridColours[tempX + xCheck][tempY + yCheck] != turn and self.gridColours[tempX + xCheck][tempY + yCheck] != 2: #other players colour
 					tempX += xCheck
 					tempY += yCheck
 			
