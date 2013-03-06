@@ -40,14 +40,14 @@ const.gridHeight = 20 * 16
 
 
 
-const.modeButtonsX = const.tableX + 145
-const.modeButtonsY = const.tableY + 25
+const.modeButtonsX = const.tableX + 25
+const.modeButtonsY = const.tableY + 145
 
-const.modeButtonsWidth = 230
-const.modeButtonsHeight = 50
+const.modeButtonsWidth = 50
+const.modeButtonsHeight = 230
 
-const.gameSelectionColours = ((const.red,const.turquoise,const.fuchsia,const.olive,const.pink,const.yellow,const.green,const.teal),
-			(const.orange,const.blue,const.maroon,const.tan,const.slateblue,const.salmon,const.purple,const.melon))
+const.gameSelectionColours = ((const.red,const.turquoise),(const.fuchsia,const.olive),(const.pink,const.yellow),(const.green,const.teal),
+			(const.orange,const.blue),(const.maroon,const.tan),(const.slateblue,const.salmon),(const.purple,const.melon))
 
 const.LCD1X = const.tableX + 25
 const.LCD1Y = const.tableX + 190
@@ -167,8 +167,8 @@ class em:
 						return [mousex, mousey]
 	
 	def drawButtons(self):
-		for i in range(2):
-			for j in range(8):
+		for i in range(8):
+			for j in range(2):
 				self.pygame.draw.rect(self.screen, const.gameSelectionColours[i][j], ( const.modeButtonsX + j*30 , const.modeButtonsY + i*30 ,20,20),0) 
 				self.pygame.draw.rect(self.screen, (0,0,0), ( const.modeButtonsX + j*30 , const.modeButtonsY + i*30 ,20,20),1) 
 
