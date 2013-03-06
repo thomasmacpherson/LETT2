@@ -140,7 +140,7 @@ class thisapp():
 							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]]
 
 		
-		self.inputReceieved(self.api.waitForInput())
+		self.inputReceived(self.api.waitForInput())
 
 
 
