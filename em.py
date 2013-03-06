@@ -181,9 +181,8 @@ class em:
 		self.gridColours[x][y]=(self.ink[grid])
 		self.pygame.draw.rect(self.screen, self.gridColours[x][y], (const.gridX+x*20,const.gridY+y*20,20,20),0) 
 		self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+x*20,const.gridY+y*20,20,20),2) 
+		self.refreshScreen()
 
-
-		mouse_click =False #dont know where to put this
 						
 
 
