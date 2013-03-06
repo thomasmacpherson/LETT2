@@ -52,7 +52,7 @@ const.gameSelectionColours = ((const.red,const.turquoise),(const.fuchsia,const.o
 const.LCDX = const.tableX + 190
 const.LCDY = [const.tableX + 25, const.tableY + 445]
 
-const.LCDXtext = const.LCD1X + 9
+const.LCDXtext = const.LCDX + 9
 const.LCDYtext = [[const.LCDY[0] + 11,const.LCDY[0] + 25],[const.LCDY[1] + 11, const.LCDY[1] + 25]]
 
 
