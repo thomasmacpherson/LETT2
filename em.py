@@ -55,6 +55,16 @@ const.LCD1Y = const.tableX + 25
 const.LCD2X = const.tableX + 190
 const.LCD2Y = const.tableY + 445
 
+
+const.LCD1Xtext = const.LCD1X + 10
+const.LCD2Xtext = const.LCD2X + 20
+
+const.LCD1YtextLine1 = const.LCD1Y + 20
+const.LCD1YtextLine2 = const.LCD1Y + 40
+const.LCD2YtextLine1 = const.LCD2Y + 30
+const.LCD2YtextLine2 = const.LCD2Y + 60
+
+
 const.LCDOuterWidth = 140
 const.LCDOuterHeight = 50
 const.LCDInnerWidth = 130
@@ -220,10 +230,10 @@ class em:
 			displayLCD2Line1 = self.font.render(self.LCD2Line1, 1, (0,0,0))
 			displayLCD2Line2 = self.font.render(self.LCD2Line2, 1, (0,0,0))
 	
-			self.screen.blit(displayLCD1Line1, (const.LCD1X, const.LCD1Y))
-			self.screen.blit(displayLCD1Line2, (const.LCD1X, const.LCD1Y))
-			self.screen.blit(displayLCD2Line1, (const.LCD2X, const.LCD2Y))
-			self.screen.blit(displayLCD2Line2, (const.LCD2X, const.LCD2Y))
+			self.screen.blit(displayLCD1Line1, (const.LCD1Xtext, const.LCD1YtextLine1))
+			self.screen.blit(displayLCD1Line2, (const.LCD1Xtext, const.LCD1YtextLine2))
+			self.screen.blit(displayLCD2Line1, (const.LCD2Xtext, const.LCD2YtextLine1))
+			self.screen.blit(displayLCD2Line2, (const.LCD2Xtext, const.LCD2YtextLine2))
 			
 
 
