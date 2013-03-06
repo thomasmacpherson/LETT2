@@ -7,7 +7,7 @@ class thisapp():
 		self.pieces = (0,0,0) # player 1, 2 and total pieces
 		self.gridSize = 16
 
-		self.totalGamePlaces = gridSize * gridSize
+		self.totalGamePlaces = self.gridSize * self.gridSize
 		self.turnPrint = ("Opponent's turn", "Your turn")
 		self.winPrint = ("You won", "You lost", "It was a draw")
 		self.playerColours = ((0,0,0),(255,255,255))
@@ -51,12 +51,12 @@ class thisapp():
 			
 			
 	def gameOver():
-		if pieces[0] > pieces[1]:
+		if self.pieces[0] > self/pieces[1]:
 			#printLCD(0,1, winPrint[0], 0)
 			#printLCD(1,1, winPrint[1], 0)
 			pass
 
-		elif pieces[1] > pieces[0]:
+		elif self.pieces[1] > self.pieces[0]:
 			#printLCD(0,1, winPrint[1], 0)
 			#printLCD(1,1, winPrint[0], 0)	
 			pass
@@ -97,7 +97,7 @@ class thisapp():
 			tempX = x
 		
 	
-			while 0 <= tempX + xCheck < gridSize and 0 <= tempY + yCheck < gridSize:
+			while 0 <= tempX + xCheck < self.gridSize and 0 <= tempY + yCheck < self.gridSize:
 				tempX += xCheck
 				tempY += yCheck
 
@@ -105,36 +105,36 @@ class thisapp():
 					tempX += xCheck
 					tempY += yCheck
 			
-			else:
-				break # end of this players colours in this line direction
+				else:
+					break # end of this players colours in this line direction
 		
 #use draw line 
 		# replace with switch statement equivalent (dictionary) 
 		
-		if xCheck == 1 and yCheck == 0:
-			xCheck == -1
+			if xCheck == 1 and yCheck == 0:
+				xCheck == -1
 			
-		elif xCheck == -1 and yCheck == 0:
-			inARowcount = 1
-			xCheck = 0
-			yCheck = 1
+			elif xCheck == -1 and yCheck == 0:
+				inARowcount = 1
+				xCheck = 0
+				yCheck = 1
 		
-		elif xCheck == 0 and yCheck == 1:
-			yCheck = -1
+			elif xCheck == 0 and yCheck == 1:
+				yCheck = -1
 			
-		elif xCheck == 0 and yCheck == -1:
-			inARowCount = 1
-			xCheck = 1
+			elif xCheck == 0 and yCheck == -1:
+				inARowCount = 1
+				xCheck = 1
 		
-		elif xCheck == 1 and yCheck == -1:
-			xCheck = -1
-			yCheck = 1
+			elif xCheck == 1 and yCheck == -1:
+				xCheck = -1
+				yCheck = 1
 			
-		elif xCheck == -1 and yCheck == 1:
-			inARowCount = 1
-			yCheck = -1
+			elif xCheck == -1 and yCheck == 1:
+				inARowCount = 1
+				yCheck = -1
 			
-		elif xCheck == -1 and yCheck == -1:
-			xCheck = 1
-			yCheck = 1
+			elif xCheck == -1 and yCheck == -1:
+				xCheck = 1
+				yCheck = 1
 
