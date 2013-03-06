@@ -57,12 +57,12 @@ const.LCD2Y = const.tableY + 445
 
 
 const.LCD1Xtext = const.LCD1X + 10
-const.LCD2Xtext = const.LCD2X + 20
+const.LCD2Xtext = const.LCD2X + 10
 
-const.LCD1YtextLine1 = const.LCD1Y + 20
-const.LCD1YtextLine2 = const.LCD1Y + 40
-const.LCD2YtextLine1 = const.LCD2Y + 30
-const.LCD2YtextLine2 = const.LCD2Y + 60
+const.LCD1YtextLine1 = const.LCD1Y + 10
+const.LCD1YtextLine2 = const.LCD1Y + 23
+const.LCD2YtextLine1 = const.LCD2Y + 10
+const.LCD2YtextLine2 = const.LCD2Y + 23
 
 
 const.LCDOuterWidth = 140
@@ -89,7 +89,7 @@ class em:
 		pygame.display.set_caption('LETT Emulator')
 		self.screen = pygame.display.set_mode((1000,700),0,32)
 
-		self.font = pygame.font.Font(None, 20)
+		self.font = pygame.font.Font(None, 16)
 		self.setBGColour(200,200,0)
 
 		self.ink = [[0,0,0],[0,0,0],[0,0,0],[0,0,0]]
@@ -98,7 +98,7 @@ class em:
 		self.LCD1Line2= "LCD1 Line 2"
 
 		self.LCD2Line1= "LCD2 Line 1"
-		self.LCD2Line2= "LCD2 Line 2"
+		self.LCD2Line2= "1234567890123456"
 		
 		self.drawTable()
 		#self.pygame.display.flip()
