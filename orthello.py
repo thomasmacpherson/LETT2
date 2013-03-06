@@ -139,7 +139,7 @@ class thisapp():
 		self.api = api
 
 
-		self.pieces = (0,0,0) # player 1, 2 and total pieces
+		self.pieces = [0,0,0] # player 1, 2 and total pieces
 		self.gridSize = 16
 
 		self.totalGamePlaces = self.gridSize * self.gridSize
