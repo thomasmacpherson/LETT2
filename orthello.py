@@ -55,7 +55,7 @@ class thisapp():
 
 
 
-	def checkForFlips(x, y):
+	def checkForFlips(self, x, y):
 
 		yCheck = 0
 		xCheck = 1
