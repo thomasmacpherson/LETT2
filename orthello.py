@@ -105,7 +105,7 @@ class thisapp():
 			# switching through all the possible directions
 			
 			if xCheck == 1 and yCheck == 0:
-				xCheck == -1
+				xCheck = -1
 			
 			elif xCheck == -1 and yCheck == 0:
 				xCheck = 0
