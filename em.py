@@ -49,11 +49,16 @@ const.modeButtonsHeight = 230
 const.gameSelectionColours = ((const.red,const.turquoise),(const.fuchsia,const.olive),(const.pink,const.yellow),(const.green,const.teal),
 			(const.orange,const.blue),(const.maroon,const.tan),(const.slateblue,const.salmon),(const.purple,const.melon))
 
-const.LCD1X = const.tableX + 25
-const.LCD1Y = const.tableX + 190
+const.LCD1X = const.tableX + 190
+const.LCD1Y = const.tableX + 25
 
-const.LCD2X = const.tableX + 445
-const.LCD2Y = const.tableY + 190
+const.LCD2X = const.tableX + 190
+const.LCD2Y = const.tableY + 445
+
+const.LCDOuterWidth = 140
+const.LCDOuterHeight = 50
+const.LCDInnerWidth = 130
+const.LCDInnerHeight = 32
 
 
 #font = pygame.font.Font(None, 20)
@@ -86,6 +91,7 @@ class em:
 		#self.pygame.display.flip()
 		self.drawButtons()
 		self.drawBlankScreen()
+		self.drawLCDOutline()
 		self.refreshScreen()
 
 		
@@ -186,18 +192,18 @@ class em:
 						
 
 
-	'''
+
 
 
 	def drawLCDOutline(self):
-		self.pygame.draw.rect(screen, (0,0,0),(LCD1X, LCD1Y,50,140),2)
-		self.pygame.draw.rect(screen, (0,0,0),(LCD1X+9, LCD1Y+5,32,130),1)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD1X, const.LCD1Y,const.LCDOuterWidth,const.LCDOuterHeight),2)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD1X+9, const.LCD1Y+5,const.LCDInnerWidth, const.LCDInnerHeight),1)
 
-		self.pygame.draw.rect(screen, (0,0,0),(LCD2X, LCD2Y,50,140),2)
-		self.pygame.draw.rect(screen, (0,0,0),(LCD2X+9, LCD2Y+5,32,130),1)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD2X, const.LCD2Y,const.LCDOuterWidth,const.LCDOuterHeight),2)
+		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCD2X+9, const.LCD2Y+5,const.LCDInnerWidth, const.LCDInnerHeight),1)
 
 
-
+'''
 	def writeLCD(self, LCD, message):
 		
 		if LCD <2:
