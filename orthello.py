@@ -1,39 +1,5 @@
 
 class thisapp():
-	def __init__(self, api):
-		self.api = api
-
-
-		self.pieces = (0,0,0) # player 1, 2 and total pieces
-		self.gridSize = 16
-
-		self.totalGamePlaces = self.gridSize * self.gridSize
-		self.turnPrint = ("Opponent's turn", "Your turn")
-		self.winPrint = ("You won", "You lost", "It was a draw")
-		self.playerColours = ((0,0,0),(255,255,255))
-
-		self.turn = True # player1's turn first
-
-		self.gridColours = [[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]]
-
-		
-		self.inputReceieved(self.api.waitForInput())
-
 
 	def inputReceived(self, args):
 		if self.checkInput(args):
@@ -137,4 +103,44 @@ class thisapp():
 			elif xCheck == -1 and yCheck == -1:
 				xCheck = 1
 				yCheck = 1
+			
+			
+			
+				
+				
+	def __init__(self, api):
+		self.api = api
+
+
+		self.pieces = (0,0,0) # player 1, 2 and total pieces
+		self.gridSize = 16
+
+		self.totalGamePlaces = self.gridSize * self.gridSize
+		self.turnPrint = ("Opponent's turn", "Your turn")
+		self.winPrint = ("You won", "You lost", "It was a draw")
+		self.playerColours = ((0,0,0),(255,255,255))
+
+		self.turn = True # player1's turn first
+
+		self.gridColours = [[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]]
+
+		
+		self.inputReceieved(self.api.waitForInput())
+
+
 
