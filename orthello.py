@@ -34,15 +34,18 @@ class thisapp():
 			
 	def gameOver():
 		if pieces[0] > pieces[1]:
-			printLCD(0,1, winPrint[0], 0)
-			printLCD(1,1, winPrint[1], 0)
+			#printLCD(0,1, winPrint[0], 0)
+			#printLCD(1,1, winPrint[1], 0)
+			pass
 
 		elif pieces[1] > pieces[0]:
-			printLCD(0,1, winPrint[1], 0)
-			printLCD(1,1, winPrint[0], 0)	
+			#printLCD(0,1, winPrint[1], 0)
+			#printLCD(1,1, winPrint[0], 0)	
+			pass
 
-		elif:
-			printLCD(3,1, winPrint[2], 0)		
+		else:
+			#printLCD(3,1, winPrint[2], 0)	
+			pass	
 			
 
 
@@ -52,7 +55,7 @@ class thisapp():
 	def checkInput(self, args):
 		if args.length == 2:
 		
-			if gridColours[x][y] =! 2:
+			if self.gridColours[x][y] =! 2:
 				#self.api.printLCD(!turn, 1, "Can't go there", 2)	#only displayed for 2 seconds
 				#self.api.flashPixel(x, y, Red, 2)
 				return False
@@ -60,7 +63,7 @@ class thisapp():
 			else:
 				self.setInk(playerColours[turn],4)
 				self.api.drawPixel(x,y)
-				gridColours[x][y] = turn
+				self.gridColours[x][y] = turn
 			
 				return True
 
@@ -80,7 +83,7 @@ class thisapp():
 				tempX += xCheck
 				tempY += yCheck
 
-				if gridColour[tempX + xCheck][tempY + yCheck] == not turn: #other players colour
+				if self.gridColours[tempX + xCheck][tempY + yCheck] == not turn: #other players colour
 					tempX += xCheck
 					tempY += yCheck
 			
