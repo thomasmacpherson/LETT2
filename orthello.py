@@ -57,7 +57,6 @@ class thisapp():
 				self.pieces[self.turn] +=1
 				self.pieces[2] +=1
 				
-			
 				return True
 
 
@@ -90,7 +89,7 @@ class thisapp():
 				elif self.gridColours[tempX + xCheck][tempY + yCheck] == self.turn and inARowCount > 0:
 					print "turning pieces ", self.move
 					self.api.setInk(self.playerColours[self.turn][0],self.playerColours[self.turn][1],self.playerColours[self.turn][2],4)
-					self.api.drawLine(x,y,tempX,tempY)
+					#self.api.drawLine(x,y,tempX,tempY)
 					self.pieces[self.turn] += inARowCount
 					newTempx = x
 					newTempy = y
@@ -98,7 +97,7 @@ class thisapp():
 					while newTempx != tempX and newTempy != tempY:
 						newTempx += xCheck
 						newTempy += yCheck
-						
+						self.api.drawPixel(newTempx,newTempy)
 						self.gridColours[newTempx][newTempy] = self.turn
 					break
 					
@@ -154,7 +153,7 @@ class thisapp():
 		self.totalGamePlaces = self.gridSize * self.gridSize
 		self.turnPrint = ("Opponent's turn", "Your turn")
 		self.winPrint = ("You won", "You lost", "It was a draw")
-		self.playerColours = ((255,0,0),(0,0,200))
+		self.playerColours = ((255,0,0),(0,0,150))
 
 		self.turn = True # player1's turn first
 
