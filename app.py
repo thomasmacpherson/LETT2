@@ -10,7 +10,8 @@ class thisapp:
 	
 	def inputReceived(self, list):
 		oldColour = self.colourGrid[list[0]][[list[1]]
-		newColour = oldColour + 1 % numberOfColours
+		print oldColour
+		newColour = (oldColour + 1 )% 11
 		
 		self.colourGrid[list[0]][list[1]] = newColour
 		inkColours = colours[newColour]
