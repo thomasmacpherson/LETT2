@@ -95,6 +95,7 @@ class thisapp():
 					newTempy = y
 					
 					while newTempx != tempX and newTempy != tempY:
+						print "turning"
 						newTempx += xCheck
 						newTempy += yCheck
 						self.api.drawPixel(newTempx,newTempy)
