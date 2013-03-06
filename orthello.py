@@ -52,7 +52,7 @@ class thisapp():
 				self.api.drawPixel(x,y)
 				self.gridColours[x][y] = self.turn
 				self.pieces[self.turn] +=1
-				self.pices[2] +=1
+				self.pieces[2] +=1
 				self.turn = not self.turn
 			
 				return True
