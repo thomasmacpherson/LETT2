@@ -33,7 +33,7 @@ class api:
 		
 
 		
-		if emulated:
+		if self.emulated:
 			import em
 			self.qOutEmulated = Queue.Queue(maxsize=0)
 			self.emu = em.em(self.qOutEmulated, self.qIn)
@@ -77,7 +77,7 @@ class api:
 				pass
 
 	def writeToLCD(self, LCD, message):
-		if emulated:
+		if self.emulated:
 			self.emu.writeLCD(LCD, message)
 			
 					
