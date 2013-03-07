@@ -57,7 +57,6 @@ class HD47780(object):
 
 def test_i2c():
     from datetime import datetime
-    import pytz
     import smbus
 
     driver1 = LCD_23017(bus=smbus.SMBus(0), addr=0x27, port='B', rs=0, en=1)
@@ -69,14 +68,7 @@ def test_i2c():
     lcd1.lcd_string("    New York")
     lcd2.lcd_string("     London")
     lcd3.lcd_string("    Melbourne")
-    new_york_tz = pytz.timezone("America/New_York")
-    london_tz = pytz.timezone("Europe/London")
-    melbourne_tz = pytz.timezone("Australia/Melbourne")
-    while True:
-        time.sleep(1-time.time()%1)  # Wait until the next second
-        lcd1.lcd_string(datetime.now(new_york_tz).ctime()[3:], line=1)
-        lcd2.lcd_string(datetime.now(london_tz).ctime()[3:], line=1)
-        lcd3.lcd_string(datetime.now(melbourne_tz).ctime()[3:], line=1)
+
 
 def main():
     test_i2c()
