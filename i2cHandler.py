@@ -107,14 +107,14 @@ class handler:
 	def moveUntil(self, address, x1, y1, x2, y2, delay):
 		self.sendWireCommand(address,[const.CMD_MOVE_UNTIL, x1, y1, x2, y2, delay])
 
-
+	def setSprite(self):
+		pass
 	'''	
 
 
 	def printChar(self):
 		pass
-	def setSprite(self):
-		pass
+
 	def flashPixel(self):
 		pass		
  '''     	

@@ -173,18 +173,19 @@ class em:
 				self.pygame.draw.rect(self.screen, (0,0,0), ( const.modeButtonsX + j*30 , const.modeButtonsY + i*30 ,20,20),1) 
 
 	
-	
-						
+	def drawLine(self):
+		pass	
 						
 	def drawPixel(self, x, y, grid):
-		
+		self.pixelDraw(x, y, grid)
+		self.refreshScreen()
+
+
+
+	def pixelDraw(self, x, y, grid):					
 		self.gridColours[x][y]=(self.ink[grid])
 		self.pygame.draw.rect(self.screen, self.gridColours[x][y], (const.gridX+x*20,const.gridY+y*20,20,20),0) 
 		self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+x*20,const.gridY+y*20,20,20),2) 
-		self.refreshScreen()
-
-						
-
 
 
 	def drawLCDOutline(self):
@@ -201,15 +202,18 @@ class em:
 			return 0
 			
 		if LCD <4:
+			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[LCD/2]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[LCD/2][LCD%2]))			
 			
 		elif LCD == 4:
+			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[0]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
-			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[LCD/2][LCD%2]))
+			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[0][0]))
 			
+			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[1]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
-			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[LCD/2][LCD%2]))
+			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[1][0]))
 			
 		return 1	
 			

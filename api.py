@@ -159,8 +159,22 @@ class api:
 		
 	def printChar(self):
 		pass
-	def setSprite(self):
-		pass
+		
+		
+		
+	def setSprite(self, grid, size, list):
+		if grid < 4:
+			self.i2chandler.setSprite(RDsAdrs[grid/2][grid%2])
+		else:
+			self.i2chandler.setSprite(RDsAdrs[0][0])
+			self.i2chandler.setSprite(RDsAdrs[0][1])
+			self.i2chandler.setSprite(RDsAdrs[1][0])
+			self.i2chandler.setSprite(RDsAdrs[1][1])
+		
+		
+		
+		
+		
 	def flashPixel(self):
 		pass
 		
