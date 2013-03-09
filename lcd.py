@@ -44,7 +44,7 @@ class HD47780(object):
     def lcd_init(self):
         # Initialise display
         lcd_byte = self.driver.lcd_byte
-        for i in 0x33, 0x32, 0x28, 0x0C, 0x06, 0x01:
+        for i in 0x33, 0x32, 0x28, 0x0C, 0x06:#, 0x01:
             lcd_byte(i, self.LCD_CMD)
 
     def lcd_string(self, message, line=0):
@@ -60,14 +60,14 @@ def test_i2c():
     import smbus
 
     driver1 = LCD_23017(bus=smbus.SMBus(1), addr=0x20, port='B', rs=0, en=1)
-    driver2 = LCD_23017(bus=smbus.SMBus(1), addr=0x20, port='B', rs=0, en=2)
-    driver3 = LCD_23017(bus=smbus.SMBus(1), addr=0x20, port='B', rs=0, en=3)
+   # driver2 = LCD_23017(bus=smbus.SMBus(1), addr=0x20, port='B', rs=0, en=2)
+   # driver3 = LCD_23017(bus=smbus.SMBus(1), addr=0x20, port='B', rs=0, en=3)
     lcd1 = HD47780(driver=driver1, rows=2, width=16)
-    lcd2 = HD47780(driver=driver2, rows=2, width=16)
-    lcd3 = HD47780(driver=driver3, rows=2, width=16)
-    lcd1.lcd_string("    New York")
-    lcd2.lcd_string("     London")
-    lcd3.lcd_string("    Melbourne")
+   # lcd2 = HD47780(driver=driver2, rows=2, width=16)
+   # lcd3 = HD47780(driver=driver3, rows=2, width=16)
+    lcd1.lcd_string("Hello world")
+   # lcd2.lcd_string("     London")
+   # lcd3.lcd_string("    Melbourne")
 
 
 def main():
