@@ -162,6 +162,10 @@ class api:
 		
 		
 		
+		
+		
+		
+		
 	def setSprite(self, grid, size, list):
 		if grid < 4:
 			self.i2chandler.setSprite(RDsAdrs[grid/2][grid%2])
@@ -170,6 +174,15 @@ class api:
 			self.i2chandler.setSprite(RDsAdrs[0][1])
 			self.i2chandler.setSprite(RDsAdrs[1][0])
 			self.i2chandler.setSprite(RDsAdrs[1][1])
+		
+		
+	def displaySprite(self,):
+	
+	def clearSprite(self,):
+	
+	def moveSprite(self,):
+	
+	
 		
 		
 		

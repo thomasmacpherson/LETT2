@@ -14,6 +14,7 @@ import const
 
 
 const.rdComm = 114
+const.rev2 = True
 
 const.res = 16 # length in pixel
 const.numberOfRDs = pow((16/8),2)
@@ -42,11 +43,13 @@ const.CMD_CLEAR_SPACE     =  0x2F
 
 const.CMD_SET_SPRITE      =  0x30
 const.CMD_ADD_TO_SPRITE   =  0x31
-const.CMD_CHANGE_SPRITE_COLOUR = 0x32
+const.CMD_DISPLAY_SPRITE = 0x32
 const.CMD_CHANGE_SPRITE_SIZE = 0x33
 const.CMD_FLASH_PIXEL     =  0x34
 const.CMD_FLASH_SPRITE    =  0x35
 const.CMD_MOVE_PIECE		= 0x36
+const.CMD_CLEAR_SPRITE		= 0x37
+const.CMD_MOVE_SPRITE		= 0x38
 
 
 
@@ -55,7 +58,7 @@ const.CMD_totalArgs = [
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    # 0 - 0x00 -> 0x0F
 	0,  2,  1,  2,  1,  0,  0,  0,  0,  1,  0,  0,  0,  0,  0,  0,    # 1 - 0x10 -> 0x1F
 	3,  3,  3,  0,  0,  0,  2,  4,  4,  0,  3,  3,  6,  1,  5,  2,    # 2 - 0x20 -> 0x2F
-	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    # 3 - 0x30 -> 0x3F
+	0,  -1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    # 3 - 0x30 -> 0x3F
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    # 4 - 0x40 -> 0x4F
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    # 5 - 0x50 -> 0x5F
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    # 6 - 0x60 -> 0x6F
@@ -68,7 +71,7 @@ const.CMD_totalArgs = [
 class handler:
 	def __init__(self, qOut):
 		self.qOut = qOut
-		self.bus = smbus.SMBus(0)
+		self.bus = smbus.SMBus(const.rev2)
 
 
 	def sendWireCommand(self, add, RDCMD):
@@ -107,8 +110,33 @@ class handler:
 	def moveUntil(self, address, x1, y1, x2, y2, delay):
 		self.sendWireCommand(address,[const.CMD_MOVE_UNTIL, x1, y1, x2, y2, delay])
 
-	def setSprite(self):
+
+
+
+	def setSprite(self, address, spriteSize, spriteAddress, spriteValues):
+		self.sendWireCommand(address,[const.CMD_SET_SPRITE, spriteSize, spriteAddress, spriteValues])
+				
+	def displaySprite(self, spriteAddress, x, y):
+		self.sendWireCommand(address,[const.CMD_DISPLAY_SPRITE, spriteAddress, x, y])
+		
+	def clearSprite(self, spriteAddress):
+		self.sendWireCommand(address,[const.CMD_CLEAR_SPACE, spriteAddress])
+		
+	def moveSprite(self, spriteAddress, newX, newY):
+		self.sendWireCommand(address,[const.CMD_CLEAR_SPACE, spriteAddress, newX, newY])
+		
+		
+		
+		
+	def flashSprite(self):
+		self.sendWireCommand(address,[const.CMD_CLEAR_SPACE, x, y])
+
+	def changeSpriteSize(self):
+		self.sendWireCommand(address,[const.CMD_CLEAR_SPACE, x, y])
+		
+	def addToSprite(self):
 		pass
+					
 	'''	
 
 

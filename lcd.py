@@ -44,7 +44,7 @@ class HD47780(object):
     def lcd_init(self):
         # Initialise display
         lcd_byte = self.driver.lcd_byte
-        for i in 0x33, 0x32, 0x28, 0x0C, 0x06:#, 0x01:
+        for i in 0x33, 0x32, 0x28, 0x0C, 0x06, 0x01:
             lcd_byte(i, self.LCD_CMD)
 
     def lcd_string(self, message, line=0):
