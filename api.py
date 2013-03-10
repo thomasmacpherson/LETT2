@@ -166,26 +166,52 @@ class api:
 		
 		
 		
-	def setSprite(self, grid, size, list):
+	def setSprite(self, grid, spriteAddress, size, list):
 		if grid < 4:
-			self.i2chandler.setSprite(RDsAdrs[grid/2][grid%2])
+			self.i2chandler.setSprite(RDsAdrs[grid/2][grid%2], spriteAddress, size, list)
 		else:
-			self.i2chandler.setSprite(RDsAdrs[0][0])
-			self.i2chandler.setSprite(RDsAdrs[0][1])
-			self.i2chandler.setSprite(RDsAdrs[1][0])
-			self.i2chandler.setSprite(RDsAdrs[1][1])
+			self.i2chandler.setSprite(RDsAdrs[0][0], spriteAddress, size, list)
+			self.i2chandler.setSprite(RDsAdrs[0][1], spriteAddress, size, list)
+			self.i2chandler.setSprite(RDsAdrs[1][0], spriteAddress, size, list)
+			self.i2chandler.setSprite(RDsAdrs[1][1], spriteAddress, size, list)
 		
 		
-	def displaySprite(self,):
+	def displaySprite(self, grid, spriteAddress, x, y):
+		if grid < 4:
+			self.i2chandler.displaySprite(RDsAdrs[grid/2][grid%2], spriteAddress, x, y)
+		else:
+			self.i2chandler.setSprite(RDsAdrs[0][0], spriteAddress, x, y)
+			self.i2chandler.setSprite(RDsAdrs[0][1], spriteAddress, x, y)
+			self.i2chandler.setSprite(RDsAdrs[1][0], spriteAddress, x, y)
+			self.i2chandler.setSprite(RDsAdrs[1][1], spriteAddress, x, y)
+			
+			
+			
+	def clearSprite(self, grid, spriteAddress):
+		if grid < 4:
+			self.i2chandler.clearSprite(RDsAdrs[grid/2][grid%2], spriteAddress)
+		else:
+			self.i2chandler.clearSprite(RDsAdrs[0][0], spriteAddress)
+			self.i2chandler.clearSprite(RDsAdrs[0][1], spriteAddress)
+			self.i2chandler.clearSprite(RDsAdrs[1][0], spriteAddress)
+			self.i2chandler.clearSprite(RDsAdrs[1][1], spriteAddress)
+			
+			
+	def moveSprite(self, grid, spriteAddres, newX, newY):
+		if grid < 4:
+			self.i2chandler.moveSprite(RDsAdrs[grid/2][grid%2], spriteAddress, newX, newY)
+		else:
+			self.i2chandler.moveSprite(RDsAdrs[0][0], spriteAddress, newX, newY)
+			self.i2chandler.moveSprite(RDsAdrs[0][1], spriteAddress, newX, newY)
+			self.i2chandler.moveSprite(RDsAdrs[1][0], spriteAddress, newX, newY)
+			self.i2chandler.moveSprite(RDsAdrs[1][1], spriteAddress, newX, newY)
+			
 	
-	def clearSprite(self,):
-	
-	def moveSprite(self,):
-	
-	
 		
 		
 		
+	
+	
 		
 		
 	def flashPixel(self):
