@@ -197,7 +197,7 @@ class api:
 			self.i2chandler.clearSprite(RDsAdrs[1][1], spriteAddress)
 			
 			
-	def moveSprite(self, grid, spriteAddres, newX, newY):
+	def moveSprite(self, grid, spriteAddress, newX, newY):
 		if grid < 4:
 			self.i2chandler.moveSprite(RDsAdrs[grid/2][grid%2], spriteAddress, newX, newY)
 		else:
