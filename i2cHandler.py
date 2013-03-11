@@ -52,6 +52,8 @@ const.CMD_CLEAR_SPRITE		= 0x37
 const.CMD_MOVE_SPRITE		= 0x38
 
 
+const.CMD_CLEAR_CHAR		= 0x40
+
 
 const.CMD_totalArgs = [
 #  0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - A - B - C - D - E - F 
@@ -144,6 +146,11 @@ class handler:
 	def printChar(self, address, x, y, char):
 		self.sendWireCommand(address,[const.CMD_PRINT_CHAR, x, y, char])
 
+	def clearChar(self, address, x, y, char):
+		self.sendWireCommand(address,[const.CMD_CLEAR_CHAR, x, y, char])
+		
+		
+	
 	def flashPixel(self):
 		pass
 		

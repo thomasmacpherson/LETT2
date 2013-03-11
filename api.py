@@ -157,12 +157,7 @@ class api:
 		self.i2chandler.clearSpace(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res)
 		
 		
-	def printChar(self):
-		pass
-		
-		
-		
-		
+	
 	def drawSprite(self,spriteAddress, size, x, y, list):	
 		pass
 		
@@ -221,7 +216,14 @@ class api:
 			self.i2chandler.printChar(RDsAdrs[1][1], x, y, char)
 						
 		
-	
+	def clearchar(self, grid, x, y, char):
+		if grid < 4:
+			self.i2chandler.clearChar(RDsAdrs[grid/2][grid%2], x, y, char)
+		else:
+			self.i2chandler.clearChar(RDsAdrs[0][0], x, y, char)
+			self.i2chandler.clearChar(RDsAdrs[0][1], x, y, char)
+			self.i2chandler.clearChar(RDsAdrs[1][0], x, y, char)
+			self.i2chandler.clearChar(RDsAdrs[1][1], x, y, char)
 	
 		
 		
