@@ -215,10 +215,10 @@ class api:
 		if grid < 4:
 			self.i2chandler.printChar(RDsAdrs[grid/2][grid%2], x, y, char)
 		else:
-			self.i2chandler.moveSprite(RDsAdrs[0][0], x, y, char)
-			self.i2chandler.moveSprite(RDsAdrs[0][1], x, y, char)
-			self.i2chandler.moveSprite(RDsAdrs[1][0], x, y, char)
-			self.i2chandler.moveSprite(RDsAdrs[1][1], x, y, char)
+			self.i2chandler.printChar(RDsAdrs[0][0], x, y, char)
+			self.i2chandler.printChar(RDsAdrs[0][1], x, y, char)
+			self.i2chandler.printChar(RDsAdrs[1][0], x, y, char)
+			self.i2chandler.printChar(RDsAdrs[1][1], x, y, char)
 						
 		
 	
