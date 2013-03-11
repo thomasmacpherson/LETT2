@@ -226,10 +226,10 @@ class api:
 				self.i2chandler.printChar(RDsAdrs[1][gridY], x%const.lowerBoarder, -const.lowerBoarder+y, char)	
 							
 			else:
-				self.i2chandler.printChar(RDsAdrs[gridX][0], x%const.lowerBoarder, y%const.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[gridX][1], -const.lowerBoarder+x, y%const.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[0][gridY], x%const.lowerBoarder, y%const.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[1][gridY], x%const.lowerBoarder, -const.lowerBoarder+y, char)	
+				self.i2chandler.printChar(RDsAdrs[0][0], x%const.lowerBoarder, y%const.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[0][1], -const.lowerBoarder+x, y%const.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[1][0], x%const.lowerBoarder, y%const.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[1][1], x%const.lowerBoarder, -const.lowerBoarder+y, char)	
 
 				
 
