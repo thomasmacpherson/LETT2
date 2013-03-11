@@ -462,7 +462,7 @@ def restrictedTo(list, number):
 	first = list.pop()
 	
 	for x in list:
-		if not(first <= number and x <= number) or not(first > number and x > number):
+		if not((first <= number and x <= number) or (first > number and x > number)):
 			return 2
 			
 	if first <= number:
