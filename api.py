@@ -208,6 +208,9 @@ class api:
 		
 	def printChar(self, x, y, char):
 		print "printing char"
+		print "lower boarder ", self.lowerBoarder
+		print "x value ", x
+		print "y value ", y
 		gridX = restrictedTo([x, x+5],self.lowerBoarder)
 		gridY = restrictedTo([y, y+7], self.lowerBoarder)
 		if gridX !=2:
