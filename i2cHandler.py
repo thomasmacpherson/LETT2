@@ -140,11 +140,9 @@ class handler:
 	def addToSprite(self):
 		pass
 					
-	'''	
 
-
-	def printChar(self):
-		pass
+	def printChar(self, address, x, y, char):
+		self.sendWireCommand(address,[const.CMD_PRINT_CHAR, x, y, char])
 
 	def flashPixel(self):
 		pass		
