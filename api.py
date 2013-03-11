@@ -206,14 +206,33 @@ class api:
 			
 	
 		
-	def printChar(self, grid, x, y, char):
-		if grid < 4:
-			self.i2chandler.printChar(RDsAdrs[grid/2][grid%2], x, y, char)
+	def printChar(self, x, y, char):
+		gridX = restrictedTo([x, x+5],self.lowerBoarder)
+					gridY = restrictedTo([y, y+7], self.lowerBoarder)
+		if gridX !=2:
+		
+
+			if gridY != 2:
+				self.i2chandler.printChar(RDsAdrs[gridX][gridY], x%const.lowerBoarder, y%const.lowerBoarder, char)
+				
+			else:
+				self.i2chandler.printChar(RDsAdrs[gridX][0], x%const.lowerBoarder, y%const.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[gridX][1], -const.lowerBoarder+x, y%const.lowerBoarder, char)
+
+				
 		else:
-			self.i2chandler.printChar(RDsAdrs[0][0], x, y, char)
-			self.i2chandler.printChar(RDsAdrs[0][1], x, y, char)
-			self.i2chandler.printChar(RDsAdrs[1][0], x, y, char)
-			self.i2chandler.printChar(RDsAdrs[1][1], x, y, char)
+			if gridY != 2:
+				self.i2chandler.printChar(RDsAdrs[0][gridY], x%const.lowerBoarder, y%const.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[1][gridY], x%const.lowerBoarder, -const.lowerBoarder+y, char)	
+							
+			else:
+				self.i2chandler.printChar(RDsAdrs[gridX][0], x%const.lowerBoarder, y%const.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[gridX][1], -const.lowerBoarder+x, y%const.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[0][gridY], x%const.lowerBoarder, y%const.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[1][gridY], x%const.lowerBoarder, -const.lowerBoarder+y, char)	
+
+				
+
 						
 		
 	def clearchar(self, grid, x, y, char):
@@ -232,11 +251,14 @@ class api:
 		
 		
 		
+		
+		
+		
 	def squareSplit(self, x1,y1,x2,y2):
 		gridX = restrictedTo([x1,x2], self.lowerBoarder)
+		gridY = restrictedTo([y1,y2], self.lowerBoarder)
 		if gridX !=2:
 	
-			gridY = restrictedTo([y1,y2], self.lowerBoarder)
 			if gridY !=2:
 	
 				x1 = x1-(self.res*gridX)
@@ -268,8 +290,7 @@ class api:
 				
 				
 		else:
-			
-			gridY = restrictedTo([y1, y2], self.lowerBoarder)
+
 			if gridY !=2:
 				self.lineSplit(x1,y1,x2,y1,0)
 				self.lineSplit(x1,y2,x2,y2,0)
