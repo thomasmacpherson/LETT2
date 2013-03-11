@@ -220,21 +220,21 @@ class api:
 			else:
 				print "split char on y axis"
 				self.i2chandler.printChar(RDsAdrs[gridX][0], x%self.lowerBoarder, y%self.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[gridX][1], -self.lowerBoarder+x, y%self.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[gridX][1], x%self.lowerBoarder, -self.lowerBoarder+y, char)
 
 				
 		else:
 			if gridY != 2:
 				print "split char on x axis"
 				self.i2chandler.printChar(RDsAdrs[0][gridY], x%self.lowerBoarder, y%self.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[1][gridY], x%self.lowerBoarder, -self.lowerBoarder+y, char)	
+				self.i2chandler.printChar(RDsAdrs[1][gridY], -self.lowerBoarder+x, y%self.lowerBoarder, char)	
 							
 			else:
 				print "split char on both axises"
 				self.i2chandler.printChar(RDsAdrs[0][0], x%self.lowerBoarder, y%self.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[0][1], -self.lowerBoarder+x, y%self.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[1][0], x%self.lowerBoarder, y%self.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[1][1], x%self.lowerBoarder, -self.lowerBoarder+y, char)	
+				self.i2chandler.printChar(RDsAdrs[0][1], x%self.lowerBoarder, -self.lowerBoarder+y, char)
+				self.i2chandler.printChar(RDsAdrs[1][0], -self.lowerBoarder+x, y%self.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[1][1], -self.lowerBoarder+x, -self.lowerBoarder+y, char)	
 
 				
 
