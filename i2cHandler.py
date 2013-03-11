@@ -144,6 +144,7 @@ class handler:
 					
 
 	def printChar(self, address, x, y, char):
+		print "i2c printing char"
 		self.sendWireCommand(address,[const.CMD_PRINT_CHAR, x, y, char])
 
 	def clearChar(self, address, x, y, char):
