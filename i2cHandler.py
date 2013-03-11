@@ -126,7 +126,7 @@ class handler:
 		self.sendWireCommand(address,[const.CMD_CLEAR_SPRITE, spriteAddress])
 		
 	def moveSprite(self, address, spriteAddress, newX, newY):
-		self.sendWireCommand(address,[const.CMD_CLEAR_SPACE, spriteAddress, newX, newY])
+		self.sendWireCommand(address,[const.CMD_MOVE_SPRITE, spriteAddress, newX, newY])
 		
 		
 		
