@@ -208,7 +208,7 @@ class api:
 		
 	def printChar(self, x, y, char):
 		gridX = restrictedTo([x, x+5],self.lowerBoarder)
-					gridY = restrictedTo([y, y+7], self.lowerBoarder)
+		gridY = restrictedTo([y, y+7], self.lowerBoarder)
 		if gridX !=2:
 		
 
