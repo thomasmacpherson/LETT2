@@ -117,7 +117,7 @@ class handler:
 	    spriteValues.insert(0,spriteAddress)
 	    spriteValues.insert(0,spriteSize)
 	    spriteValues.insert(0,const.CMD_SET_SPRITE)
-		self.sendWireCommand(address,spriteValues)
+	    self.sendWireCommand(address,spriteValues)
 				
 	def displaySprite(self, address, spriteAddress, x, y):
 		self.sendWireCommand(address,[const.CMD_DISPLAY_SPRITE, spriteAddress, x, y])
