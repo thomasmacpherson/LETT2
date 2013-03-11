@@ -213,23 +213,23 @@ class api:
 		
 
 			if gridY != 2:
-				self.i2chandler.printChar(RDsAdrs[gridX][gridY], x%const.lowerBoarder, y%const.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[gridX][gridY], x%self.lowerBoarder, y%self.lowerBoarder, char)
 				
 			else:
-				self.i2chandler.printChar(RDsAdrs[gridX][0], x%const.lowerBoarder, y%const.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[gridX][1], -const.lowerBoarder+x, y%const.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[gridX][0], x%self.lowerBoarder, y%self.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[gridX][1], -self.lowerBoarder+x, y%self.lowerBoarder, char)
 
 				
 		else:
 			if gridY != 2:
-				self.i2chandler.printChar(RDsAdrs[0][gridY], x%const.lowerBoarder, y%const.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[1][gridY], x%const.lowerBoarder, -const.lowerBoarder+y, char)	
+				self.i2chandler.printChar(RDsAdrs[0][gridY], x%self.lowerBoarder, y%self.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[1][gridY], x%self.lowerBoarder, -self.lowerBoarder+y, char)	
 							
 			else:
-				self.i2chandler.printChar(RDsAdrs[0][0], x%const.lowerBoarder, y%const.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[0][1], -const.lowerBoarder+x, y%const.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[1][0], x%const.lowerBoarder, y%const.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[1][1], x%const.lowerBoarder, -const.lowerBoarder+y, char)	
+				self.i2chandler.printChar(RDsAdrs[0][0], x%self.lowerBoarder, y%self.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[0][1], -self.lowerBoarder+x, y%self.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[1][0], x%self.lowerBoarder, y%self.lowerBoarder, char)
+				self.i2chandler.printChar(RDsAdrs[1][1], x%self.lowerBoarder, -self.lowerBoarder+y, char)	
 
 				
 
