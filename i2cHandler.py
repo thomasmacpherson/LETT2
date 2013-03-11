@@ -145,8 +145,10 @@ class handler:
 		self.sendWireCommand(address,[const.CMD_PRINT_CHAR, x, y, char])
 
 	def flashPixel(self):
-		pass		
- '''     	
+		pass
+		
+				
+'''     	
       	
       	
 def toByte(i):
