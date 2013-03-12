@@ -158,7 +158,7 @@ class api:
 		
 		
 	
-	def drawSprite(self,spriteAddress, size, x, y, list):	
+	def drawSprite(self,spriteAddress, size, x, y):	
 		gridX = restrictedTo([x, x+size],self.lowerBoarder)
 		gridY = restrictedTo([y, y+size], self.lowerBoarder)
 		if gridX !=2:
@@ -170,18 +170,21 @@ class api:
 				
 			else:
 				print "split char on y axis"
-				print " x value ", x%self.lowerBoarder
-				print " first y valule ", y%self.lowerBoarder
-				print " second y value ", -self.lowerBoarder+y
-				self.i2chandler.displaySprite(RDsAdrs[gridX][0], spriteAddress, x%self.lowerBoarder, y%self.lowerBoarder)
-				self.i2chandler.displaySprite(RDsAdrs[gridX][1], spriteAddress, x%self.lowerBoarder, -self.lowerBoarder+y)
+				onlyX = x%self.lowerBoarder-1
+				firstY = y%self.lowerBoarder-1
+				secondY = -self.lowerBoarder-1+y
+				print " x value ", onlyX
+				print " first y valule ", firstY
+				print " second y value ", secondY
+				self.i2chandler.displaySprite(RDsAdrs[gridX][0], spriteAddress, onlyX, firstY)
+				self.i2chandler.displaySprite(RDsAdrs[gridX][1], spriteAddress, onlyX, secondY)
 
 				
 		else:
 			if gridY != 2:
-				firstX = x%self.lowerBoarder
-				secondX = -self.lowerBoarder+x
-				onlyY = y%self.lowerBoarder
+				firstX = x%self.lowerBoarder-1
+				secondX = -(self.lowerBoarder-1)+x
+				onlyY = y%self.lowerBoarder-1
 				print "split char on x axis"
 				print " first x value ", firstX
 				print "second x value ", secondX
@@ -191,15 +194,15 @@ class api:
 							
 			else:
 				print "split char on both axises"
-				firstX = x%self.lowerBoarder
-				secondX = -self.lowerBoarder+x
-				firstY = y%self.lowerBoarder
-				secondY = -self.lowerBoarder+y
+				firstX = x%self.lowerBoarder-1
+				secondX = -self.lowerBoarder-1+x
+				firstY = y%self.lowerBoarder-1
+				secondY = -self.lowerBoarder-1+y
 				
 				print " first x value ", firstX
 				print "second x value ", secondX				
-				print " first y valule ", y%self.lowerBoarder
-				print " second y value ", -self.lowerBoarder+y
+				print " first y valule ", firstY
+				print " second y value ", secondY
 								
 				self.i2chandler.displaySprite(RDsAdrs[0][0], spriteAddress, firstX, firstY)
 				self.i2chandler.displaySprite(RDsAdrs[0][1], spriteAddress, firstX, secondY)
