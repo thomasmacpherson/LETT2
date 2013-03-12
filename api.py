@@ -222,22 +222,41 @@ class api:
 				
 			else:
 				print "split char on y axis"
+				print " x value ", x%self.lowerBoarder
+				print " first y valule ", y%self.lowerBoarder
+				print " second y value ", -self.lowerBoarder+y
 				self.i2chandler.printChar(RDsAdrs[gridX][0], x%self.lowerBoarder, y%self.lowerBoarder, char)
 				self.i2chandler.printChar(RDsAdrs[gridX][1], x%self.lowerBoarder, -self.lowerBoarder+y, char)
 
 				
 		else:
 			if gridY != 2:
+				firstX = x%self.lowerBoarder
+				secondX = -self.lowerBoarder+x
+				onlyY = y%self.lowerBoarder
 				print "split char on x axis"
-				self.i2chandler.printChar(RDsAdrs[0][gridY], x%self.lowerBoarder, y%self.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[1][gridY], -self.lowerBoarder+x, y%self.lowerBoarder, char)	
+				print " first x value ", firstX
+				print "second x value ", secondX
+				print " y value ", onlyY
+				self.i2chandler.printChar(RDsAdrs[0][gridY], firstX, onlyY, char)
+				self.i2chandler.printChar(RDsAdrs[1][gridY], secondX, onlyY, char)	
 							
 			else:
 				print "split char on both axises"
-				self.i2chandler.printChar(RDsAdrs[0][0], x%self.lowerBoarder, y%self.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[0][1], x%self.lowerBoarder, -self.lowerBoarder+y, char)
-				self.i2chandler.printChar(RDsAdrs[1][0], -self.lowerBoarder+x, y%self.lowerBoarder, char)
-				self.i2chandler.printChar(RDsAdrs[1][1], -self.lowerBoarder+x, -self.lowerBoarder+y, char)	
+				firstX = x%self.lowerBoarder
+				secondX = -self.lowerBoarder+x
+				firstY = y%self.lowerBoarder
+				secondY = -self.lowerBoarder+y
+				
+				print " first x value ", firstX
+				print "second x value ", secondX				
+				print " first y valule ", y%self.lowerBoarder
+				print " second y value ", -self.lowerBoarder+y
+								
+				self.i2chandler.printChar(RDsAdrs[0][0], firstX, firstY, char)
+				self.i2chandler.printChar(RDsAdrs[0][1], firstX, secondY, char)
+				self.i2chandler.printChar(RDsAdrs[1][0], secondX, firstY, char)
+				self.i2chandler.printChar(RDsAdrs[1][1], secondX, secondY, char)	
 
 				
 

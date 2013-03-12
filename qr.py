@@ -4,7 +4,7 @@ colours = [[0,0,0],[255,0,0],[0,255,0],[0,0,255],[255,255,0],[255,0,255],[0,255,
 gridSize = 16
 
 
-
+norm = True #false if qr is inverted
 
 class thisapp:
 	
@@ -39,29 +39,15 @@ class thisapp:
 						   [0,1,0,0,1,1,0,0,1,0,1,1,0,1,1],
 						   [1,0,1,0,0,0,0,1,1,0,0,1,0,0,1]]
 
-
-		while True:
-			list = self.api.waitForInput()
-			print list
-			self.inputReceived(list)
+		self.api.setInk(255,255,255,4)
 		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		for i in range(0,16):
+			self.api.drawPixel(0,i)
+			self.api.drawPixel(i,0)
+		
+		for i in range(1,16):
+			for j in range(1,16):
+				if self.colourGrid[i][j] == norm:
+					self.api.drawPixel(i,j)
+		
 
