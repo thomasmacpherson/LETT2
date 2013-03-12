@@ -159,7 +159,54 @@ class api:
 		
 	
 	def drawSprite(self,spriteAddress, size, x, y, list):	
-		pass
+		gridX = restrictedTo([x, x+size],self.lowerBoarder)
+		gridY = restrictedTo([y, y+size], self.lowerBoarder)
+		if gridX !=2:
+		
+
+			if gridY != 2:
+				print "no split"
+				self.i2chandler.displaySprite(RDsAdrs[gridX][gridY], spriteAddress, x%self.lowerBoarder, y%self.lowerBoarder)
+				
+			else:
+				print "split char on y axis"
+				print " x value ", x%self.lowerBoarder
+				print " first y valule ", y%self.lowerBoarder
+				print " second y value ", -self.lowerBoarder+y
+				self.i2chandler.displaySprite(RDsAdrs[gridX][0], spriteAddress, x%self.lowerBoarder, y%self.lowerBoarder)
+				self.i2chandler.displaySprite(RDsAdrs[gridX][1], spriteAddress, x%self.lowerBoarder, -self.lowerBoarder+y)
+
+				
+		else:
+			if gridY != 2:
+				firstX = x%self.lowerBoarder
+				secondX = -self.lowerBoarder+x
+				onlyY = y%self.lowerBoarder
+				print "split char on x axis"
+				print " first x value ", firstX
+				print "second x value ", secondX
+				print " y value ", onlyY
+				self.i2chandler.displaySprite(RDsAdrs[0][gridY], spriteAddress, firstX, onlyY)
+				self.i2chandler.displaySprite(RDsAdrs[1][gridY], spriteAddress, secondX, onlyY)	
+							
+			else:
+				print "split char on both axises"
+				firstX = x%self.lowerBoarder
+				secondX = -self.lowerBoarder+x
+				firstY = y%self.lowerBoarder
+				secondY = -self.lowerBoarder+y
+				
+				print " first x value ", firstX
+				print "second x value ", secondX				
+				print " first y valule ", y%self.lowerBoarder
+				print " second y value ", -self.lowerBoarder+y
+								
+				self.i2chandler.displaySprite(RDsAdrs[0][0], spriteAddress, firstX, firstY)
+				self.i2chandler.displaySprite(RDsAdrs[0][1], spriteAddress, firstX, secondY)
+				self.i2chandler.displaySprite(RDsAdrs[1][0], spriteAddress, secondX, firstY)
+				self.i2chandler.displaySprite(RDsAdrs[1][1], spriteAddress, secondX, secondY)		
+		
+		
 		
 		
 		
@@ -178,10 +225,10 @@ class api:
 		if grid < 4:
 			self.i2chandler.displaySprite(RDsAdrs[grid/2][grid%2], spriteAddress, x, y)
 		else:
-			self.i2chandler.setSprite(RDsAdrs[0][0], spriteAddress, x, y)
-			self.i2chandler.setSprite(RDsAdrs[0][1], spriteAddress, x, y)
-			self.i2chandler.setSprite(RDsAdrs[1][0], spriteAddress, x, y)
-			self.i2chandler.setSprite(RDsAdrs[1][1], spriteAddress, x, y)
+			self.i2chandler.displaySprite(RDsAdrs[0][0], spriteAddress, x, y)
+			self.i2chandler.displaySprite(RDsAdrs[0][1], spriteAddress, x, y)
+			self.i2chandler.displaySprite(RDsAdrs[1][0], spriteAddress, x, y)
+			self.i2chandler.displaySprite(RDsAdrs[1][1], spriteAddress, x, y)
 			
 			
 			
