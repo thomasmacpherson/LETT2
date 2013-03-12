@@ -194,10 +194,10 @@ class api:
 							
 			else:
 				print "split char on both axises"
-				firstX = x%self.lowerBoarder-1
-				secondX = -self.lowerBoarder-1+x
-				firstY = y%self.lowerBoarder-1
-				secondY = -self.lowerBoarder-1+y
+				firstX = x%(self.lowerBoarder-1)
+				secondX = -(self.lowerBoarder-1)+x
+				firstY = y%(self.lowerBoarder-1)
+				secondY = -(self.lowerBoarder-1)+y
 				
 				print " first x value ", firstX
 				print "second x value ", secondX				
