@@ -1,6 +1,6 @@
 const.turnPrint = ("Opponent's turn", "Your turn")
 const.winPrint = ("You won", "You lost", "It was a draw")
-const.playerColours = ((0,0,255),(0,255,0))
+const.playerColours = ((0,255,200),(0,255,0))
 
 class thisapp():
 
@@ -117,9 +117,9 @@ class thisapp():
 				else:
 					self.pieces[turn] +=1
 					self.pieces[2] +=1
-					#self.api.setSprite(self.placePositions[], placePostions, playerColours[turn])
 					self.api.setInk(self.playerColours[self.turn][0],self.playerColours[self.turn][1],self.playerColours[self.turn][2],4)
-					self.api.drawPixel(x,y)
+					self.api.drawSprite(self.turn, 4,x*5+1, y*5+1)
+					#self.api.drawPixel(x,y)
 					self.gridColours[x][y] = self.turn
 				
 					return True
@@ -138,7 +138,17 @@ class thisapp():
 		#self.api.setResolution()
 		#self.api.setBG()
 
+		self.api.setInk(200,0,0,4) # red for grid lines
+		
+		self.api.drawLine(5,1,5,14) # first vertical line
+		self.api.drawLine(10,1,10,14) #second vertical line
+		self.api.drawLine(1,5,14,5) # first horizontal line
+		self.api.drawLine(1,10,14,10) # second horizontal line
 
+
+		self.api.setSprite(4,4,0,[0b10010110, 0b01101001])
+		self.api.setSprite(4,4,1,[0b01101001, 0b10010110])
+		
 		self.pieces = [0,0,0] # player 1, 2
 		self.gridSize = 3
 		
