@@ -57,7 +57,6 @@ class HD47780(object):
 
 class lcd(self):
 	def __init__(self, smbus):
-		
 
 		self.driver1 = LCD_23017(bus=smbus.SMBus(0), addr=0x20, port='B', rs=0, en=1)
    		# driver2 = LCD_23017(bus=smbus.SMBus(1), addr=0x20, port='B', rs=0, en=2)
@@ -65,7 +64,10 @@ class lcd(self):
     	self.lcd1 = HD47780(driver=driver1, rows=2, width=16)
    		# lcd2 = HD47780(driver=driver2, rows=2, width=16)
    
-	def writeLCD(self, line, message)
+   
+   
+   
+	def writeLCD(self, line, message):
 		self.lcd1.lcd_string(message, line)
   		# lcd2.lcd_string("     London")
 
