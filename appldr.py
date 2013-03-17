@@ -1,9 +1,11 @@
 import api
 emulated = True
+i2ced = True
+keyboardHacked= False
 
 gameList = ('app','orthello','connect4','draughts','inkspill','pixelArt','simon','solitare','tetris','ticTacToe','missionmars')
 
-api = api.api(emulated)
+api = api.api(emulated, i2ced, keyboardHacked)
 
 button = 1 #api.waitForScreenButtonPress()
 
