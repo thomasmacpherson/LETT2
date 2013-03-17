@@ -55,7 +55,7 @@ class HD47780(object):
             lcd_byte(i, self.LCD_CHR)
 
 
-class lcd(self):
+class lcd:
 	def __init__(self, smbus):
 
 		self.driver1 = LCD_23017(bus=smbus.SMBus(0), addr=0x20, port='B', rs=0, en=1)
