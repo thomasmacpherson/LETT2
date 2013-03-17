@@ -136,7 +136,7 @@ class em:
 
 
 
-	def setBG(self, r1,g1,b1, r2,g2, b2, res)
+	def setBG(self, r1,g1,b1, r2,g2, b2, res):
 		colours = [[r1,g1,b1,],[r2,g2,b2]]
 		
 		for i in range (16):
