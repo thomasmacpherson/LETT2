@@ -191,7 +191,7 @@ class em:
 		for i in range(len(list)):
 			for h in range(8):
 				self.spriteArrays[array][spriteAddress][col/size][row%size]= getBit(list[i],h)
-				count++
+				count+=1
 			
 			
 			
