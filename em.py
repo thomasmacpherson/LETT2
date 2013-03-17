@@ -141,7 +141,7 @@ class em:
 		
 		for i in range (16):
 			for j in range(16):
-				self.setPixel(i,j,colours[i+j])		
+				self.setPixel(i,j,colours[(i+j)%2])		
 		self.refreshScreen()
 	
 	
