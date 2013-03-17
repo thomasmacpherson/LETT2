@@ -191,6 +191,7 @@ class em:
 			for h in range(8):
 				self.spriteArrays[array][spriteAddress][count/size][count%size]= getBit(list[i],h)
 				count+=1
+		print self.spriteArrays[array][spriteAddress]
 			
 			
 			
@@ -198,7 +199,7 @@ class em:
 			
 			
 	def displaySprite(self, spriteAddress, size, x, y):
-	
+		print self.spriteArrays[(size/4)-1][spriteAddress]
 		for i in range(size):
 			for j in range(size):
 				if self.spriteArrays[(size/4)-1][spriteAddress][i][j]:

@@ -230,7 +230,8 @@ class api:
 					self.i2chandler.displaySprite(RDsAdrs[1][0], spriteAddress, secondX, firstY)
 					self.i2chandler.displaySprite(RDsAdrs[1][1], spriteAddress, secondX, secondY)		
 		
-		
+		if self.emulated:
+			self.emu.displaySprite(spriteAddress,size,x,y)	
 		
 		
 		
@@ -248,6 +249,8 @@ class api:
 		if self.emulated:
 			self.emu.setSprite(spriteAddress, size, list)
 		
+		
+		
 	def displaySprite(self, grid, spriteAddress, x, y):
 		if self.LEDGrided:
 			if grid < 4:
@@ -258,8 +261,7 @@ class api:
 				self.i2chandler.displaySprite(RDsAdrs[1][0], spriteAddress, x, y)
 				self.i2chandler.displaySprite(RDsAdrs[1][1], spriteAddress, x, y)
 		
-		if self.emulated:
-			self.emu.displaySprite(spriteAddress,8,x,y)
+
 			
 			
 				
