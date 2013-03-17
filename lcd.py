@@ -69,6 +69,8 @@ class lcd:
    
 	def writeLCD(self, LCD, line, message):
 		if LCD < len(self.lcds):
+			if len(message)>16:
+				print "LCD: message too long, printed first 16 characters"
 			self.lcds[LCD].lcd_string(message, line)
 
 

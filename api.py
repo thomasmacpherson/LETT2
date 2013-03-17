@@ -256,7 +256,12 @@ class api:
 				self.i2chandler.displaySprite(RDsAdrs[0][1], spriteAddress, x, y)
 				self.i2chandler.displaySprite(RDsAdrs[1][0], spriteAddress, x, y)
 				self.i2chandler.displaySprite(RDsAdrs[1][1], spriteAddress, x, y)
+		
+		if self.emulated:
+			self.emu.displaySprite(spriteAddress,8,x,y)
 			
+			
+				
 			
 			
 	def clearSprite(self, grid, spriteAddress):

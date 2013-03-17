@@ -175,14 +175,39 @@ class em:
 		self.refreshScreen()
 	
 	
+	
+	
+	
 	def setSprite(self,spriteAddress, size, list):
-		for i in range(8):
-			getBit(
+		bytes = 0
+		if size ==4:
+			bytes = 2
+		elif size == 8:
+			bytes = 8
+		
+		count =0
+			
+		array = (size/4)-1
+		for i in range(len(list)):
+			for h in range(8):
+				self.spriteArrays[array][spriteAddress][col/size][row%size]= getBit(list[i],h)
+				count++
 			
 			
 			
-	def displaySprite(self, spriteAddress, siz):
-		pass
+			
+			
+			
+	def displaySprite(self, spriteAddress, size, x, y):
+	
+		for i in range(size):
+			for j in range(size):
+				self.setPixel(x+i,y+j,(0,200,0))
+		self.refreshScreen()
+		
+		
+	
+	
 	
 	
 	def setInk(self, r, g, b, grid):
@@ -274,8 +299,8 @@ class em:
 		return 1	
 			
 			
-def getBit(byteval,idx):
-    return ((byteval&(1<<idx))!=0);
+
+    
 		'''	
 		elif LCD == 5:
 		
@@ -361,3 +386,6 @@ def getBit(byteval,idx):
 	#screen.blit(mouse_c,(x,y))
 
 	'''
+	
+def getBit(byteval,idx):	 #from http://stackoverflow.com/questions/2591483/getting-a-specific-bit-value-in-a-byte-string
+    return ((byteval&(1<<idx))!=0)
