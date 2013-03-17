@@ -11,7 +11,7 @@ import sys
 import getopt
 import time 
 import const
-
+import lcd
 
 const.rdComm = 114
 const.rev2 = False
@@ -54,7 +54,7 @@ const.CMD_MOVE_SPRITE		= 0x38
 
 const.CMD_CLEAR_CHAR		= 0x40
 
-import lcd.py
+
 const.CMD_totalArgs = [
 #  0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - A - B - C - D - E - F 
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    # 0 - 0x00 -> 0x0F
@@ -74,9 +74,14 @@ class handler:
 	def __init__(self, qOut):
 		self.qOut = qOut
 		self.bus = smbus.SMBus(const.rev2)
+		self.setUpLCD()
 
 	def setUpLCD():
-		self.
+		self.lcd = lcd.lcd(self.bus)
+		
+	def writeLCD(lcd, line, message):
+		self.lcd.writeLCD(LCD, line, message)
+		
 	def sendWireCommand(self, add, RDCMD):
 		self.bus.write_i2c_block_data(add,const.rdComm,RDCMD) 
 		time.sleep(5.0/100.0)

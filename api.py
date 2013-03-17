@@ -80,12 +80,12 @@ class api:
 					pass
 
 
-	def writeToLCD(self, LCD, message):
+	def writeToLCD(self, LCD, line, message):
 		if self.emulated:
 			print "api write lcd"
 			self.emu.writeLCD(LCD, message)
 		if self.i2ced:
-			pass
+			self.i2chandler.writeLCD(LCD, line, message)
 			
 					
 		
