@@ -295,7 +295,7 @@ class em:
 			#self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[1]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[1][0]))
-		self.refresfScreen()
+		self.refreshScreen()
 		return 1	
 			
 			
