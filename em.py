@@ -279,7 +279,7 @@ class em:
 	def writeLCD(self, LCD, line, message):
 
 		if len(message) > 16: # only display first 16 characters
-			messsage = message[:16]
+			messsage = message[:15]
 			print "EMULATOR: LCD: Message too long, printed first 16 characters"
 			
 		if LCD <4:
