@@ -201,7 +201,8 @@ class em:
 	
 		for i in range(size):
 			for j in range(size):
-				self.setPixel(x+i,y+j,(0,200,0))
+				if self.spriteArrays[(size/4)-1][spriteAddress][i][j]:
+					self.setPixel(x+i,y+j,(0,200,0))
 		self.refreshScreen()
 		
 		
