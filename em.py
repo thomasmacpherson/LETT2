@@ -103,16 +103,16 @@ class em:
 					[0,0,0,0],
 					[0,0,0,0],
 					[0,0,0,0]]			
-		self.spriteArray1 = []
+		spriteArray1 = []
 		
 		for i in range(5):
-			self.spriteArray1.append(sprite8)
+			spriteArray1.append(sprite8)
 			
 			
-		self.spriteArray2 = []
+		spriteArray2 = []
 		
 		for i in range(10):
-			self.spriteArray2.append(sprite4)
+			spriteArray2.append(sprite4)
 		
 		self.spriteArrays.append(spriteArray2)
 		self.spriteArrays.append(spriteArray1)
