@@ -55,23 +55,24 @@ class HD47780(object):
             lcd_byte(i, self.LCD_CHR)
 
 
-def test_i2c():
-    from datetime import datetime
-    import smbus
+class lcd(self):
+	def __init__(self, smbus):
+		
 
-    driver1 = LCD_23017(bus=smbus.SMBus(0), addr=0x20, port='B', rs=0, en=1)
-   # driver2 = LCD_23017(bus=smbus.SMBus(1), addr=0x20, port='B', rs=0, en=2)
+		self.driver1 = LCD_23017(bus=smbus.SMBus(0), addr=0x20, port='B', rs=0, en=1)
+   		# driver2 = LCD_23017(bus=smbus.SMBus(1), addr=0x20, port='B', rs=0, en=2)
 
-    lcd1 = HD47780(driver=driver1, rows=2, width=16)
-   # lcd2 = HD47780(driver=driver2, rows=2, width=16)
+    	self.lcd1 = HD47780(driver=driver1, rows=2, width=16)
+   		# lcd2 = HD47780(driver=driver2, rows=2, width=16)
+   
+	def writeLCD(self, line, message)
+		self.lcd1.lcd_string(message, line)
+  		# lcd2.lcd_string("     London")
 
-    lcd1.lcd_string("Hello world")
-   # lcd2.lcd_string("     London")
 
 
-
-def main():
-    test_i2c()
+#def main():
+#    test_i2c()
 
 if __name__ == "__main__":
     main()

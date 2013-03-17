@@ -6,7 +6,7 @@
 
 # SK Pang Electronics June 2012
 
-import smbus
+import smbus as smbus
 import sys
 import getopt
 import time 
@@ -14,7 +14,7 @@ import const
 
 
 const.rdComm = 114
-const.rev2 = True
+const.rev2 = False
 
 const.res = 16 # length in pixel
 const.numberOfRDs = pow((16/8),2)
@@ -54,7 +54,7 @@ const.CMD_MOVE_SPRITE		= 0x38
 
 const.CMD_CLEAR_CHAR		= 0x40
 
-
+import lcd.py
 const.CMD_totalArgs = [
 #  0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - A - B - C - D - E - F 
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    # 0 - 0x00 -> 0x0F
@@ -75,7 +75,8 @@ class handler:
 		self.qOut = qOut
 		self.bus = smbus.SMBus(const.rev2)
 
-
+	def setUpLCD():
+		self.
 	def sendWireCommand(self, add, RDCMD):
 		self.bus.write_i2c_block_data(add,const.rdComm,RDCMD) 
 		time.sleep(5.0/100.0)
