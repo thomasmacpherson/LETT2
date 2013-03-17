@@ -85,7 +85,7 @@ class em:
 		self.drawButtons()
 		self.drawBlankScreen()
 		self.drawLCDOutline()
-		self.writeLCD(1,0, "hello")
+		#self.writeLCD(1,0, "hello")
 		self.refreshScreen()
 
 		self.spriteArrays = []
@@ -269,20 +269,21 @@ class em:
 
 	def drawLCDOutline(self):
 		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX, const.LCDY[0], const.LCDOuterWidth,const.LCDOuterHeight),2)
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[0]+9,const.LCDInnerWidth, const.LCDInnerHeight),1)
+		#self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[0]+9,const.LCDInnerWidth, const.LCDInnerHeight),1)
 
 		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX, const.LCDY[1],const.LCDOuterWidth,const.LCDOuterHeight),2)
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[1]+9,const.LCDInnerWidth, const.LCDInnerHeight),1)
+		#self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[1]+9,const.LCDInnerWidth, const.LCDInnerHeight),1)
 
 
 
 	def writeLCD(self, LCD, line, message):
-		print "emu write lcd"
-		if len(message) > 16:
-			return 0
+
+		if len(message) > 16: # only display first 16 characters
+			messsage = message[:16]
+			print "EMULATOR: LCD: Message too long, printed first 16 characters"
 			
 		if LCD <4:
-			print "here"
+
 			self.pygame.draw.rect(self.screen, (255,255,255),(const.LCDX+5, const.LCDY[LCD]+9+(line*(const.LCDInnerHeight/2)),const.LCDInnerWidth, const.LCDInnerHeight/2),0) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[LCD][line]))			
