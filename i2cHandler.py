@@ -133,13 +133,13 @@ class handler:
 		
 		
 		
-	def flashSprite(self):
-		self.sendWireCommand(address,[const.CMD_CLEAR_SPACE, x, y])
+	def flashSprite(self, address):
+		self.sendWireCommand(address,[const.CMD_FLASH_SPRITE, x, y])
 
-	def changeSpriteSize(self):
-		self.sendWireCommand(address,[const.CMD_CLEAR_SPACE, x, y])
+	def changeSpriteSize(self, address):
+		self.sendWireCommand(address,[const.CMD_CHANGE_SPRITE_SIZE, x, y])
 		
-	def addToSprite(self):
+	def addToSprite(self, address):
 		pass
 					
 
