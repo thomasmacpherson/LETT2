@@ -59,15 +59,15 @@ def test_i2c():
     from datetime import datetime
     import smbus
 
-    driver1 = LCD_23017(bus=smbus.SMBus(1), addr=0x20, port='B', rs=0, en=1)
+    driver1 = LCD_23017(bus=smbus.SMBus(0), addr=0x20, port='B', rs=0, en=1)
    # driver2 = LCD_23017(bus=smbus.SMBus(1), addr=0x20, port='B', rs=0, en=2)
-   # driver3 = LCD_23017(bus=smbus.SMBus(1), addr=0x20, port='B', rs=0, en=3)
+
     lcd1 = HD47780(driver=driver1, rows=2, width=16)
    # lcd2 = HD47780(driver=driver2, rows=2, width=16)
-   # lcd3 = HD47780(driver=driver3, rows=2, width=16)
+
     lcd1.lcd_string("Hello world")
    # lcd2.lcd_string("     London")
-   # lcd3.lcd_string("    Melbourne")
+
 
 
 def main():

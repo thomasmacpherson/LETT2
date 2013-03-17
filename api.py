@@ -82,6 +82,7 @@ class api:
 
 	def writeToLCD(self, LCD, message):
 		if self.emulated:
+			print "api write lcd"
 			self.emu.writeLCD(LCD, message)
 		if self.i2ced:
 			pass
@@ -243,6 +244,8 @@ class api:
 				self.i2chandler.setSprite(RDsAdrs[1][0], spriteAddress, size, list)
 				self.i2chandler.setSprite(RDsAdrs[1][1], spriteAddress, size, list)
 		
+		if self.emulated:
+			self.emu.setSprite(spriteAddress, size, list)
 		
 	def displaySprite(self, grid, spriteAddress, x, y):
 		if self.i2ced:

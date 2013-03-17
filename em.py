@@ -88,6 +88,36 @@ class em:
 		self.writeLCD(3, "hello")
 		self.refreshScreen()
 
+		self.spriteArrays = []
+		
+		sprite8 = [[0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0]]
+					
+		sprite4 = [[0,0,0,0],
+					[0,0,0,0],
+					[0,0,0,0],
+					[0,0,0,0]]			
+		self.spriteArray1 = []
+		
+		for i in range(5):
+			self.spriteArray1.append(sprite8)
+			
+			
+		self.spriteArray2 = []
+		
+		for i in range(10):
+			self.spriteArray2.append(sprite4)
+		
+		self.spriteArrays.append(spriteArray2)
+		self.spriteArrays.append(spriteArray1)
+		
+		
 		
 		
 	def screenPrint(self,display):
@@ -144,6 +174,15 @@ class em:
 				self.setPixel(i,j,colours[(i+j)%2])		
 		self.refreshScreen()
 	
+	
+	def setSprite(self,spriteAddress, size, list):
+		for i in range(8):
+			getBit(
+			
+			
+			
+	def displaySprite(self, spriteAddress, siz):
+		pass
 	
 	
 	def setInk(self, r, g, b, grid):
@@ -214,25 +253,29 @@ class em:
 
 
 	def writeLCD(self, LCD, message):
+		print "emu write lcd"
 		if len(message) > 16:
 			return 0
 			
 		if LCD <4:
-			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[LCD/2]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
+			#self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[LCD/2]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[LCD/2][LCD%2]))			
 			
 		elif LCD == 4:
-			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[0]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
+			#self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[0]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[0][0]))
 			
-			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[1]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
+			#self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[1]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[1][0]))
 			
 		return 1	
 			
+			
+def getBit(byteval,idx):
+    return ((byteval&(1<<idx))!=0);
 		'''	
 		elif LCD == 5:
 		
