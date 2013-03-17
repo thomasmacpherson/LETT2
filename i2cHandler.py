@@ -79,7 +79,7 @@ class handler:
 	def setUpLCD(self):
 		self.lcd = lcd.lcd(self.bus)
 		
-	def writeLCD(self,lcd, line, message):
+	def writeLCD(self, LCD, line, message):
 		self.lcd.writeLCD(LCD, line, message)
 		
 	def sendWireCommand(self, add, RDCMD):
