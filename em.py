@@ -283,16 +283,16 @@ class em:
 			
 		if LCD <4:
 			print "here"
-			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[LCD]+9,const.LCDInnerWidth, const.LCDInnerHeight/2),1) # draw over previous text
+			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[LCD]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[LCD][line]))			
 			
 		elif LCD == 4:
-			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[0]+9,const.LCDInnerWidth, const.LCDInnerHeight/2),1) # draw over previous text
+			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[0]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[0][0]))
 			
-			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[1]+9,const.LCDInnerWidth, const.LCDInnerHeight/2),1) # draw over previous text
+			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[1]+9,const.LCDInnerWidth, const.LCDInnerHeight),1) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[1][0]))
 		self.refreshScreen()
