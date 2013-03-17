@@ -76,10 +76,10 @@ class handler:
 		self.bus = smbus.SMBus(const.rev2)
 		self.setUpLCD()
 
-	def setUpLCD():
+	def setUpLCD(self):
 		self.lcd = lcd.lcd(self.bus)
 		
-	def writeLCD(lcd, line, message):
+	def writeLCD(self,lcd, line, message):
 		self.lcd.writeLCD(LCD, line, message)
 		
 	def sendWireCommand(self, add, RDCMD):
