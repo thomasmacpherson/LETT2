@@ -19,7 +19,7 @@ for i in range(0,width):
 
 
 class api:
-	def __init__(self, emulated, i2ced, keyboardhacked):
+	def __init__(self, emulated, LEDGrided, LCDed, keyboardhacked):
 		self.qOut= Queue.Queue(maxsize=0)
 		self.qIn = Queue.Queue(maxsize=0)
 		
@@ -30,7 +30,8 @@ class api:
 		
 		self.i2chandler = i2cHandler.handler(self.qOut)
 		self.emulated = emulated
-		self.i2ced = i2ced
+		self.LEDGrided = LEDGrided
+		self.LCDed = LCDed
 		self.keyboardhacked = keyboardhacked
 
 		
@@ -66,7 +67,7 @@ class api:
 		self.squareSplit(x1,y1,x2,y2)
 		
 	def drawLine(self,x,y,ex,ey):
-		if self.i2ced:
+		if self.LEDGrided:
 			if restrictedTo([x,ex],self.lowerBoarder)!=2:
 				if restrictedTo([y,ey], self.lowerBoarder)!=2:
 					self.i2chandler.drawLine(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res, ex%self.res, ey%self.res) # send to single grid
@@ -83,8 +84,8 @@ class api:
 	def writeToLCD(self, LCD, line, message):
 		if self.emulated:
 			print "api write lcd"
-			self.emu.writeLCD(LCD, message)
-		if self.i2ced:
+			self.emu.writeLCD(LCD, line, message)
+		if self.LCDed:
 			self.i2chandler.writeLCD(LCD, line, message)
 			
 					
@@ -93,7 +94,7 @@ class api:
 		if self.emulated:
 			self.emu.setInk(r, g, b, grid)
 		
-		if self.i2ced:		
+		if self.LEDGrided:		
 			if grid >= 4:
 				self.i2chandler.setInk(RDsAdrs[0][0], r, g, b)
 				self.i2chandler.setInk(RDsAdrs[0][1], r, g, b)
@@ -104,7 +105,7 @@ class api:
 				self.i2chandler.setInk(RDsAdrs[grid/2][grid%2], r, g, b)		
 		
 	def drawPixel(self, x, y):
-		if self.i2ced:
+		if self.LEDGrided:
 			self.i2chandler.drawPixel(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res)
 		
 		if self.emulated:
@@ -115,7 +116,7 @@ class api:
 		
 		
 	def setBG(self, r1, g1, b1, r2, g2, b2):
-		if self.i2ced:
+		if self.LEDGrided:
 			if self.res>1: #otherwise repeating pattern will not repeat
 				self.i2chandler.setBG(RDsAdrs[0][0], r1, g1, b1, r2, g2, b2)
 				self.i2chandler.setBG(RDsAdrs[0][1], r1, g1, b1, r2, g2, b2)
@@ -137,7 +138,7 @@ class api:
 		self.res = res
 		self.lowerBoarder = self.mapping[res]
 		
-		if self.i2ced:
+		if self.LEDGrided:
 			self.i2chandler.setResolution(RDsAdrs[0][0], self.res)
 			self.i2chandler.setResolution(RDsAdrs[0][1], self.res)
 			self.i2chandler.setResolution(RDsAdrs[1][0], self.res)
@@ -146,7 +147,7 @@ class api:
 		
 		
 	def moveUntil(self, x, y, ex, ey, delay):
-		if self.i2ced:
+		if self.LEDGrided:
 			if restrictedTo([x,ex],self.lowerBoarder)!=2:
 				if restrictedTo([y,ey], self.lowerBoarder)!=2:
 					self.i2chandler.moveUntil(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res, ex%self.res, ey%self.res, delay) # send to single grid
@@ -161,7 +162,7 @@ class api:
 		
 		
 	def movePiece(self,x1, y1, x2, y2):
-		if self.i2ced:
+		if self.LEDGrided:
 			if restrictedTo([x1,x2],self.lowerBoarder)!=2 and restrictedTo([y1,y2],self.lowerBoarder)!=2:
 				self.i2chandler.movePiece(RDsAdrs[x1/self.res][y1/self.res], x1%self.res, y1%self.res, x2%self.res, y2%self.res)
 				
@@ -172,13 +173,13 @@ class api:
 		
 		
 	def clearSpace(self,x,y):
-		if self.i2ced:
+		if self.LEDGrided:
 			self.i2chandler.clearSpace(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res)
 		
 		
 	
 	def drawSprite(self,spriteAddress, size, x, y):	
-		if self.i2ced:
+		if self.LEDGrided:
 			gridX = restrictedTo([x, x+size],self.lowerBoarder)
 			gridY = restrictedTo([y, y+size], self.lowerBoarder)
 			if gridX !=2:
@@ -235,7 +236,7 @@ class api:
 		
 		
 	def setSprite(self, grid, spriteAddress, size, list):
-		if self.i2ced:
+		if self.LEDGrided:
 			if grid < 4:
 				self.i2chandler.setSprite(RDsAdrs[grid/2][grid%2], spriteAddress, size, list)
 			else:
@@ -248,7 +249,7 @@ class api:
 			self.emu.setSprite(spriteAddress, size, list)
 		
 	def displaySprite(self, grid, spriteAddress, x, y):
-		if self.i2ced:
+		if self.LEDGrided:
 			if grid < 4:
 				self.i2chandler.displaySprite(RDsAdrs[grid/2][grid%2], spriteAddress, x, y)
 			else:
@@ -265,7 +266,7 @@ class api:
 			
 			
 	def clearSprite(self, grid, spriteAddress):
-		if self.i2ced:
+		if self.LEDGrided:
 			if grid < 4:
 				self.i2chandler.clearSprite(RDsAdrs[grid/2][grid%2], spriteAddress)
 			else:
@@ -276,7 +277,7 @@ class api:
 			
 			
 	def moveSprite(self, grid, spriteAddress, newX, newY):
-		if self.i2ced:
+		if self.LEDGrided:
 			if grid < 4:
 				self.i2chandler.moveSprite(RDsAdrs[grid/2][grid%2], spriteAddress, newX, newY)
 			else:
@@ -288,7 +289,7 @@ class api:
 	
 		
 	def printChar(self, x, y, char):
-		if self.i2ced:
+		if self.LEDGrided:
 			print "printing char"
 			print "lower boarder ", self.lowerBoarder
 			print "x value ", x
@@ -345,7 +346,7 @@ class api:
 						
 		
 	def clearchar(self, grid, x, y, char):
-		if self.i2ced:	
+		if self.LEDGrided:	
 			if grid < 4:
 				self.i2chandler.clearChar(RDsAdrs[grid/2][grid%2], x, y, char)
 			else:
@@ -365,7 +366,7 @@ class api:
 		
 		
 	def squareSplit(self, x1,y1,x2,y2):
-		if self.i2ced:
+		if self.LEDGrided:
 			gridX = restrictedTo([x1,x2], self.lowerBoarder)
 			gridY = restrictedTo([y1,y2], self.lowerBoarder)
 			if gridX !=2:
@@ -431,7 +432,7 @@ class api:
 			
 	
 	def lineSplit(self,x1,y1, x2,y2,axis):
-		if self.i2ced:
+		if self.LEDGrided:
 			if axis == 0 : # crosses the y-axis only
 				yGrid = restrictedTo([y1,y2],self.lowerBoarder)
 				#y1 = y1-(self.res*yGrid)
@@ -499,7 +500,7 @@ class api:
 
 
 	def moveUntilSplit(self,x1,y1, x2,y2,axis, delay):
-		if self.i2ced:
+		if self.LEDGrided:
 			if axis == 0 : # crosses the y-axis only
 				yGrid = restrictedTo([y1,y2],self.lowerBoarder)
 				#y1 = y1-(self.res*yGrid)
