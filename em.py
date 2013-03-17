@@ -137,7 +137,7 @@ class em:
 
 
 	def setBG(self, r1,g1,b1, r2,g2, b2, res):
-		colours = [{r1,g1,b1,},{r2,g2,b2}]
+		colours = [[r1,g1,b1],[r2,g2,b2]]
 		
 		for i in range (16):
 			for j in range(16):
@@ -199,7 +199,7 @@ class em:
 		self.setPixel(x,y,gridColours[x][y])
 
 
-	def setPixel(x, y, colour):
+	def setPixel(self, x, y, colour):
 		self.pygame.draw.rect(self.screen, colour, (const.gridX+x*20,const.gridY+y*20,20,20),0) 
 		self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+x*20,const.gridY+y*20,20,20),2) 
 
