@@ -134,6 +134,18 @@ class em:
 		self.backgroundColour = r, g, b
 		self.screen.fill(self.backgroundColour)
 
+
+
+	def setBG(self, r1,g1,b1, r2,g2, b2, res)
+		colours = [[r1,g1,b1,],[r2,g2,b2]]
+		
+		for i in range (16):
+			for j in range(16):
+				self.setPixel(i,j,colours[i+j])		
+		self.refreshScreen()
+	
+	
+	
 	def setInk(self, r, g, b, grid):
 		if grid >= 4:
 			for i in range(0,4):
@@ -175,16 +187,20 @@ class em:
 	
 	def drawLine(self):
 		pass	
+		
 						
 	def drawPixel(self, x, y, grid):
 		self.pixelDraw(x, y, grid)
 		self.refreshScreen()
 
 
-
 	def pixelDraw(self, x, y, grid):					
 		self.gridColours[x][y]=(self.ink[grid])
-		self.pygame.draw.rect(self.screen, self.gridColours[x][y], (const.gridX+x*20,const.gridY+y*20,20,20),0) 
+		self.setPixel(x,y,gridColours[x][y])
+
+
+	def setPixel(x, y, colour):
+		self.pygame.draw.rect(self.screen, colour, (const.gridX+x*20,const.gridY+y*20,20,20),0) 
 		self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+x*20,const.gridY+y*20,20,20),2) 
 
 
