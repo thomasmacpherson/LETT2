@@ -48,12 +48,15 @@ class thisapp():
 		yCheck = 0
 		xCheck = 1
 		
+		print "x value ", x
+		print "y value ", y
+		
 		while( yCheck !=0 or xCheck !=0):
 			tempY = y
 			tempX = x
 			inARowCount = 0
 			print "here"
-			while 0 <= tempX + xCheck < self.gridSize and 0 <= tempY + yCheck < self.gridSize:
+			while 0 <= (tempX + xCheck) < self.gridSize and 0 <= (tempY + yCheck) < self.gridSize:
 				
 				tempX += xCheck
 				tempY += yCheck
