@@ -137,9 +137,9 @@ class thisapp():
 				
 	def __init__(self, api):
 		self.api = api
-		self.api.set
+		#self.api.set
 		#self.api.setResolution()
-		#self.api.setBG()
+
 
 		self.api.setInk(200,0,0,4) # red for grid lines
 		
