@@ -3,7 +3,7 @@ import const
 
 const.turnPrint = ("Opponent's turn", "Your turn")
 const.winPrint = ("You won", "You lost", "It was a draw")
-const.playerColours = ((100,255,200),(0,255,0))
+const.playerColours = ((100,255,200),(0,255,200))
 
 class thisapp():
 
