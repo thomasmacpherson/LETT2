@@ -3,7 +3,7 @@ import const
 
 const.turnPrint = ("Opponent's turn", "Your turn")
 const.winPrint = ("You won", "You lost", "It was a draw")
-const.playerColours = ((0,255,200),(0,255,0))
+const.playerColours = ((100,255,200),(0,255,0))
 
 class thisapp():
 
@@ -19,7 +19,7 @@ class thisapp():
 				'''
 	
 		if self.pieces[2] >= self.totalGamePlaces:
-			self.gameOver(2)
+			self.gameOver()
 			
 			
 		self.api.writeToLCD(0,1,const.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
@@ -136,7 +136,7 @@ class thisapp():
 					self.pieces[self.turn] +=1
 					self.pieces[2] +=1
 					self.api.setInk(const.playerColours[self.turn][0],const.playerColours[self.turn][1],const.playerColours[self.turn][2],4)
-					self.api.drawSprite(self.turn, 4,x*5+1, y*5+1)
+					self.api.drawSprite(4,self.turn,x*5+1, y*5+1)
 					#self.api.drawPixel(x,y)
 					self.gridColours[x][y] = self.turn
 				
