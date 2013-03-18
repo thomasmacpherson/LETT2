@@ -87,7 +87,7 @@ class em:
 		self.drawButtons()
 		self.drawBlankScreen()
 		self.drawLCDOutline()
-		#self.writeLCD(1,0, "hello")
+		self.arrowButtons()
 		self.refreshScreen()
 
 		self.spriteArrays = []
@@ -195,7 +195,7 @@ class em:
 		self.screen.fill(self.backgroundColour)
 
 
-	def arrowButton(self):
+	def arrowButtons(self):
 		self.pygame.draw.polygon(self.screen,(255,255,0), [(100,100), (150,200), (200,100)],0)
 		
 		self.pygame.draw.polygon(self.screen,(0,0,255), [(200,200), (250,300), (300,200)],0)
