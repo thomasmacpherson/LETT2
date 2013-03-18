@@ -109,7 +109,7 @@ class thisapp():
 			if validPos.count(x) and validPos.count(y): # is a valid place
 				x = x/5
 				y = y/5
-				if gridColours[x][y] =! 2:
+				if gridColours[x][y] != 2:
 					#self.api.printLCD(!turn, 1, "Can't go there", 2)	#only displayed for 2 seconds
 					#self.api.flashPixel(x, y, Red, 2)
 					return False
