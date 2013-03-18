@@ -171,7 +171,7 @@ class thisapp():
 
 		self.api.writeToLCD(0,0,self.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
 		self.api.writeToLCD(1,0,self.turnPrint[not self.turn])
-		
+		'''
 		self.rowColours = []
 		self.gridColours = []
 		for i in range(self.res):
@@ -198,7 +198,7 @@ class thisapp():
 							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
 							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]]
 
-		'''
+		
 		self.inputReceived(self.api.waitForInput())
 
 
