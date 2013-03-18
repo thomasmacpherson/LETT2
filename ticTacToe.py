@@ -12,8 +12,11 @@ class thisapp():
 	def inputReceived(self, args):
 		print "TICTACTOE: INPUT RECEIVED"
 		if self.checkInput(args):
+			pass
+			'''
 			if self.checkForWin(args[0], args[1]):
 				self.gameOver(self.turn)
+				'''
 	
 		if self.pieces[2] >= self.totalGamePlaces:
 			self.gameOver(2)
@@ -45,8 +48,10 @@ class thisapp():
 
 	def checkForWin(self, x, y):
 		print "TICTACTOE: CHECK FOR WIN"
-		yCheck = 0
+		
 		xCheck = 1
+		yCheck = 0
+		
 		
 		print "x value ", x
 		print "y value ", y
@@ -54,7 +59,7 @@ class thisapp():
 		while( yCheck !=0 or xCheck !=0):
 			tempY = y
 			tempX = x
-			inARowCount = 0
+			inARowCount = 1
 			#print "here"
 			while 0 <= (tempX + xCheck) and  (tempX + xCheck) < self.gridSize and 0 <= (tempY + yCheck) and (tempY + yCheck) < self.gridSize:
 				
@@ -78,30 +83,30 @@ class thisapp():
 				return 1
 				
 
-			if xCheck == 1 and yCheck == 0:
+			if xCheck == 1 and yCheck == 0: #1
 				xCheck == -1
 				
-			elif xCheck == -1 and yCheck == 0:
+			elif xCheck == -1 and yCheck == 0: #2
 				inARowcount = 1
 				xCheck = 0
 				yCheck = 1
 			
-			elif xCheck == 0 and yCheck == 1:
+			elif xCheck == 0 and yCheck == 1: #3
 				yCheck = -1
 				
-			elif xCheck == 0 and yCheck == -1:
+			elif xCheck == 0 and yCheck == -1: #4
 				inARowCount = 1
 				xCheck = 1
 			
-			elif xCheck == 1 and yCheck == -1:
+			elif xCheck == 1 and yCheck == -1: #5
 				xCheck = -1
 	
 				
-			elif xCheck == -1 and yCheck == -1:
+			elif xCheck == -1 and yCheck == -1: #6
 				inARowCount = 1
 				yCheck = 1
 				
-			elif xCheck == -1 and yCheck == 1:
+			elif xCheck == -1 and yCheck == 1: #7
 				xCheck = 1
 				
 			elif xCheck == 1 and yCheck == 1:
