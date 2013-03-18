@@ -270,7 +270,7 @@ class em:
 				
 			
 	def drawTable(self):
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),4)
+		self.pygame.draw.rect(self.screen, (255,255,255),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),4)
 		self.pygame.draw.rect(self.screen, (0,0,0),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),0)
 
 	def waitForScreenPixelPress(self):
@@ -363,11 +363,11 @@ class em:
 
 
 	def drawLCDOutline(self):
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX, const.LCDY[0], const.LCDOuterWidth,const.LCDOuterHeight),2)
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[0]+9,const.LCDInnerWidth, const.LCDInnerHeight),1)
+		self.pygame.draw.rect(self.screen, (255,255,255),(const.LCDX, const.LCDY[0], const.LCDOuterWidth,const.LCDOuterHeight),2)
+		#self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[0]+9,const.LCDInnerWidth, const.LCDInnerHeight),1)
 
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX, const.LCDY[1],const.LCDOuterWidth,const.LCDOuterHeight),2)
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[1]+9,const.LCDInnerWidth, const.LCDInnerHeight),1)
+		self.pygame.draw.rect(self.screen, (255,255,255),(const.LCDX, const.LCDY[1],const.LCDOuterWidth,const.LCDOuterHeight),2)
+		#self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[1]+9,const.LCDInnerWidth, const.LCDInnerHeight),1)
 
 
 
@@ -381,17 +381,17 @@ class em:
 			
 		if LCD <2:
 
-			self.pygame.draw.rect(self.screen, (255,255,255),(const.LCDX+5, const.LCDY[LCD]+9+(line*(const.LCDInnerHeight/2)),const.LCDInnerWidth, const.LCDInnerHeight/2),0) # draw over previous text
-			displayText = self.font.render(message ,1, (0,0,0)) #black
+			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[LCD]+9+(line*(const.LCDInnerHeight/2)),const.LCDInnerWidth, const.LCDInnerHeight/2),0) # draw over previous text
+			displayText = self.font.render(message ,1, (255,255,255)) #white
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[LCD][line]))			
 			
 		elif LCD == 2:
-			self.pygame.draw.rect(self.screen, (255,255,255),(const.LCDX+5, const.LCDY[0]+9+(line*(const.LCDInnerHeight/2)),const.LCDInnerWidth, const.LCDInnerHeight/2),0) # draw over previous text
-			displayText = self.font.render(message ,1, (0,0,0)) #black
+			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[0]+9+(line*(const.LCDInnerHeight/2)),const.LCDInnerWidth, const.LCDInnerHeight/2),0) # draw over previous text
+			displayText = self.font.render(message ,1, (255,255,255)) #white
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[0][line]))
 			
-			self.pygame.draw.rect(self.screen, (255,255,255),(const.LCDX+5, const.LCDY[1]+9+(line*(const.LCDInnerHeight/2)),const.LCDInnerWidth, const.LCDInnerHeight/2),0) # draw over previous text
-			displayText = self.font.render(message ,1, (0,0,0)) #black
+			self.pygame.draw.rect(self.screen, (0,0,0),(const.LCDX+5, const.LCDY[1]+9+(line*(const.LCDInnerHeight/2)),const.LCDInnerWidth, const.LCDInnerHeight/2),0) # draw over previous text
+			displayText = self.font.render(message ,1, (255,255,255)) #white
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[1][line]))
 		self.refreshScreen()
 		return 1	
