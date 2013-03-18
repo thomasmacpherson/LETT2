@@ -309,13 +309,26 @@ class em:
 		lx = math.trunc(math.fabs(ex-sx))
 		ly = math.trunc(math.fabs(ey-sy))
 		
+		print "lx is ", lx
+		print "ly is ", ly
+		
+		
 		if lx > ly:
   			for i in range(lx+1):
-  				self.setPixel(math.trunc(mapping.mapRange(i, 0, lx, sx, ex)), math.trunc(mapping.mapRange(i, 0, lx, sy, ey)))
+  				x = math.trunc(mapping.mapRange(i, 0, lx, sx, ex))
+  				y = math.trunc(mapping.mapRange(i, 0, lx, sy, ey))
+  				print "x is ", x
+  				print "y is ", y
+  				self.setPixel(x, y)
 
 		else:
 			for i in range(ly+1):
-				self.setPixel(math.trunc(mapping.mapRange(i, 0, ly, sx, ex)), math.trunc(mapping.mapRange(i, 0, ly, sy, ey)))
+				x = math.trunc(mapping.mapRange(i, 0, ly, sx, ex))
+				y = math.trunc(mapping.mapRange(i, 0, ly, sy, ey))
+				print "x is ", x
+				print "y is ", y
+				
+				self.setPixel(x,y)
   
       
 
