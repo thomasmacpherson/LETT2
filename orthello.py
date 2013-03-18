@@ -179,6 +179,7 @@ class thisapp():
 		for i in range(self.res):
 			self.gridColours.append(self.rowColours)
 		
+		print self.gridColours
 		'''
 		self.gridColours = [[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
 							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
