@@ -80,8 +80,14 @@ class handler:
 		self.lcd = lcd.lcd(self.bus)
 		
 	def writeLCD(self, LCD, line, message):
-		self.lcd.writeLCD(LCD, line, message)
-		
+		if LCD < 2:
+			self.lcd.writeLCD(LCD, line, message)
+		else
+			self.lcd.writeLCD(0, line, message)
+			self.lcd.writeLCD(1, line, message)
+			
+			
+					
 	def sendWireCommand(self, add, RDCMD):
 		self.bus.write_i2c_block_data(add,const.rdComm,RDCMD) 
 		time.sleep(5.0/100.0)
