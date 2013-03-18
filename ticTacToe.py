@@ -18,15 +18,15 @@ class thisapp():
 				self.gameOver(self.turn)
 				'''
 	
-		if self.pieces[2] >= self.totalGamePlaces:
-			self.gameOver(2)
+			if self.pieces[2] >= self.totalGamePlaces:
+				self.gameOver(2)
 			
 			
-		self.api.writeToLCD(0,1,const.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
-		self.api.writeToLCD(1,1,const.turnPrint[not self.turn])
+			self.api.writeToLCD(0,1,const.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
+			self.api.writeToLCD(1,1,const.turnPrint[not self.turn])
 		
-		self.turn = not self.turn
-		self.inputReceived(self.api.waitForInput())			
+			self.turn = not self.turn
+			self.inputReceived(self.api.waitForInput())			
 			
 			
 			

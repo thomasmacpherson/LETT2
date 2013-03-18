@@ -79,6 +79,9 @@ class api:
 					self.lineSplit(x,y,ex,ey,0)
 				else:
 					pass
+		
+		if self.emulated:
+			self.emu.drawLine(x,y,ex,ey)
 
 
 	def writeToLCD(self, LCD, line, message):
@@ -93,6 +96,9 @@ class api:
 	def setInk(self, r, g, b, grid):
 		if self.emulated:
 			self.emu.setInk(r, g, b, grid)
+			print "API: red ", r
+			print "API: green ", g
+			print "API: blue ", b
 		
 		if self.LEDGrided:		
 			if grid >= 4:

@@ -5,6 +5,8 @@ from pygame.locals import *
 
 
 import const
+import mapping
+import math
 
 const.red = (255,0,0)
 const.green = (0,255,0)
@@ -301,9 +303,23 @@ class em:
 		
 		
 		
-	def drawLine(self):
-		pass	
-		
+	def drawLine(self, x,y, ex, ey):
+	
+	
+ 		lx = math.fabs(ex-sx)
+  		ly = math.fab(ey-sy)
+  
+  		if  lx > ly:
+    		for i in range(lx+1):
+      			self.setPixel(map(i, 0, lx, sx, ex), map(i, 0, lx, sy, ey))
+  
+      
+    	else:
+    		for i in range(ly+1):
+     			self.setPixel(mapping.mapRange(i, 0, ly, sx, ex), mapping.mapRange(i, 0, ly, sy, ey))
+  
+      
+
 						
 	def drawPixel(self, x, y, grid):
 		self.pixelDraw(x, y, grid)
