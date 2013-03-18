@@ -196,9 +196,8 @@ class em:
 
 
 	def arrowButtons(self):
-		self.pygame.draw.polygon(self.screen,(75,0,0), [(100,100), (75,125), (100,150)],0)
+		self.pygame.draw.polygon(self.screen,(125,0,0), [(const.tableX +100, const.tableY +40), (const.tableX +50,const.tableY +65), (const.tableX +100,const.tableY +140)],0)
 		
-		self.pygame.draw.polygon(self.screen,(0,0,255), [(200,200), (250,300), (300,200)],0)
 		
 
 
