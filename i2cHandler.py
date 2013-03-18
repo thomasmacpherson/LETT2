@@ -82,7 +82,7 @@ class handler:
 	def writeLCD(self, LCD, line, message):
 		if LCD < 2:
 			self.lcd.writeLCD(LCD, line, message)
-		else
+		else:
 			self.lcd.writeLCD(0, line, message)
 			self.lcd.writeLCD(1, line, message)
 			
