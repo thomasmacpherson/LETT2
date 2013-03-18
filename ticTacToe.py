@@ -3,7 +3,7 @@ import const
 
 const.turnPrint = ("Opponent's turn", "Your turn")
 const.winPrint = ("You won", "You lost", "It was a draw")
-const.playerColours = ((100,255,200),(0,255,200))
+const.playerColours = [[100,255,200],[0,255,200]]
 
 class thisapp():
 
@@ -32,7 +32,7 @@ class thisapp():
 			
 	def gameOver(self, number): # redo TODO
 		print "TICTACTOE: GAME OVER"
-		if numer ==0:
+		if number ==0:
 			self.api.writeToLCD(0,1, const.winPrint[0])
 			self.api.writeToLCD(1,1, const.winPrint[1])
 

@@ -250,7 +250,7 @@ class em:
 	
 	def setInk(self, r, g, b, grid):
 		if grid >= 4:
-			for i in range(0,4):
+			for i in range(4):
 				self.ink[i][0]=r
 				self.ink[i][1]=g
 				self.ink[i][2]=b
