@@ -26,6 +26,8 @@ class thisapp():
 			self.api.writeToLCD(1,1,const.turnPrint[not self.turn])
 		
 			self.turn = not self.turn
+		else:
+			self.api.writeToLCD(self.turn, 1, "You can't go there")
 			
 		self.inputReceived(self.api.waitForInput())			
 			
