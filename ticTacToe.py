@@ -14,7 +14,7 @@ class thisapp():
 			if self.checkForWin(args[0], args[1]):
 				self.gameOver(self.turn)
 	
-		if pieces[2] >= totalGamePlaces:
+		if self.pieces[2] >= totalGamePlaces:
 			self.gameOver(2)
 			
 			
