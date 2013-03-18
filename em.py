@@ -178,13 +178,13 @@ class em:
 		for i in range(16):
 			row = []
 			for j in range(16):
-				row.append((255,255,255))
+				row.append((0,0,0))
 			self.gridColours.append(row)
 
 		for i in range(16):
 			for j in range(16):
 				self.pygame.draw.rect(self.screen, self.gridColours[i][j], (const.gridX+i*20,const.gridY+j*20,20,20),0) 
-				self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+i*20,const.gridY+j*20,20,20),2) 
+				self.pygame.draw.rect(self.screen, (255,255,255), (const.gridX+i*20,const.gridY+j*20,20,20),2) 
 
 
 
