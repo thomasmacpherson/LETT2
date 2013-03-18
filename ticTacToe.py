@@ -53,7 +53,7 @@ class thisapp():
 				tempX += xCheck
 				tempY += yCheck
 	
-				if self.gridColour[tempX + xCheck][tempY + yCheck] == self.turn:
+				if self.gridColours[tempX + xCheck][tempY + yCheck] == self.turn:
 					inARowCount+=1
 					tempX += xCheck
 					tempY += yCheck
