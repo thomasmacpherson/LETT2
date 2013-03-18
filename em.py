@@ -170,7 +170,7 @@ class em:
 		
 		for i in range (16):
 			for j in range(16):
-				self.setPixel(i,j,colours[(i+j)%2])		
+				self.setPixelColour(i,j,colours[(i+j)%2])		
 		self.refreshScreen()
 	
 	
@@ -283,10 +283,10 @@ class em:
 
 	def pixelDraw(self, x, y, grid):					
 		self.gridColours[x][y]=(self.ink[grid])
-		self.setPixel(x,y,self.gridColours[x][y])
+		self.setPixelColour(x,y,self.gridColours[x][y])
 
 
-	def setPixel(self, x, y, colour):
+	def setPixelColour(self, x, y, colour):
 		if x <16 and y<16:
 			self.pygame.draw.rect(self.screen, colour, (const.gridX+x*20,const.gridY+y*20,20,20),0) 
 			self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+x*20,const.gridY+y*20,20,20),2) 
