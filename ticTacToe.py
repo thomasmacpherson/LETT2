@@ -105,7 +105,7 @@ class thisapp():
 
 
 	def checkInput(self, args):
-		if args.length == 2:
+		if len(args) == 2:
 			x = args[0]
 			y = args[1]
 			
@@ -152,7 +152,7 @@ class thisapp():
 		self.api.setSprite(4,0,4,[0b10010110, 0b01101001])
 		self.api.setSprite(4,1,4,[0b01101001, 0b10010110])
 		
-		self.pieces = [0,0,0] # player 1, 2
+		self.pieces = [0,0,0] # player 1, 2 and total
 		self.gridSize = 3
 		
 		self.gridColours = [[2,2,2],
