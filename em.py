@@ -196,13 +196,13 @@ class em:
 
 
 	def arrowButtons(self):
-		self.pygame.draw.polygon(self.screen,(125,0,0), [(const.tableX +150, const.LCDY[0]), (const.tableX +100,const.tableY +55), (const.tableX +150, const.LCDY[0]+const.OuterHeightLCD)],0)
+		self.pygame.draw.polygon(self.screen,(125,0,0), [(const.tableX +150, const.LCDY[0]), (const.tableX +100,const.tableY +55), (const.tableX +150, const.LCDY[0]+const.LCDOuterHeight)],0)
 
-		self.pygame.draw.polygon(self.screen,(125,0,0), [(const.tableX +450, const.LCDY[0]), (const.tableX +500,const.tableY +55), (const.tableX +450, const.LCDY[0]+const.OuterHeightLCD)],0)
+		self.pygame.draw.polygon(self.screen,(125,0,0), [(const.tableX +450, const.LCDY[0]), (const.tableX +500,const.tableY +55), (const.tableX +450, const.LCDY[0]+const.LCDOuterHeight)],0)
 		
-		self.pygame.draw.polygon(self.screen,(125,0,0), [(const.tableX +150, const.LCDY[1]), (const.tableX +100,const.tableY +55), (const.tableX +150, const.LCDY[1]+const.OuterHeightLCD)],0)		
+		self.pygame.draw.polygon(self.screen,(125,0,0), [(const.tableX +150, const.LCDY[1]), (const.tableX +100,const.tableY +55), (const.tableX +150, const.LCDY[1]+const.LCDOuterHeight)],0)		
 	
-		self.pygame.draw.polygon(self.screen,(125,0,0), [(const.tableX +450, const.LCDY[1]), (const.tableX +500,const.tableY +55), (const.tableX +450, const.LCDY[1]+const.OuterHeightLCD)],0)	
+		self.pygame.draw.polygon(self.screen,(125,0,0), [(const.tableX +450, const.LCDY[1]), (const.tableX +500,const.tableY +55), (const.tableX +450, const.LCDY[1]+const.LCDOuterHeight)],0)	
 
 
 	def setBG(self, r1,g1,b1, r2,g2, b2, res):
