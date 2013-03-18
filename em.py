@@ -53,14 +53,14 @@ const.LCDX = const.tableX + 190
 const.LCDY = [const.tableY + 25, const.tableY + 445]
 
 const.LCDXtext = const.LCDX + 9
-const.LCDYtext = [[const.LCDY[0] + 11,const.LCDY[0] + 25],[const.LCDY[1] + 11, const.LCDY[1] + 25]]
+const.LCDYtext = [[const.LCDY[0] + 11,const.LCDY[0] + 26],[const.LCDY[1] + 11, const.LCDY[1] + 25]]
 
 
 
 const.LCDOuterWidth = 140
 const.LCDOuterHeight = 50
 const.LCDInnerWidth = 130
-const.LCDInnerHeight = 32
+const.LCDInnerHeight = 30
 
 
 
