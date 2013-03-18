@@ -18,8 +18,8 @@ class thisapp():
 			self.gameOver(2)
 			
 			
-		self.api.writeToLCD(1,const.turnPrint1[self.turn]) # player, line, message, time (0 stay until overridden)
-		self.api.writeToLCD(3,const.turnPrint2[not self.turn])
+		self.api.writeToLCD(1,const.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
+		self.api.writeToLCD(3,const.turnPrint[not self.turn])
 		
 		self.turn = not self.turn
 		self.api.waitForInput(self.inputReceived)			
@@ -120,7 +120,7 @@ class thisapp():
 				else:
 					self.pieces[self.turn] +=1
 					self.pieces[2] +=1
-					self.api.setInk(self.playerColours[self.turn][0],self.playerColours[self.turn][1],self.playerColours[self.turn][2],4)
+					self.api.setInk(const.playerColours[self.turn][0],const.playerColours[self.turn][1],const..playerColours[self.turn][2],4)
 					self.api.drawSprite(self.turn, 4,x*5+1, y*5+1)
 					#self.api.drawPixel(x,y)
 					self.gridColours[x][y] = self.turn
