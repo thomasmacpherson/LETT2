@@ -283,7 +283,7 @@ class em:
 
 	def pixelDraw(self, x, y, grid):					
 		self.gridColours[x][y]=(self.ink[grid])
-		self.setPixel(x,y,gridColours[x][y])
+		self.setPixel(x,y,self.gridColours[x][y])
 
 
 	def setPixel(self, x, y, colour):
