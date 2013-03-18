@@ -52,7 +52,7 @@ class thisapp():
 			tempY = y
 			tempX = x
 			inARowCount = 0
-		
+			print "here"
 			while 0 <= tempX + xCheck < self.gridSize and 0 <= tempY + yCheck < self.gridSize:
 				
 				tempX += xCheck
