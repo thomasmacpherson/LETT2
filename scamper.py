@@ -81,7 +81,7 @@ class thisapp():
 					self.api.setPixel(x, y, (255,204,0))
 					
 				if self.gridColours[y][x] == 5:
-					self.api.drawPixel(x, y, (255,0,0))
+					self.api.setPixel(x, y, (255,0,0))
 				
 		
 		self.inputReceived(self.api.waitForInput())
