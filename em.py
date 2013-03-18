@@ -311,11 +311,11 @@ class em:
 		
 		if lx > ly:
   			for i in range(lx+1):
-  				self.setPixel(map(i, 0, lx, sx, ex), map(i, 0, lx, sy, ey))
+  				self.setPixel(math.trunc(mapping.mapRange(i, 0, lx, sx, ex)), math.trunc(mapping.mapRange(i, 0, lx, sy, ey)))
 
 		else:
 			for i in range(ly+1):
-				self.setPixel(mapping.mapRange(i, 0, ly, sx, ex), mapping.mapRange(i, 0, ly, sy, ey))
+				self.setPixel(math.trunc(mapping.mapRange(i, 0, ly, sx, ex)), math.trunc(mapping.mapRange(i, 0, ly, sy, ey)))
   
       
 
