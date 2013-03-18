@@ -351,14 +351,14 @@ class em:
 	def setPixelColour(self, x, y, colour):
 		if x <16 and y<16:
 			self.pygame.draw.rect(self.screen, colour, (const.gridX+x*20,const.gridY+y*20,20,20),0) 
-			self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+x*20,const.gridY+y*20,20,20),2) 
+			#self.pygame.draw.rect(self.screen, (255,255,255), (const.gridX+x*20,const.gridY+y*20,20,20),2) 
 
 
 
 	def setPixel(self, x, y): # uses ink colour of corresponding grid
 		if x <16 and y<16:
 			self.pygame.draw.rect(self.screen, self.ink[x/8 + (y/8)*2], (const.gridX+x*20,const.gridY+y*20,20,20),0) 
-			self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+x*20,const.gridY+y*20,20,20),2)
+			#self.pygame.draw.rect(self.screen, (255,255,255), (const.gridX+x*20,const.gridY+y*20,20,20),2)
 
 
 
