@@ -313,20 +313,20 @@ class em:
 	
 			print "EMULATOR: LCD: Message too long, printed first 16 characters"
 			
-		if LCD <4:
+		if LCD <2:
 
 			self.pygame.draw.rect(self.screen, (255,255,255),(const.LCDX+5, const.LCDY[LCD]+9+(line*(const.LCDInnerHeight/2)),const.LCDInnerWidth, const.LCDInnerHeight/2),0) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
 			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[LCD][line]))			
 			
-		elif LCD == 4:
+		elif LCD == 2:
 			self.pygame.draw.rect(self.screen, (255,255,255),(const.LCDX+5, const.LCDY[0]+9+(line*(const.LCDInnerHeight/2)),const.LCDInnerWidth, const.LCDInnerHeight/2),0) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
-			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[0][0]))
+			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[0][line]))
 			
 			self.pygame.draw.rect(self.screen, (255,255,255),(const.LCDX+5, const.LCDY[1]+9+(line*(const.LCDInnerHeight/2)),const.LCDInnerWidth, const.LCDInnerHeight/2),0) # draw over previous text
 			displayText = self.font.render(message ,1, (0,0,0)) #black
-			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[1][0]))
+			self.screen.blit(displayText, (const.LCDXtext, const.LCDYtext[1][line]))
 		self.refreshScreen()
 		return 1	
 			

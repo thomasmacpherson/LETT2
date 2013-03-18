@@ -9,7 +9,7 @@ class thisapp():
 			self.checkForFlips(args[0], args[1])
 	
 		if self.pieces[2] >= self.totalGamePlaces:
-			pass#self.gameOver()
+			self.gameOver()
 			
 			
 		self.api.writeToLCD(0,0,self.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
@@ -20,18 +20,18 @@ class thisapp():
 			
 	def gameOver():
 		if self.pieces[0] > self.pieces[1]:
-			#printLCD(0,1, winPrint[0], 0)
-			#printLCD(1,1, winPrint[1], 0)
-			pass
+			self.api.writeToLCD(0,1, winPrint[0])
+			self.api.writeToLCD(1,0, winPrint[1])
+			
 
 		elif self.pieces[1] > self.pieces[0]:
-			#printLCD(0,1, winPrint[1], 0)
-			#printLCD(1,1, winPrint[0], 0)	
-			pass
+			api.writeToLCD(0,0, winPrint[1])
+			api.writeToLCD(1,0, winPrint[0])	
+			
 
 		else:
-			#printLCD(3,1, winPrint[2], 0)	
-			pass	
+			self.api.WriteToLCD(2,0, winPrint[2])	
+				
 			
 
 
@@ -45,8 +45,9 @@ class thisapp():
 			y = args[1]
 			
 			if self.gridColours[x][y] != 2:
-				#self.api.printLCD(!turn, 1, "Can't go there", 2)	#only displayed for 2 seconds
+				self.api.writeToLCD(!turn, 0, "Can't go there")	#only displayed for 2 seconds
 				#self.api.flashPixel(x, y, Red, 2)
+				print "ORTHELLO: CHECK INPUT: Can't go there, already taken" 
 				return False
 			
 			else:
