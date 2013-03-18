@@ -22,7 +22,7 @@ class thisapp():
 		self.api.writeToLCD(1,1,const.turnPrint[not self.turn])
 		
 		self.turn = not self.turn
-		self.api.waitForInput(self.inputReceived)			
+		self.inputReceived(self.api.waitForInput())			
 			
 			
 			
