@@ -118,7 +118,7 @@ class thisapp():
 					return False
 				
 				else:
-					self.pieces[turn] +=1
+					self.pieces[self.turn] +=1
 					self.pieces[2] +=1
 					self.api.setInk(self.playerColours[self.turn][0],self.playerColours[self.turn][1],self.playerColours[self.turn][2],4)
 					self.api.drawSprite(self.turn, 4,x*5+1, y*5+1)
