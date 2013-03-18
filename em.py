@@ -306,8 +306,8 @@ class em:
 	def drawLine(self, sx, sy, ex, ey):
 	
  		
-		lx = math.fabs(ex-sx)
-		ly = math.fabs(ey-sy)
+		lx = math.trunc(math.fabs(ex-sx))
+		ly = math.trunc(math.fabs(ey-sy))
 		
 		if lx > ly:
   			for i in range(lx+1):
