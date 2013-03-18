@@ -7,8 +7,9 @@ class thisapp():
 		self.yPressed = args[1]
 		
 		if self.gridColours[self.yPressed][self.xPressed] == 5:
-			self.api.writeToLCD(2, 1, "Dont Walk into Walls")
+			self.api.writeToLCD(2, 1, "That's a wall!")
 		elif self.xPressed == self.playerX:
+			self.api.writeToLCD(2, 1, " ")
 			if self.yPressed == (self.playerY + 1):
 				self.direction = 0
 				self.movePlayer(self.direction)
@@ -16,6 +17,7 @@ class thisapp():
 				self.direction = 1
 				self.movePlayer(self.direction)
 		elif self.yPressed == self.playerY:
+			self.api.writeToLCD(2, 1, " ")
 			if self.xPressed == (self.playerX + 1):
 				self.direction = 2
 				self.movePlayer(self.direction)
