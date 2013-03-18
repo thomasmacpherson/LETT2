@@ -159,6 +159,7 @@ class thisapp():
 
 		self.pieces = [0,0,0] # player 1, 2 and total pieces
 		self.gridSize = 16
+		self.res = 8
 
 		self.totalGamePlaces = self.gridSize * self.gridSize
 		self.turnPrint = ("Opponent's turn", "Your turn")
@@ -171,6 +172,14 @@ class thisapp():
 		self.api.writeToLCD(0,0,self.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
 		self.api.writeToLCD(1,0,self.turnPrint[not self.turn])
 		
+		self.rowColours = []
+		self.gridColours = []
+		for i in range(self.res):
+			self.rowColours.append(2)
+		for i in range(self.res):
+			self.gridColours.append(self.rowColours)
+		
+		'''
 		self.gridColours = [[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
 							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
 							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
@@ -188,7 +197,7 @@ class thisapp():
 							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
 							[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]]
 
-		
+		'''
 		self.inputReceived(self.api.waitForInput())
 
 
