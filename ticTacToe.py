@@ -10,6 +10,7 @@ class thisapp():
 
 
 	def inputReceived(self, args):
+		print "TICTACTOE: INPUT RECEIVED"
 		if self.checkInput(args):
 			if self.checkForWin(args[0], args[1]):
 				self.gameOver(self.turn)
@@ -27,6 +28,7 @@ class thisapp():
 			
 			
 	def gameOver(number): # redo TODO
+		print "TICTACTOE: GAME OVER"
 		if numer ==0:
 			self.api.writeToLCD(0,1, const.winPrint[0])
 			self.api.writeToLCD(1,1, const.winPrint[1])
@@ -42,7 +44,7 @@ class thisapp():
 
 
 	def checkForWin(self, x, y):
-
+		print "TICTACTOE: CHECK FOR WIN"
 		yCheck = 0
 		xCheck = 1
 		
@@ -52,9 +54,11 @@ class thisapp():
 			inARowCount = 0
 		
 			while 0 <= tempX + xCheck < self.gridSize and 0 <= tempY + yCheck < self.gridSize:
+				
 				tempX += xCheck
 				tempY += yCheck
-	
+				print tempX
+				print tempY
 				if self.gridColours[tempX + xCheck][tempY + yCheck] == self.turn:
 					inARowCount+=1
 					tempX += xCheck
@@ -107,6 +111,7 @@ class thisapp():
 
 
 	def checkInput(self, args):
+		print "TICTACTOE: CHECK INPUT"
 		if len(args) == 2:
 			x = args[0]
 			y = args[1]
@@ -138,6 +143,7 @@ class thisapp():
 				
 				
 	def __init__(self, api):
+		print "TICTACTOE: INITIALISE"
 		self.api = api
 		#self.api.set
 		#self.api.setResolution()
