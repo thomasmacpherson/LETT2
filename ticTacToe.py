@@ -19,7 +19,7 @@ class thisapp():
 				'''
 	
 		if self.pieces[2] >= self.totalGamePlaces:
-			self.gameOver()
+			self.gameOver(2)
 			
 			
 		self.api.writeToLCD(0,1,const.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
@@ -30,7 +30,7 @@ class thisapp():
 			
 			
 			
-	def gameOver(number): # redo TODO
+	def gameOver(self, number): # redo TODO
 		print "TICTACTOE: GAME OVER"
 		if numer ==0:
 			self.api.writeToLCD(0,1, const.winPrint[0])
@@ -135,6 +135,7 @@ class thisapp():
 				else:
 					self.pieces[self.turn] +=1
 					self.pieces[2] +=1
+					print "turn print ", self.turn
 					self.api.setInk(const.playerColours[self.turn][0],const.playerColours[self.turn][1],const.playerColours[self.turn][2],4)
 					self.api.drawSprite(self.turn,4,x*5+1, y*5+1)
 					#self.api.drawPixel(x,y)
