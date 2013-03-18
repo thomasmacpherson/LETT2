@@ -195,6 +195,12 @@ class em:
 		self.screen.fill(self.backgroundColour)
 
 
+	def arrowButton(self):
+		self.pygame.draw.polygon(self.screen,(255,255,0), [(100,100), (150,200), (200,100)],0)
+		
+		self.pygame.draw.polygon(self.screen,(0,0,255), [(200,200), (250,300), (300,200)],0)
+		
+
 
 	def setBG(self, r1,g1,b1, r2,g2, b2, res):
 		colours = [[r1,g1,b1],[r2,g2,b2]]
