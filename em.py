@@ -207,8 +207,16 @@ class em:
 		self.refreshScreen()
 		
 		
-	
-	
+		
+		
+		
+	def clearSprite(self):
+		pass
+		
+		
+		
+	def moveSprite(self):
+		pass
 	
 	
 	def setInk(self, r, g, b, grid):
@@ -221,7 +229,14 @@ class em:
 			self.ink[grid][0]=r
 			self.ink[grid][1]=g
 			self.ink[grid][2]=b
-			
+	
+	
+	
+	def flashPixel(self, x, y):
+		pass
+		
+		
+				
 			
 	def drawTable(self):
 		self.pygame.draw.rect(self.screen, (0,0,0),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),4)
@@ -249,7 +264,14 @@ class em:
 				self.pygame.draw.rect(self.screen, const.gameSelectionColours[i][j], ( const.modeButtonsX + j*30 , const.modeButtonsY + i*30 ,20,20),0) 
 				self.pygame.draw.rect(self.screen, (0,0,0), ( const.modeButtonsX + j*30 , const.modeButtonsY + i*30 ,20,20),1) 
 
-	
+
+
+	def printChar(self):
+		pass
+		
+		
+		
+		
 	def drawLine(self):
 		pass	
 		

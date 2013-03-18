@@ -158,8 +158,8 @@ class handler:
 		
 		
 	
-	def flashPixel(self):
-		pass
+	def flashPixel(self, x, y):
+		self.sendWireCommand(address,[const.CMD_FLASH_PIXEL, x, y])
 		
 				
 '''     	

@@ -276,6 +276,11 @@ class api:
 				self.i2chandler.clearSprite(RDsAdrs[0][1], spriteAddress)
 				self.i2chandler.clearSprite(RDsAdrs[1][0], spriteAddress)
 				self.i2chandler.clearSprite(RDsAdrs[1][1], spriteAddress)
+				
+		if self.emulated:
+			self.emu.clearSprite()
+			
+			
 			
 			
 	def moveSprite(self, grid, spriteAddress, newX, newY):
@@ -288,7 +293,13 @@ class api:
 				self.i2chandler.moveSprite(RDsAdrs[1][0], spriteAddress, newX, newY)
 				self.i2chandler.moveSprite(RDsAdrs[1][1], spriteAddress, newX, newY)
 			
-	
+		if self.emulated:
+			self.emu.moveSprite()
+		
+		
+		
+		
+		
 		
 	def printChar(self, x, y, char):
 		if self.LEDGrided:
@@ -343,11 +354,12 @@ class api:
 					self.i2chandler.printChar(RDsAdrs[1][0], secondX, firstY, char)
 					self.i2chandler.printChar(RDsAdrs[1][1], secondX, secondY, char)	
 
-				
+		if self.emulated:	
+			self.emu.printChar()	
 
 						
 		
-	def clearchar(self, grid, x, y, char):
+	def clearchar(self, grid, x, y, char): # TODO: remove grid from the parameters
 		if self.LEDGrided:	
 			if grid < 4:
 				self.i2chandler.clearChar(RDsAdrs[grid/2][grid%2], x, y, char)
@@ -357,10 +369,18 @@ class api:
 				self.i2chandler.clearChar(RDsAdrs[1][0], x, y, char)
 				self.i2chandler.clearChar(RDsAdrs[1][1], x, y, char)
 	
+		if self.emulated:
+			self.emu.clearChar()
 		
 		
-	def flashPixel(self):
-		pass
+		
+		
+	def flashPixel(self, x, y):
+		if self.LEDGrided:
+			self.i2chandler.flashPixel(RDsAdrs[x/self.res][y%self.res], x%self.res, y%self.res)
+			
+		if self.emulated:
+			self.emu.flashPixel(x, y)
 		
 		
 		
