@@ -76,8 +76,10 @@ class handler:
 		self.bus = smbus.SMBus(const.rev2)
 		self.setUpLCD()
 
+
 	def setUpLCD(self):
 		self.lcd = lcd.lcd(self.bus)
+		
 		
 	def writeLCD(self, LCD, line, message):
 		if LCD < 2:
@@ -100,6 +102,7 @@ class handler:
 	def setBG(self, address, r1, g1, b1, r2, g2, b2):
 		self.sendWireCommand(address,[const.CMD_SET_BOARD_BG, r1, g1, b1, r2, g2, b2])
 	
+	
 	def setInk(self, address, r, g, b):	
 		self.sendWireCommand(address,[const.CMD_SET_INK, r, g, b])	
 		
@@ -121,10 +124,9 @@ class handler:
 	def setResolution(self, address, res):
 		self.sendWireCommand(address,[const.CMD_SET_BOARD_SIZE, res])
 
+
 	def moveUntil(self, address, x1, y1, x2, y2, delay):
 		self.sendWireCommand(address,[const.CMD_MOVE_UNTIL, x1, y1, x2, y2, delay])
-
-
 
 
 	def setSprite(self, address, spriteSize, spriteAddress, spriteValues):
@@ -132,17 +134,18 @@ class handler:
 	    spriteValues.insert(0,spriteSize)
 	    spriteValues.insert(0,const.CMD_SET_SPRITE)
 	    self.sendWireCommand(address,spriteValues)
+			
 				
 	def displaySprite(self, address, spriteAddress, x, y):
 		self.sendWireCommand(address,[const.CMD_DISPLAY_SPRITE, spriteAddress, x, y])
 		
+		
 	def clearSprite(self, address, spriteAddress):
 		self.sendWireCommand(address,[const.CMD_CLEAR_SPRITE, spriteAddress])
 		
+		
 	def moveSprite(self, address, spriteAddress, newX, newY):
 		self.sendWireCommand(address,[const.CMD_MOVE_SPRITE, spriteAddress, newX, newY])
-		
-		
 		
 		
 	def flashSprite(self, address):

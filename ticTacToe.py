@@ -136,7 +136,7 @@ class thisapp():
 					self.pieces[self.turn] +=1
 					self.pieces[2] +=1
 					self.api.setInk(const.playerColours[self.turn][0],const.playerColours[self.turn][1],const.playerColours[self.turn][2],4)
-					self.api.drawSprite(4,self.turn,x*5+1, y*5+1)
+					self.api.drawSprite(self.turn,4,x*5+1, y*5+1)
 					#self.api.drawPixel(x,y)
 					self.gridColours[x][y] = self.turn
 				
