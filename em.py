@@ -359,6 +359,7 @@ class em:
 		if x <16 and y<16:
 			self.pygame.draw.rect(self.screen, colour, (const.gridX+x*20,const.gridY+y*20,20,20),0) 
 			self.pygame.draw.rect(self.screen, (255,255,255), (const.gridX+x*20,const.gridY+y*20,20,20),2) 
+			self.refreshScreen()
 
 
 
