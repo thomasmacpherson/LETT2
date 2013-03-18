@@ -181,6 +181,9 @@ class api:
 	def clearSpace(self,x,y):
 		if self.LEDGrided:
 			self.i2chandler.clearSpace(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res)
+			
+		if self.emulated:
+			self.emu.clearSpace(x,y)
 		
 		
 	

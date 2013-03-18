@@ -4,11 +4,11 @@ LEDGrided = False
 LCDed = True
 keyboardHacked= False
 
-gameList = ('app','orthello','connect4','draughts','inkspill','pixelArt','simon','solitare','tetris','ticTacToe','missionmars')
+gameList = ('app','orthello','connect4','draughts','inkspill','pixelArt','simon','solitare','tetris','ticTacToe','missionmars','scamper')
 
 api = api.api(emulated, LEDGrided, LCDed, keyboardHacked)
 
-button = 9 #api.waitForScreenButtonPress()
+button = 11 #api.waitForScreenButtonPress()
 
 while True:
 	

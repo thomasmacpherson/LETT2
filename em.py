@@ -212,8 +212,13 @@ class em:
 	
 	
 	
+	def clearSpace(self, x, y):
+		if x <16 and y<16:
+			self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+x*20,const.gridY+y*20,20,20),0) 
+			self.pygame.draw.rect(self.screen, (255,255,255), (const.gridX+x*20,const.gridY+y*20,20,20),2)	
 	
-	
+
+
 	def setSprite(self,spriteAddress, size, list):
 		bytes = 0
 		if size ==4:
@@ -230,10 +235,7 @@ class em:
 				count+=1
 		print self.spriteArrays[array][spriteAddress]
 			
-			
-			
-			
-			
+				
 			
 	def displaySprite(self, spriteAddress, size, x, y):
 		print self.spriteArrays[(size/4)-1][spriteAddress]
