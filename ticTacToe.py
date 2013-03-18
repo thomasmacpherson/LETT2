@@ -18,8 +18,8 @@ class thisapp():
 			self.gameOver(2)
 			
 			
-		self.api.writeToLCD(1,const.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
-		self.api.writeToLCD(3,const.turnPrint[not self.turn])
+		self.api.writeToLCD(0,1,const.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
+		self.api.writeToLCD(1,1,const.turnPrint[not self.turn])
 		
 		self.turn = not self.turn
 		self.api.waitForInput(self.inputReceived)			
@@ -28,16 +28,18 @@ class thisapp():
 			
 	def gameOver(number): # redo TODO
 		if numer ==0:
-			self.api.writeToLCD(1, const.winPrint[0])
-			self.api.writeToLCD(3, const.winPrint[1])
+			self.api.writeToLCD(0,1, const.winPrint[0])
+			self.api.writeToLCD(1,1, const.winPrint[1])
 
 		elif number == 1:
-			self.api.writeToLCD(1, const.winPrint[1])
-			self.api.writeToLCD(3, const.winPrint[0])	
+			self.api.writeToLCD(0,1, const.winPrint[1])
+			self.api.writeToLCD(1,1, const.winPrint[0])	
 
 		else:
-			self.api.writeToLCD(4, const.winPrint[2])		
+			self.api.writeToLCD(2,1, const.winPrint[2]) # print same message to both lcds		
 			
+
+
 
 	def checkForWin(self, x, y):
 
@@ -167,4 +169,7 @@ class thisapp():
 		
 		self.validPos = (1,2,3,4,6,7,8,9,11,12,13,14)
 		self.placePositions = [1,6,11]
+		
+		self.api.writeToLCD(2,0,"TicTacToe")
+		
 		self.inputReceived(self.api.waitForInput())
