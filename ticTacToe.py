@@ -159,7 +159,7 @@ class thisapp():
 							[2,2,2],
 							[2,2,2]]
 
-		self.totalGamePlaces = gridSize * gridSize
+		self.totalGamePlaces = self.gridSize * self.gridSize
 
 
 		self.turn = True # player1's turn first
