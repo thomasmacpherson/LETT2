@@ -55,8 +55,8 @@ class thisapp():
 			tempY = y
 			tempX = x
 			inARowCount = 0
-			print "here"
-			while 0 <= (tempX + xCheck) < self.gridSize and 0 <= (tempY + yCheck) < self.gridSize:
+			#print "here"
+			while 0 <= (tempX + xCheck) and  (tempX + xCheck) < self.gridSize and 0 <= (tempY + yCheck) and (tempY + yCheck) < self.gridSize:
 				
 				tempX += xCheck
 				tempY += yCheck
@@ -70,7 +70,7 @@ class thisapp():
 				else:
 					break # end of this players colours in this line direction
 			
-			
+			print "here"
 				
 			# change the line or direction of checking
 				
