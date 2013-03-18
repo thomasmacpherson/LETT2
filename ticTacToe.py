@@ -69,27 +69,27 @@ class thisapp():
 			if xCheck == 1 and yCheck == 0:
 				xCheck == -1
 				
-			else if xCheck == -1 and yCheck == 0:
+			elif xCheck == -1 and yCheck == 0:
 				inARowcount = 1
 				xCheck = 0
 				yCheck = 1
 			
-			else if xCheck == 0 and yCheck == 1:
+			elif xCheck == 0 and yCheck == 1:
 				yCheck = -1
 				
-			else if xCheck == 0 and yCheck == -1:
+			elif xCheck == 0 and yCheck == -1:
 				inARowCount = 1
 				xCheck = 1
 			
-			else if xCheck == 1 and yCheck == -1:
+			elif xCheck == 1 and yCheck == -1:
 				xCheck = -1
 	
 				
-			else if xCheck == -1 and yCheck == -1:
+			elif xCheck == -1 and yCheck == -1:
 				inARowCount = 1
 				yCheck = 1
 				
-			else if xCheck == -1 and yCheck == 1:
+			elif xCheck == -1 and yCheck == 1:
 				xCheck = 1
 				
 			elif xCheck == 1 and yCheck == 1:
