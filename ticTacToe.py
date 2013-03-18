@@ -12,7 +12,7 @@ class thisapp():
 	def inputReceived(self, args):
 		print "TICTACTOE: INPUT RECEIVED"
 		if self.checkInput(args):
-			pass
+			print self.gridColours
 			'''
 			if self.checkForWin(args[0], args[1]):
 				self.gameOver(self.turn)
