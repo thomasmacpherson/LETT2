@@ -62,7 +62,7 @@ const.LCDYtext = [[const.LCDY[0] + 11,const.LCDY[0] + 26],[const.LCDY[1] + 11, c
 const.LCDOuterWidth = 140
 const.LCDOuterHeight = 50
 const.LCDInnerWidth = 130
-const.LCDInnerHeight = 30
+const.LCDInnerHeight = 32
 
 
 
