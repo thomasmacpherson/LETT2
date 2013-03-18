@@ -96,9 +96,9 @@ class api:
 	def setInk(self, r, g, b, grid):
 		if self.emulated:
 			self.emu.setInk(r, g, b, grid)
-			print "API: red ", r
-			print "API: green ", g
-			print "API: blue ", b
+			#print "API: red ", r
+			#print "API: green ", g
+			#print "API: blue ", b
 		
 		if self.LEDGrided:		
 			if grid >= 4:
@@ -119,7 +119,9 @@ class api:
 			self.emu.drawPixel(x,y,grid)
 
 		
-		
+	def setPixel(self, x, y, colour):
+		if self.emulated:
+			self.emu.setPixelColour(x, y, colour)	
 		
 	def setBG(self, r1, g1, b1, r2, g2, b2):
 		if self.LEDGrided:
