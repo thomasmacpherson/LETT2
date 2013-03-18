@@ -149,8 +149,8 @@ class thisapp():
 		self.api.drawLine(1,10,14,10) # second horizontal line
 
 
-		self.api.setSprite(4,4,0,[0b10010110, 0b01101001])
-		self.api.setSprite(4,4,1,[0b01101001, 0b10010110])
+		self.api.setSprite(4,0,4,[0b10010110, 0b01101001])
+		self.api.setSprite(4,1,4,[0b01101001, 0b10010110])
 		
 		self.pieces = [0,0,0] # player 1, 2
 		self.gridSize = 3
