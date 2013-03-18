@@ -307,7 +307,7 @@ class em:
 	
  		
 		lx = math.fabs(ex-sx)
-		ly = math.fab(ey-sy)
+		ly = math.fabs(ey-sy)
 		
 		if lx > ly:
   			for i in range(lx+1):
