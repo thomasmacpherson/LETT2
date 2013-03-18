@@ -49,7 +49,7 @@ class thisapp():
 		while( yCheck !=0 or xCheck !=0):
 			tempY = y
 			tempX = x
-			
+			inARowCount = 0
 		
 			while 0 <= tempX + xCheck < self.gridSize and 0 <= tempY + yCheck < self.gridSize:
 				tempX += xCheck
