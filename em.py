@@ -270,7 +270,7 @@ class em:
 				
 			
 	def drawTable(self):
-		self.pygame.draw.rect(self.screen, (0,0,0),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),4)
+		self.pygame.draw.rect(self.screen, (200,200,200),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),4)
 		self.pygame.draw.rect(self.screen, (255,255,255),(const.tableX, const.tableY, const.tableWidth, const.tableHeight),0)
 
 	def waitForScreenPixelPress(self):
