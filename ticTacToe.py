@@ -1,3 +1,6 @@
+import const
+
+
 const.turnPrint = ("Opponent's turn", "Your turn")
 const.winPrint = ("You won", "You lost", "It was a draw")
 const.playerColours = ((0,255,200),(0,255,0))
