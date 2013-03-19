@@ -76,7 +76,7 @@ class thisapp():
 		for x in range(len(self.gridColours)):
 			for y in range(len(self.gridColours[x])):
 				if self.gridColours[y][x] == 3:
-					self.api.setPixel(x, y, (0,0,255))
+					self.api.setPixel(x, y, (204,204,204))
 				if self.gridColours[y][x] == 4:
 					self.api.setPixel(x, y, (255,204,0))
 					
