@@ -97,7 +97,7 @@ class thisapp():
 
 			if xCheck == 1 and yCheck == 0: #1
 				print "here1"
-				xCheck == -1
+				xCheck = -1
 				
 			elif xCheck == -1 and yCheck == 0: #2
 				print "here2"
