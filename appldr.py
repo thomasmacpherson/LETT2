@@ -1,7 +1,7 @@
 import api
 emulated = True
 LEDGrided = False
-LCDed = True
+LCDed = False
 keyboardHacked= False
 
 gameList = ('app','orthello','connect4','draughts','inkspill','pixelArt','simon','solitare','tetris','ticTacToe','missionmars','scamper')

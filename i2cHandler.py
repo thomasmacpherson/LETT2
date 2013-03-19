@@ -75,6 +75,7 @@ class handler:
 		self.qOut = qOut
 		self.bus = smbus.SMBus(const.rev2)
 		self.setUpLCD()
+		self.packetNumber = 0
 
 
 	def setUpLCD(self):
@@ -91,8 +92,19 @@ class handler:
 			
 					
 	def sendWireCommand(self, add, RDCMD):
-		self.bus.write_i2c_block_data(add,const.rdComm,RDCMD) 
-		time.sleep(5.0/100.0)
+
+		stayInLoop = True
+		
+		while stayInLoop:
+			stayInLoop = False
+			try:
+				self.bus.write_i2c_block_data(add,self.packetNumber,RDCMD)
+				time.sleep(0.05)
+			except:
+				stayInLoop = True
+		
+		self.packetNumber +=1
+		
 		
 	
 	def drawPixel(self, address, x,y):
