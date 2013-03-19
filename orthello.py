@@ -45,7 +45,7 @@ class thisapp():
 			y = args[1]
 			
 			if self.gridColours[x][y] != 2:
-				self.api.writeToLCD(not turn, 0, "Can't go there")	#only displayed for 2 seconds
+				self.api.writeToLCD(not self.turn, 0, "Can't go there")	#only displayed for 2 seconds
 				#self.api.flashPixel(x, y, Red, 2)
 				print "ORTHELLO: CHECK INPUT: Can't go there, already taken" 
 				return False
