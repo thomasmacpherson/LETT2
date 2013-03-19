@@ -19,7 +19,8 @@ class thisapp():
 				self.gameOver(self.turn)
 			'''
 			
-
+			self.pieces[self.turn] +=1
+			self.pieces[2] +=1
 			
 			if self.pieces[2] >= self.totalGamePlaces:
 				self.gameOver(2)
@@ -141,8 +142,6 @@ class thisapp():
 					return False
 				
 				else:
-					self.pieces[self.turn] +=1
-					self.pieces[2] +=1
 					print "turn print ", self.turn
 					r = const.playerColours[self.turn][0]
 					g = const.playerColours[self.turn][1]
@@ -157,7 +156,7 @@ class thisapp():
 					
 			else:
 				#self.api.flashPixel(x, y, Red, 2)
-				pass
+				return False
 				
 				
 				
