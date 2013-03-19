@@ -18,7 +18,7 @@ class thisapp():
 			if self.checkForWin(args[0], args[1]):
 				self.gameOver(self.turn)
 			'''
-			self.pieces[2]+=1
+			
 
 			
 			if self.pieces[2] >= self.totalGamePlaces:
@@ -147,9 +147,6 @@ class thisapp():
 					r = const.playerColours[self.turn][0]
 					g = const.playerColours[self.turn][1]
 					b = const.playerColours[self.turn][2]
-					print "red ", r
-					print "green ", g
-					print "blue ", b
 					self.api.setInk(r,g,b,4)
 					self.api.drawSprite(self.turn,4,x*5+1, y*5+1)
 					#self.api.drawPixel(x,y)
