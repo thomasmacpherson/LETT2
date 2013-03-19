@@ -28,13 +28,15 @@ class api:
 		
 		self.mapping = {8:7,4:3,2:1,1:0}
 		
-		if self.LEDGrided or LCDed:
-			self.i2chandler = i2cHandler.handler(self.qOut)
+
 		self.emulated = emulated
 		self.LEDGrided = LEDGrided
 		self.LCDed = LCDed
 		self.keyboardhacked = keyboardhacked
 
+
+		if self.LEDGrided or self.LCDed:
+			self.i2chandler = i2cHandler.handler(self.qOut, self.LEDGrided, self.LCDed)
 		
 		if self.emulated:
 			import em
