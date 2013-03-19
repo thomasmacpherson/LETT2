@@ -37,7 +37,7 @@ class thisapp():
 			
 	def gameOver(self, number): # redo TODO
 		print "TOTAL PIECES ", self.pieces[2]
-		print "TOTAL GAME PIECES ", self.totalGamePieces
+		print "TOTAL GAME PIECES ", self.totalGamePlaces
 		print "TICTACTOE: GAME OVER"
 		if number ==0:
 			self.api.writeToLCD(0,1, const.winPrint[0])
