@@ -186,7 +186,7 @@ class api:
 				
 				
 		if self.emulated:
-			self.emu.movePiece(x1, y1, x2, y2):
+			self.emu.movePiece(x1, y1, x2, y2)
 		
 		
 		
