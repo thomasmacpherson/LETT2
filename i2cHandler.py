@@ -51,6 +51,8 @@ const.CMD_MOVE_PIECE		= 0x36
 const.CMD_CLEAR_SPRITE		= 0x37
 const.CMD_MOVE_SPRITE		= 0x38
 
+const.CMD_SET_PIXEL_COLOUR = 0x39
+
 
 const.CMD_CLEAR_CHAR		= 0x40
 
@@ -118,6 +120,8 @@ class handler:
 	def drawPixel(self, address, x,y):
 		self.sendWireCommand(address,[const.CMD_DRAW_PIXEL, x, y])
 
+	def setPixelColour(self,address, x, y, r, g, b):
+		self.sendWireCommand(address, [const.CMD_SET_PIXEL_COLOUR, x, y, r, g, b])
 
 	def setBG(self, address, r1, g1, b1, r2, g2, b2):
 		self.sendWireCommand(address,[const.CMD_SET_BOARD_BG, r1, g1, b1, r2, g2, b2])

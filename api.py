@@ -126,6 +126,9 @@ class api:
 		if self.emulated:
 			self.emu.setPixelColour(x, y, colour)	
 		
+		if self.LEDGrided:
+			self.i2chandler.setPixelColour(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res, colour[0], colour[1], colour[2])
+		
 	def setBG(self, r1, g1, b1, r2, g2, b2):
 		if self.LEDGrided:
 			if self.res>1: #otherwise repeating pattern will not repeat
@@ -180,6 +183,10 @@ class api:
 			else:
 				self.i2chandler.clearSpace(RDsAdrs[x1/self.res][y1/self.res], x1%self.res, y1%self.res)
 				self.i2chandler.drawPixel(RDsAdrs[x2/self.res][y2/self.res], x2%self.res, y2%self.res)
+				
+				
+		if self.emulated:
+			self.emu.movePiece(x1, y1, x2, y2):
 		
 		
 		

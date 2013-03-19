@@ -255,6 +255,8 @@ class em:
 	def clearSprite(self):
 		pass
 		
+	
+	def movePiece(self, x1, y1, x2, y2):
 		
 		
 	def moveSprite(self):

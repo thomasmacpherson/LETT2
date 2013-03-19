@@ -72,16 +72,30 @@ class thisapp():
 							[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5]]
 		
 		
+		self.api.setInk(204,204,204, 4)
 		
 		for x in range(len(self.gridColours)):
 			for y in range(len(self.gridColours[x])):
+			
 				if self.gridColours[y][x] == 3:
-					self.api.setPixel(x, y, (204,204,204))
-				if self.gridColours[y][x] == 4:
-					self.api.setPixel(x, y, (255,204,0))
+					self.api.drawPixel(x, y)
+
+
+		self.api.setInk(255,204,0, 4)
+		
+		for x in range(len(self.gridColours)):
+			for y in range(len(self.gridColours[x])):
 					
+				if self.gridColours[y][x] == 4:
+					self.api.drawPixel(x, y)
+					
+					
+		self.api.setInk(255, 0,0 , 4)	
+						
+		for x in range(len(self.gridColours)):
+			for y in range(len(self.gridColours[x])):					
 				if self.gridColours[y][x] == 5:
-					self.api.setPixel(x, y, (255,0,0))
+					self.api.drawPixel(x, y)
 				
 		
 		self.inputReceived(self.api.waitForInput())
