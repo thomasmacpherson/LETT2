@@ -87,7 +87,7 @@ class thisapp():
 				else:
 					break # end of this players colours in this line direction
 			
-			print "here"
+			
 				
 			# change the line or direction of checking
 				
@@ -96,32 +96,40 @@ class thisapp():
 				
 
 			if xCheck == 1 and yCheck == 0: #1
+			print "here1"
 				xCheck == -1
 				
 			elif xCheck == -1 and yCheck == 0: #2
+			print "here2"
 				inARowcount = 1
 				xCheck = 0
 				yCheck = 1
 			
 			elif xCheck == 0 and yCheck == 1: #3
+			print "here3"
 				yCheck = -1
 				
 			elif xCheck == 0 and yCheck == -1: #4
+			print "here4"
 				inARowCount = 1
 				xCheck = 1
 			
 			elif xCheck == 1 and yCheck == -1: #5
+			print "here5"
 				xCheck = -1
 	
 				
 			elif xCheck == -1 and yCheck == -1: #6
+			print "here6"
 				inARowCount = 1
 				yCheck = 1
 				
 			elif xCheck == -1 and yCheck == 1: #7
+			print "here7"
 				xCheck = 1
 				
 			elif xCheck == 1 and yCheck == 1:
+			print "here8"
 				xCheck = 0
 				yCheck = 0
 				
