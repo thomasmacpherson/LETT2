@@ -73,7 +73,7 @@ const.CMD_totalArgs = [
 class handler:
 	def __init__(self, qOut, LEDGrided, LCDed):
 		self.LCDed = LCDed
-		self.LEDGrided
+		self.LEDGrided = LEDGrided
 		self.qOut = qOut
 		self.bus = smbus.SMBus(const.rev2)
 		
