@@ -1,5 +1,6 @@
 import const
 import sys
+import time
 
 
 const.turnPrint = ("Opponent's turn", "Your turn")
@@ -14,10 +15,10 @@ class thisapp():
 		print "TICTACTOE: INPUT RECEIVED"
 		if self.checkInput(args):
 			#print self.gridColours
-			'''
+			
 			if self.checkForWin(args[0], args[1]):
 				self.gameOver(self.turn)
-			'''
+			
 			
 			self.pieces[self.turn] +=1
 			self.pieces[2] +=1
@@ -51,7 +52,9 @@ class thisapp():
 		else:
 			self.api.writeToLCD(2,1, const.winPrint[2]) # print same message to both lcds (draw)		
 		
+		time.sleep(3)		
 		sys.exit(0)
+
 
 
 
