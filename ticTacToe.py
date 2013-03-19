@@ -79,7 +79,7 @@ class thisapp():
 				tempY += yCheck
 				print tempX
 				print tempY
-				if self.gridColours[tempX + xCheck][tempY + yCheck] == self.turn:
+				if self.gridColours[tempY + yCheck][tempX + xCheck] == self.turn:
 					inARowCount+=1
 					tempX += xCheck
 					tempY += yCheck
@@ -148,7 +148,7 @@ class thisapp():
 				x = x/5
 				y = y/5
 				if self.gridColours[x][y] != 2:
-					#self.api.printLCD(!turn, 1, "Can't go there", 2)	#only displayed for 2 seconds
+					self.api.writeToLCD(!turn, 1, "Can't go there")	#only displayed for 2 seconds
 					#self.api.flashPixel(x, y, Red, 2)
 					return False
 				
@@ -160,7 +160,7 @@ class thisapp():
 					self.api.setInk(r,g,b,4)
 					self.api.drawSprite(self.turn,4,x*5+1, y*5+1)
 					#self.api.drawPixel(x,y)
-					self.gridColours[x][y] = self.turn
+					self.gridColours[y][x] = self.turn
 				
 					return True
 					
