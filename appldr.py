@@ -10,10 +10,10 @@ api = api.api(emulated, LEDGrided, LCDed, keyboardHacked)
 
 button = 9 #api.waitForScreenButtonPress()
 
-while True:
+#while True:
 	
-	gameImport = __import__(gameList[button])
+gameImport = __import__(gameList[button])
 
-	game = gameImport.thisapp(api)
+game = gameImport.thisapp(api)
 	
 	#button = api.waitForScreenButtonPress()

@@ -16,15 +16,15 @@ class thisapp():
 			'''
 			if self.checkForWin(args[0], args[1]):
 				self.gameOver(self.turn)
-				'''
-	
+			'''
+			self.pieces[2]+=1
 			if self.pieces[2] >= self.totalGamePlaces:
 				self.gameOver(2)
 			
 			
 			self.api.writeToLCD(0,1,const.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
 			self.api.writeToLCD(1,1,const.turnPrint[not self.turn])
-		
+			
 			self.turn = not self.turn
 		else:
 			self.api.writeToLCD(self.turn, 1, "You can't go there")
@@ -44,7 +44,7 @@ class thisapp():
 			self.api.writeToLCD(1,1, const.winPrint[0])	
 
 		else:
-			self.api.writeToLCD(2,1, const.winPrint[2]) # print same message to both lcds		
+			self.api.writeToLCD(2,1, const.winPrint[2]) # print same message to both lcds (draw)		
 			
 
 
