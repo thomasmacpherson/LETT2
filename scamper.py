@@ -38,7 +38,7 @@ class thisapp():
 			
 		self.playerX = self.xPressed
 		self.playerY = self.yPressed
-		self.api.setInk(0,0, 255, 4)
+		self.api.setInk(204,204,204 , 4)
 		self.api.drawPixel(self.playerX, self.playerY)
 	
 	
