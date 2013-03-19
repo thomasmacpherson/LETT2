@@ -28,7 +28,8 @@ class api:
 		
 		self.mapping = {8:7,4:3,2:1,1:0}
 		
-		self.i2chandler = i2cHandler.handler(self.qOut)
+		if self.LEDGrided or LCDed:
+			self.i2chandler = i2cHandler.handler(self.qOut)
 		self.emulated = emulated
 		self.LEDGrided = LEDGrided
 		self.LCDed = LCDed
