@@ -1,4 +1,5 @@
 import const
+import sys
 
 
 const.turnPrint = ("Opponent's turn", "Your turn")
@@ -18,14 +19,14 @@ class thisapp():
 				self.gameOver(self.turn)
 			'''
 			self.pieces[2]+=1
+			print "TOTAL PIECES ", self.pieces[2]
 			if self.pieces[2] >= self.totalGamePlaces:
 				self.gameOver(2)
 			
 			
+			self.turn = not self.turn
 			self.api.writeToLCD(0,1,const.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
 			self.api.writeToLCD(1,1,const.turnPrint[not self.turn])
-			
-			self.turn = not self.turn
 		else:
 			self.api.writeToLCD(self.turn, 1, "You can't go there")
 			
@@ -45,7 +46,8 @@ class thisapp():
 
 		else:
 			self.api.writeToLCD(2,1, const.winPrint[2]) # print same message to both lcds (draw)		
-			
+		
+		sys.exit(0)
 
 
 
@@ -195,5 +197,9 @@ class thisapp():
 		self.placePositions = [1,6,11]
 		
 		self.api.writeToLCD(2,0,"TicTacToe")
-		
+
+
+		self.api.writeToLCD(0,1,const.turnPrint[self.turn]) # player, line, message, time (0 stay until overridden)
+		self.api.writeToLCD(1,1,const.turnPrint[not self.turn])
+					
 		self.inputReceived(self.api.waitForInput())
