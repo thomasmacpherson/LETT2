@@ -79,7 +79,7 @@ class thisapp():
 				tempY += yCheck
 				print tempX
 				print tempY
-				if self.gridColours[tempY + yCheck][tempX + xCheck] == self.turn:
+				if self.gridColours[tempX + xCheck][tempY + yCheck] == self.turn:
 					inARowCount+=1
 					tempX += xCheck
 					tempY += yCheck
@@ -160,7 +160,7 @@ class thisapp():
 					self.api.setInk(r,g,b,4)
 					self.api.drawSprite(self.turn,4,x*5+1, y*5+1)
 					#self.api.drawPixel(x,y)
-					self.gridColours[y][x] = self.turn
+					self.gridColours[x][y] = self.turn
 				
 					return True
 					
