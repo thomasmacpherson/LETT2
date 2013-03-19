@@ -8,7 +8,7 @@ gameList = ('app','orthello','connect4','draughts','inkspill','pixelArt','simon'
 
 api = api.api(emulated, LEDGrided, LCDed, keyboardHacked)
 
-button = 11 #api.waitForScreenButtonPress()
+button = 1 #api.waitForScreenButtonPress()
 
 #while True:
 	
