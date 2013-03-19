@@ -148,7 +148,7 @@ class thisapp():
 				x = x/5
 				y = y/5
 				if self.gridColours[x][y] != 2:
-					self.api.writeToLCD(not turn, 1, "Can't go there")	#only displayed for 2 seconds
+					self.api.writeToLCD(not self.turn, 1, "Can't go there")	#only displayed for 2 seconds
 					#self.api.flashPixel(x, y, Red, 2)
 					return False
 				
