@@ -19,7 +19,8 @@ class thisapp():
 				self.gameOver(self.turn)
 			'''
 			self.pieces[2]+=1
-			print "TOTAL PIECES ", self.pieces[2]
+
+			
 			if self.pieces[2] >= self.totalGamePlaces:
 				self.gameOver(2)
 			
@@ -35,6 +36,8 @@ class thisapp():
 			
 			
 	def gameOver(self, number): # redo TODO
+		print "TOTAL PIECES ", self.pieces[2]
+		print "TOTAL GAME PIECES ", self.totalGamePieces
 		print "TICTACTOE: GAME OVER"
 		if number ==0:
 			self.api.writeToLCD(0,1, const.winPrint[0])
