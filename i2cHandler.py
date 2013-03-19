@@ -99,14 +99,17 @@ class handler:
 	def sendWireCommand(self, add, RDCMD):
 
 		stayInLoop = True
-		
+		count = 0
 		while stayInLoop:
 			stayInLoop = False
 			try:
 				self.bus.write_i2c_block_data(add,self.packetNumber,RDCMD)
 				time.sleep(0.05)
 			except:
-				stayInLoop = True
+				print "I2CHANDLER: errored on packet number ", self.packetNumber
+				if count < 5:
+					stayInLoop = True
+				count+=1
 		
 		self.packetNumber +=1
 		
