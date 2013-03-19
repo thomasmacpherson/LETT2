@@ -1,6 +1,6 @@
 import api
 emulated = True
-LEDGrided = True
+LEDGrided = False
 LCDed = False
 keyboardHacked= False
 
