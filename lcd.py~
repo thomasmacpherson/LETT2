@@ -1,8 +1,6 @@
-# adapted from raspberrypi.stackexchange.com/questions/1661/how-can-i-connect-a-hd44780-based-lcd
-
-
 #!/usr/bin/env python
-
+"""World Clock Demo
+   It should be fairly obvious how to change this code to work for other timezones"""
 import time
 
 class LCD_23017(object):

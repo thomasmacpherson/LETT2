@@ -215,11 +215,7 @@ class api:
 			self.i2chandler.clearPacketCount(RDsAdrs[1][0])	
 			self.i2chandler.clearPacketCount(RDsAdrs[1][1])	
 
-			self.i2chandler.clearLocalPacketCount()	
-
-
-
-	
+			self.i2chandler.clearLocalPacketCount()		
 	def drawSprite(self,spriteAddress, size, x, y):	
 		if self.LEDGrided:
 			gridX = restrictedTo([x, x+size],self.lowerBoarder)

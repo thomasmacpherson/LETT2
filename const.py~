@@ -1,5 +1,3 @@
-#from code.activestate.com/recipes/65207-constants-in-python/?in=user-97991
-
 class _const:
     class ConstError(TypeError): pass
     def __setattr__(self,name,value):

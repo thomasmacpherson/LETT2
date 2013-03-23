@@ -1,10 +1,12 @@
 #! /usr/bin/python
 
 
-# i2c handling adapted from:
+# adapted from
+
 # A simple Python command line tool to control an MCP23017 I2C IO Expander
 # By Nathan Chantrell http://nathan.chantrell.net
 # GNU GPL V3 
+
 # SK Pang Electronics June 2012
 
 
