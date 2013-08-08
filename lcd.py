@@ -76,9 +76,14 @@ class lcd:
 			self.lcds[LCD].lcd_string(message, line)
 
 
+def test_i2c():
+	import smbus
+	driver
 
-#def main():
-#    test_i2c()
 
-#if __name__ == "__main__":
-#    main()
+
+def main():
+    test_i2c()
+
+if __name__ == "__main__":
+	main()

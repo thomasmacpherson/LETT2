@@ -1,3 +1,6 @@
+#adapted from www.pygame.org/project-Ink+Spil-1660-.html
+
+
 import pygame, sys
 from pygame.locals import *
 
@@ -65,6 +68,7 @@ const.LCDInnerWidth = 130
 const.LCDInnerHeight = 32
 
 
+const.keyMap = ['e','d','r','f',chr(92),'2','7','h']
 
 class em:
 	def __init__(self,qOut,qIn):
@@ -91,7 +95,7 @@ class em:
 		self.refreshScreen()
 
 		self.spriteArrays = []
-		
+		'''
 		sprite8 = [[0,0,0,0,0,0,0,0],
 					[0,0,0,0,0,0,0,0],
 					[0,0,0,0,0,0,0,0],
@@ -103,48 +107,35 @@ class em:
 					
 		
 		spriteArray1 = []
-		
-		for i in range(5):
-			spriteArray1.append(sprite8)
+		for j in range(5): # grids
+			spriteGridArray =[]
+			for i in range(5): # sprites
+				spriteGridArray.append(sprite8)
 			
+			spriteArray1.append(spriteGridArray)
+		'''
+
+
+		spriteArray1 = [[[[0 for x in xrange(8)] for x in xrange(8)]for x in xrange(5)]for x in xrange(5)]
+
+		'''
+		sprite4 = [[0,0,0,0],
+			  [0,0,0,0],
+			  [0,0,0,0],
+			  [0,0,0,0]] 
+
+
+		spriteArray2 = []
+		for j in range(5): # grids
+			spriteGridArray2 =[]
+			for i in range(7): # sprites
+				spriteGridArray2.append(sprite4)
 			
-		spriteArray2 = [	[[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0]] ,
-							
-							[[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0]] ,
-							
-							[[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0]] ,
-							
-							[[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0]] ,
-							
-							[[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0]] ,
-							
-							[[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0]] ,
-							
-							[[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0],
-							[0,0,0,0]]
-					]
+			spriteArray2.append(spriteGridArray2)
+		'''
 		
-		
+		spriteArray2 = [[[[0 for x in xrange(4)] for x in xrange(4)]for x in xrange(7)]for x in xrange(5)]
+
 		self.spriteArrays.append(spriteArray2)
 		self.spriteArrays.append(spriteArray1)
 		
@@ -212,17 +203,36 @@ class em:
 			for j in range(16):
 				self.setPixelColour(i,j,colours[(i+j)%2])		
 		self.refreshScreen()
-	
-	
-	
+
 	def clearSpace(self, x, y):
 		if x <16 and y<16:
 			self.pygame.draw.rect(self.screen, (0,0,0), (const.gridX+x*20,const.gridY+y*20,20,20),0) 
 			self.pygame.draw.rect(self.screen, (255,255,255), (const.gridX+x*20,const.gridY+y*20,20,20),2)	
+			
 	
+	
+	def clearScreen(self, grid):
+		#print "emulator - clearScreen"
+
+		if grid < 4 :
+			for i in range(0,8):
+				for j in range(0,8):
+					self.clearSpace(i+((grid/2)*8),j+((grid%2)*8))
+
+		else:
+			print "full clear"
+			for i in range(0,16):
+				for j in range(0,16):
+					self.clearSpace(i,j)
+		self.refreshScreen()
 
 
-	def setSprite(self,spriteAddress, size, list):
+
+
+
+
+	def setSprite(self, grid, spriteAddress, size, list):
+		#print "emulator - set sprite"
 		bytes = 0
 		if size ==4:
 			bytes = 2
@@ -233,35 +243,64 @@ class em:
 			
 		array = (size/4)-1
 		for i in range(len(list)):
-			for h in range(8):
-				self.spriteArrays[array][spriteAddress][count/size][count%size]= getBit(list[i],h)
+			for h in reversed(range(8)):
+				self.spriteArrays[array][grid][spriteAddress][count%size][count/size]= getBit(list[i],h)
 				count+=1
-		print self.spriteArrays[array][spriteAddress]
+		#print "array ", array, "grid " ,grid, "sprite address ", spriteAddress
+	
+
+		
+	def addToSprite(self, grid, spriteAddress, size, x,y, list):
+		#print "emulator - add to sprite"
+		array = (size/4)-1
+		
+		self.spriteArrays[array][grid][spriteAddress][x][y]= getBit(list[0],4)
+		
 			
-				
 			
-	def displaySprite(self, spriteAddress, size, x, y):
-		print self.spriteArrays[(size/4)-1][spriteAddress]
+	def displaySprite(self, grid, spriteAddress, size, x, y):
+		#print "emulator - display sprite"
+		array = (size/4)-1
+		#print "array ", array, "grid " ,grid, "sprite address ", spriteAddress
+		# display sprite in black (for inkspill)
+		#self.setInk(0,0,0,4)
+		
+		#print "grid: ", grid, "sprite: ", spriteAddress
+
 		for i in range(size):
+			#print self.spriteArrays[array][grid][spriteAddress][i]
 			for j in range(size):
-				if self.spriteArrays[(size/4)-1][spriteAddress][i][j]:
-					self.setPixel(x+i,y+j)
+				if self.spriteArrays[array][grid][spriteAddress][i][j]:
+					self.setPixel(x+i+((grid%2)*8),y+j+((grid/2)*8))
+					#print x+i, " ", y+j, " set"	
+				#else:
+					#self.clearSpace(x+i,y+j)
+
+
 		self.refreshScreen()
 		
 		
 		
 		
 		
-	def clearSprite(self):
-		pass
+	def clearSprite(self, grid, spriteAddress, size, x, y):
+		array = (size/4)-1
+		print "array ", array, "grid " ,grid, "sprite address ", spriteAddress
+		for i in range(size):
+			for j in range(size):
+				if self.spriteArrays[array][grid][spriteAddress][i][j]:
+					self.clearSpace(x+i+((grid%2)*8),y+j+((grid/2)*8))
+		self.refreshScreen()
 		
+		
+	def moveSprite(self, grid, spriteAddress, size, x, y, newX, newY):
+		self.clearSprite(grid, spriteAddress, size,x, y)
+		self.displaySprite(grid, spriteAddress, size, newX, newY)
 	
 	def movePiece(self, x1, y1, x2, y2):
 		pass
 		
-		
-	def moveSprite(self):
-		pass
+
 	
 	
 	def setInk(self, r, g, b, grid):
@@ -289,28 +328,82 @@ class em:
 
 	def waitForScreenPixelPress(self):
 		print "waiting for screen pixel press in em"
-		while True:
-			for event in self.pygame.event.get():
+		for event in self.pygame.event.poll():
+			if event.type == MOUSEBUTTONUP:
+				mousex, mousey = event.pos
+				print mousex
+					
+				if ((mousex > const.gridX) and (mousex < (const.gridX + const.gridWidth))) and ((mousey > const.gridY) and( mousey < (const.gridY + const.gridHeight))):
+
+					mousex -= const.gridX
+					mousey -= const.gridY
+						
+					mousex = mousex/20
+					mousey = mousey/20
+					return [mousex, mousey]
+			elif event.type == pygame.NOEVENT:
+				return 0
+
+	def waitForKeyPress(self):
+		print "Emulator - wait for key press"
+		for event in self.pygame.event.get():
+			print "here2"
+			if event.type == KEYDOWN:
+				print "here3"
+				key = event.key
+				print chr(key)
+				if const.keyMap.count(chr(key))>0:
+					print "found"
+					return const.keyMap.index(chr(key))
+	
+
+	def waitForButtonPress(self, emulated, keyboardHacked):
+		#print "Waiting for button press"
+		for event in self.pygame.event.get():
+			if emulated:
 				if event.type == MOUSEBUTTONUP:
 					mousex, mousey = event.pos
-					print mousex
-					
-					if ((mousex > const.gridX) and (mousex < (const.gridX + const.gridWidth))) and ((mousey > const.gridY) and( mousey < (const.gridY + const.gridHeight))):
-						mousex -= const.gridX
-						mousey -= const.gridY
-						
-						mousex = mousex/20
-						mousey = mousey/20
-						return [mousex, mousey]
-	
-	
+					#print "mousex ", mousex , " mousey ", mousey
+					# inside the mode button area
+					if mousex > const.modeButtonsX and mousey > const.modeButtonsY and mousex < (const.modeButtonsX + const.modeButtonsWidth) and mousey < (const.modeButtonsY + const.modeButtonsHeight):
+						if mousex < const.modeButtonsX+20 or mousex > (const.modeButtonsX + const.modeButtonsWidth - 20):	
+							x = (mousex-const.modeButtonsX)/30
+							#print "x is ", x
+							#if mousey < const.modeButtonsY+20 or (mousey > const.modeButtonsY +30 and mousey< const.modeButtonsY +50)or (mousey > const.modeButtonsY +60 and mousey< const.modeButtonsY +80)or (mousey > const.modeButtonsY +90 and mousey< const.modeButtonsY +110)or (mousey > const.modeButtonsY +120 and mousey< const.modeButtonsY +140)or (mousey > const.modeButtonsY +150 and mousey< const.modeButtonsY +170)or (mousey > const.modeButtonsY +180 and mousey< const.modeButtonsY +50)or(mousey > const.modeButtonsY +210):
+							y = mousey-const.modeButtonsY	
+							ycheck = y%30
+							y = y/30						
+							if ycheck < 20:
+								#print "y is ", y
+								return x +(y*2)
+			if keyboardHacked:
+				if event.type == KEYDOWN:
+					print "here3"
+					key = event.key
+					print key
+					print chr(key)
+					if const.keyMap.count(chr(key))>0:
+						print "found"
+						return const.keyMap.index(chr(key))				
+
 	
 	
 	def drawButtons(self):
 		for i in range(8):
 			for j in range(2):
-				self.pygame.draw.rect(self.screen, const.gameSelectionColours[i][j], ( const.modeButtonsX + j*30 , const.modeButtonsY + i*30 ,20,20),0) 
+				self.pygame.draw.rect(self.screen, (0,0,0), ( const.modeButtonsX + j*30 , const.modeButtonsY + i*30 ,20,20),0) 
 				self.pygame.draw.rect(self.screen, (255,255,255), ( const.modeButtonsX + j*30 , const.modeButtonsY + i*30 ,20,20),1) 
+
+	def colourButton(self,r,g,b,x,y):
+		self.pygame.draw.rect(self.screen, (r,g,b), ( const.modeButtonsX + x*30 , const.modeButtonsY + y*30 ,20,20),0) 	
+		self.pygame.draw.rect(self.screen, (255,255,255), ( const.modeButtonsX + x*30 , const.modeButtonsY + y*30 ,20,20),1) 
+		self.refreshScreen()
+
+
+
+					
+						
+
 
 
 

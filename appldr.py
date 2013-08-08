@@ -1,14 +1,16 @@
 import api
 emulated = True
-LEDGrided = False
-LCDed = False
-keyboardHacked= False
+LEDGrided = True
+LCDed = True
+keyboardHacked= True
+touch = False
 
-gameList = ('app','orthello','connect4','draughts','inkspill','pixelArt','simon','solitare','tetris','ticTacToe','missionmars','scamper')
+gameList = ('app','orthello','connect4','draughts','inkspill','pixelArt','simon','solitare','tetris','ticTacToe','missionmars','scamper','gridTest','flame')
 
-api = api.api(emulated, LEDGrided, LCDed, keyboardHacked)
+# 0       1             2           3          4      5           6         7        8         9          10           11    12      
+api = api.api(emulated, LEDGrided, LCDed, keyboardHacked, touch)
 
-button = 9 #api.waitForScreenButtonPress()
+button = 1 #api.waitForScreenButtonPress()
 
 #while True:
 	

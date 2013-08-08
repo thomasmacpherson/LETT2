@@ -1,0 +1,5 @@
+import api
+
+api = api.api(False,True,False,False)
+
+api.setInk(200,0,0,4)

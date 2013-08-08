@@ -1,7 +1,7 @@
 import Queue
-#import RPi.GPIO as GPIO
-import i2cHandler
 
+import i2cHandler
+import time
 
 RDsAdrs=[]
 width = 2
@@ -19,7 +19,7 @@ for i in range(0,width):
 
 
 class api:
-	def __init__(self, emulated, LEDGrided, LCDed, keyboardhacked):
+	def __init__(self, emulated, LEDGrided, LCDed, keyboardhacked, touch):
 		self.qOut= Queue.Queue(maxsize=0)
 		self.qIn = Queue.Queue(maxsize=0)
 		
@@ -33,16 +33,26 @@ class api:
 		self.LEDGrided = LEDGrided
 		self.LCDed = LCDed
 		self.keyboardhacked = keyboardhacked
+		self.touch = touch
 
 
-		if self.LEDGrided or self.LCDed:
-			self.i2chandler = i2cHandler.handler(self.qOut, self.LEDGrided, self.LCDed)
+		if self.LEDGrided or self.LCDed or self.keyboardhacked:
+			self.i2chandler = i2cHandler.handler(self.qOut, self.LEDGrided, self.LCDed, self.keyboardhacked, self.touch)
 		
-		if self.emulated:
+		if self.emulated or self.keyboardhacked:
 			import em
+			print "Emulated"
 			self.qOutEmulated = Queue.Queue(maxsize=0)
 			self.emu = em.em(self.qOutEmulated, self.qIn)
+
+		if self.LEDGrided or self.keyboardhacked:
+			self.i2chandler.resetPacketCount()
 		
+		if self.keyboardhacked:
+			print "Keyboardhacked"
+			self.clearScreen(5)
+
+		self.clearScreen(4)
 
 
 	def printsomething(self):
@@ -61,7 +71,24 @@ class api:
 	def waitForInput(self):
 		print "waiting for input in api"
 		if self.emulated:
-			return self.emu.waitForScreenPixelPress()
+			result = self.emu.waitForScreenPixelPress()
+			if result != 0:
+				return result
+
+		if self.touch and self.i2chandler:
+			return self.i2chandler.waitForScreenPixelPress()
+
+	def waitForButtonPress(self):
+		while True:
+			if self.emulated or self.keyboardhacked:
+				result = self.emu.waitForButtonPress(self.emulated, self.keyboardhacked)
+				if result != None:
+					return result
+
+			else:
+				print "API - cannot perform wait for button press"
+			time.sleep(0.2)
+
 		
 	def checkForInput(self):
 		pass
@@ -69,15 +96,26 @@ class api:
 	def drawSquare(self,x1,y1,x2,y2):
 		self.squareSplit(x1,y1,x2,y2)
 	
+
 	def clearScreen(self, grid):
 		if self.LEDGrided:
 			if grid < 4:
+
 				self.i2chandler.clearScreen(RDsAdrs[grid/2][grid%2])
-			else:
+			elif grid == 4:
 				self.i2chandler.clearScreen(RDsAdrs[0][0])
 				self.i2chandler.clearScreen(RDsAdrs[0][1])
 				self.i2chandler.clearScreen(RDsAdrs[1][0])
-				self.i2chandler.clearScreen(RDsAdrs[1][1])	
+				self.i2chandler.clearScreen(RDsAdrs[1][1])
+
+		if self.keyboardhacked:
+			if grid == 5:
+				print "yay"
+				self.i2chandler.clearScreen(0x14)			
+				
+		if self.emulated:
+			self.emu.clearScreen(grid)
+		
 
 	
 	def drawLine(self,x,y,ex,ey):
@@ -100,7 +138,7 @@ class api:
 
 	def writeToLCD(self, LCD, line, message):
 		if self.emulated:
-			print "api write lcd"
+			#print "api write lcd"
 			self.emu.writeLCD(LCD, line, message)
 		if self.LCDed:
 			self.i2chandler.writeLCD(LCD, line, message)
@@ -110,9 +148,7 @@ class api:
 	def setInk(self, r, g, b, grid):
 		if self.emulated:
 			self.emu.setInk(r, g, b, grid)
-			#print "API: red ", r
-			#print "API: green ", g
-			#print "API: blue ", b
+
 		
 		if self.LEDGrided:		
 			if grid >= 4:
@@ -128,6 +164,7 @@ class api:
 		if self.LEDGrided:
 			self.i2chandler.drawPixel(RDsAdrs[x/self.res][y/self.res], x%self.res, y%self.res)
 		
+
 		if self.emulated:
 			grid = (x /self.res) + (y/self.res)*2
 			self.emu.drawPixel(x,y,grid)
@@ -213,11 +250,14 @@ class api:
 			self.i2chandler.clearPacketCount(RDsAdrs[0][0])	
 			self.i2chandler.clearPacketCount(RDsAdrs[0][1])	
 			self.i2chandler.clearPacketCount(RDsAdrs[1][0])	
-			self.i2chandler.clearPacketCount(RDsAdrs[1][1])	
 
 			self.i2chandler.clearLocalPacketCount()	
 
-
+	def colourButton(self,r,g,b,x,y):
+		if self.keyboardhacked:
+			self.i2chandler.colourButton(r,g,b,x,y)
+		if self.emulated:
+			self.emu.colourButton(r,g,b,x,y)
 
 	
 	def drawSprite(self,spriteAddress, size, x, y):	
@@ -279,29 +319,44 @@ class api:
 		
 		
 	def setSprite(self, grid, spriteAddress, size, list):
+		if self.emulated:
+			self.emu.setSprite(grid, spriteAddress, size, list)
+
 		if self.LEDGrided:
 			if grid < 4:
-				self.i2chandler.setSprite(RDsAdrs[grid/2][grid%2], spriteAddress, size, list)
+				self.i2chandler.setSprite(RDsAdrs[grid%2][grid/2], spriteAddress, size, list)
 			else:
 				self.i2chandler.setSprite(RDsAdrs[0][0], spriteAddress, size, list)
 				self.i2chandler.setSprite(RDsAdrs[0][1], spriteAddress, size, list)
 				self.i2chandler.setSprite(RDsAdrs[1][0], spriteAddress, size, list)
 				self.i2chandler.setSprite(RDsAdrs[1][1], spriteAddress, size, list)
 		
+	def addToSprite(self, grid, spriteAddress, size, x, y, list):
 		if self.emulated:
-			self.emu.setSprite(spriteAddress, size, list)
-		
-		
-		
-	def displaySprite(self, grid, spriteAddress, x, y):
+			self.emu.addToSprite(grid, spriteAddress, size, x,y, list)
+
 		if self.LEDGrided:
 			if grid < 4:
-				self.i2chandler.displaySprite(RDsAdrs[grid/2][grid%2], spriteAddress, x, y)
+				self.i2chandler.addToSprite(RDsAdrs[grid%2][grid/2], spriteAddress, x, y, list)
+			else:
+				self.i2chandler.addToSprite(RDsAdrs[0][0], spriteAddress,x, y, list)
+				self.i2chandler.addToSprite(RDsAdrs[0][1], spriteAddress,x, y, list)
+				self.i2chandler.addToSprite(RDsAdrs[1][0], spriteAddress,x, y, list)
+				self.i2chandler.addToSprite(RDsAdrs[1][1], spriteAddress,x, y, list)	
+		
+		
+	def displaySprite(self, grid, spriteAddress, size, x, y):
+		if self.LEDGrided:
+			if grid < 4:
+				self.i2chandler.displaySprite(RDsAdrs[grid%2][grid/2], spriteAddress, x, y)
 			else:
 				self.i2chandler.displaySprite(RDsAdrs[0][0], spriteAddress, x, y)
 				self.i2chandler.displaySprite(RDsAdrs[0][1], spriteAddress, x, y)
 				self.i2chandler.displaySprite(RDsAdrs[1][0], spriteAddress, x, y)
 				self.i2chandler.displaySprite(RDsAdrs[1][1], spriteAddress, x, y)
+
+		if self.emulated:
+			self.emu.displaySprite(grid, spriteAddress, size, x, y)
 		
 
 			
@@ -309,10 +364,10 @@ class api:
 				
 			
 			
-	def clearSprite(self, grid, spriteAddress):
+	def clearSprite(self, grid, spriteAddress, size):
 		if self.LEDGrided:
 			if grid < 4:
-				self.i2chandler.clearSprite(RDsAdrs[grid/2][grid%2], spriteAddress)
+				self.i2chandler.clearSprite(RDsAdrs[grid%2][grid/2], spriteAddress)
 			else:
 				self.i2chandler.clearSprite(RDsAdrs[0][0], spriteAddress)
 				self.i2chandler.clearSprite(RDsAdrs[0][1], spriteAddress)
@@ -320,15 +375,15 @@ class api:
 				self.i2chandler.clearSprite(RDsAdrs[1][1], spriteAddress)
 				
 		if self.emulated:
-			self.emu.clearSprite()
+			self.emu.clearSprite(grid, spriteAddress, x, y)
 			
 			
 			
 			
-	def moveSprite(self, grid, spriteAddress, newX, newY):
+	def moveSprite(self, grid, spriteAddress, size, oldX, oldY, newX, newY):
 		if self.LEDGrided:
 			if grid < 4:
-				self.i2chandler.moveSprite(RDsAdrs[grid/2][grid%2], spriteAddress, newX, newY)
+				self.i2chandler.moveSprite(RDsAdrs[grid%2][grid/2], spriteAddress, newX, newY)
 			else:
 				self.i2chandler.moveSprite(RDsAdrs[0][0], spriteAddress, newX, newY)
 				self.i2chandler.moveSprite(RDsAdrs[0][1], spriteAddress, newX, newY)
@@ -336,7 +391,7 @@ class api:
 				self.i2chandler.moveSprite(RDsAdrs[1][1], spriteAddress, newX, newY)
 			
 		if self.emulated:
-			self.emu.moveSprite()
+			self.emu.moveSprite(grid, spriteAddress, size, oldX, oldY, newX, newY)
 		
 		
 		

@@ -1,0 +1,11 @@
+import time
+import RPi.GPIO as GPIO
+
+class LCD_GPIO(object):
+
+	E_PULSE = 0.00005
+	E_DELAY = 0.00005
+	def __init__(self, RS, E, D4, D5, D6, D7):
+		self.RS = RS
+		self.E = E
+		self.D4

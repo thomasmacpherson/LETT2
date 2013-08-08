@@ -1,0 +1,34 @@
+import api
+import time
+
+api=api.api(False,True,False,False)
+
+print "Finished init"
+
+time.sleep(.5)
+api.setInk(200,0,0,4)
+
+print "Ink set"
+time.sleep(1)
+
+api.drawPixel(0,0)
+api.drawPixel(15,0)
+api.drawPixel(0,15)
+api.drawPixel(15,15)
+print "Pixel set"
+
+time.sleep(2)
+#api.clearScreen(4)
+print "screen cleared"
+time.sleep(2)
+
+api.setInk(0,200,0,4)
+print "ink set"
+api.drawPixel(0,0)
+api.drawPixel(15,0)
+api.drawPixel(0,15)
+api.drawPixel(15,15)
+
+time.sleep(2)
+#api.clearScreen(4)
+

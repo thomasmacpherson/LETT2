@@ -1,0 +1,13 @@
+import api
+
+api = api.api(False,True,False,False)
+
+print api.i2chandler.packetNumber
+print api.i2chandler.packetNumber2
+
+api.setInk(0,0,200,4)
+
+api.drawPixel(0,0)
+api.drawPixel(0,10)
+api.drawPixel(10,0)
+api.drawPixel(10,10)

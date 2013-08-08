@@ -1,0 +1,8 @@
+import api
+
+api = api.api(False,False,False,True)
+
+print api.waitForButtonPress()
+
+
+
