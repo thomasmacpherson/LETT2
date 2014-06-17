@@ -1,5 +1,5 @@
 import api
-emulated = True
+emulated = False
 LEDGrided = True
 LCDed = True
 keyboardHacked= True

@@ -18,7 +18,7 @@ import const
 import lcd
 
 const.rdComm = 114
-const.rev2 = True
+const.rev2 = False
 
 const.pokePin = 18
 
@@ -124,7 +124,7 @@ class handler:
 			stayInLoop = False
 			try:
 				self.bus.write_i2c_block_data(add,self.packetNumber,RDCMD)
-				time.sleep(0.1)
+				time.sleep(0.15)
 			except:
 				print "I2CHANDLER: errored on packet number ", self.packetNumber , self.packetNumber2
 				if count < 5:

@@ -226,8 +226,8 @@ class thisapp():
         self.floodFill(self.mainBoard, self.mainBoard[0][0],paletteClicked, 0,0, v2, False, spriteArray)
         
         while True: # main game loop
-            print "current board"
-            print self.mainBoard
+            #print "current board"
+            #print self.mainBoard
             paletteClicked = self.api.waitForButtonPress()
 
             if paletteClicked >= 6:
@@ -272,7 +272,7 @@ class thisapp():
                 self.resetGame = False
 
                 if self.hasWon(self.mainBoard):
-                    print self.mainBoard
+                    #print self.mainBoard
                     self.api.writeToLCD(2, 1, "You Win")
                     print "You Win"
                     print "Lives left: ", self.life

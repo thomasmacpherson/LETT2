@@ -52,7 +52,8 @@ class api:
 			print "Keyboardhacked"
 			self.clearScreen(5)
 
-		self.clearScreen(4)
+		if self.LEDGrided:
+			self.clearScreen(width*length)
 
 
 	def printsomething(self):

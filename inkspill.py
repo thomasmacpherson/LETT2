@@ -13,7 +13,7 @@ MEDIUM = 1 # arbitrary but unique value
 HARD = 2   # arbitrary but unique value
 
 difficulty = MEDIUM # game starts in "medium" mode
-maxLife = 32
+maxLife = 35
 boardWidth = 16
 boardHeight = 16
 
