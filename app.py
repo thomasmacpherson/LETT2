@@ -43,7 +43,7 @@ class thisapp:
 
 
 		while True:
-			list = self.api.waitForInput()
-			print list
-			self.inputReceived(list)
+			inputList = self.api.waitForInput()
+			print inputList
+			self.inputReceived(inputList)
 		
