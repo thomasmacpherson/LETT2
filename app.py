@@ -9,6 +9,7 @@ gridSize = 16
 class thisapp:
 	
 	def inputReceived(self, list):
+		print "app3"
 		x = list[0]
 		y = list[1]
 		oldColour = self.colourGrid[x][y]
@@ -22,7 +23,7 @@ class thisapp:
 		
 	def __init__(self, api):
 		self.api = api
-		
+		print "app2"
 		self.colourGrid = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -43,6 +44,7 @@ class thisapp:
 
 
 		while True:
+			print "app1"
 			inputList = self.api.waitForInput()
 			print inputList
 			self.inputReceived(inputList)

@@ -228,8 +228,9 @@ class thisapp():
         while True: # main game loop
             #print "current board"
             #print self.mainBoard
+            print "inkspill 1"
             paletteClicked = self.api.waitForButtonPress()
-
+            print "inkspill 2"
             if paletteClicked >= 6:
                 paletteClicked = None
 

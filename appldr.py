@@ -15,7 +15,7 @@ button = 4 #api.waitForScreenButtonPress()
 #while True:
 	
 gameImport = __import__(gameList[button])
-
+print "ldr1"
 game = gameImport.thisapp(api)
-	
+print "ldr2"
 	#button = api.waitForScreenButtonPress()
