@@ -111,7 +111,6 @@ class api:
 
 		if self.keyboardhacked:
 			if grid == 5:
-				print "yay"
 				self.i2chandler.clearScreen(0x14)			
 				
 		if self.emulated:

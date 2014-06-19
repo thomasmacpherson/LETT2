@@ -117,20 +117,25 @@ class handler:
 	def sendWireCommand(self, add, RDCMD):
 		RDCMD.insert(0,self.packetNumber2)
 
-		stayInLoop = True
-		count = 0
 		#print "packetnumber " , self.packetNumber, " ", self.packetNumber2
-		while stayInLoop:
-			stayInLoop = False
-			try:
-				self.bus.write_i2c_block_data(add,self.packetNumber,RDCMD)
-				time.sleep(0.15)
-			except:
-				print "I2CHANDLER: errored on packet number ", self.packetNumber , self.packetNumber2
-				if count < 5:
-					stayInLoop = True
-					time.sleep(0.4)
-				count+=1
+		try:
+			self.bus.write_i2c_block_data(add,self.packetNumber,RDCMD)
+			time.sleep(0.02)
+		except:
+			print "I2CHANDLER: errored on packet number ", self.packetNumber , self.packetNumber2
+			stayInLoop = True
+			count=0
+			while stayInLoop:
+				try:
+					self.bus.write_i2c_block_data(add,self.packetNumber,RDCMD)
+					stayInLoop = False
+				except:
+					print "I2CHANDLER: errored on packet number ", self.packetNumber , self.packetNumber2
+					if count < 5:
+						time.sleep(0.4)
+					else:
+						stayInLoop = False
+					count+=1
 
 		
 		if self.packetNumber2 == 255:
